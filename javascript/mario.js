@@ -5,8 +5,8 @@ function add_Mario(Q){
             this._super(p, {
             	sprite: 'anim_mario',
                 sheet: 'marioR',
-                x: 50,
-                y: 380,
+                x: 120,
+                y: 5,
                 die: false,
                 hafinalizado: false
             });
@@ -28,7 +28,7 @@ function add_Mario(Q){
 		        { 
 		        	this.p.vy = 0;
 	       		}
-	       		//console.log("X: " + this.p.x + " /// Y: " + this.p.y);
+	       		console.log("X: " + this.p.x + " /// Y: " + this.p.y);
 	       		//si mario salta
 	       		if(this.p.vy != 0)
 	       			this.play('jump_' + this.p.direction);
