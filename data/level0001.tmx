@@ -6,9 +6,6 @@
  <tileset firstgid="50" name="tileswario" tilewidth="34" tileheight="34" tilecount="49" columns="7">
   <image source="../images/tileswario.png" width="256" height="256"/>
  </tileset>
- <imagelayer id="1" name="background">
-  <image source="../images/bg3.png" width="611" height="602"/>
- </imagelayer>
  <layer id="3" name="Collision2" width="60" height="18">
   <data>
    <tile gid="78"/>
@@ -2131,20 +2128,20 @@
    <tile gid="58"/>
    <tile gid="58"/>
    <tile gid="59"/>
-   <tile gid="50"/>
-   <tile gid="50"/>
    <tile gid="89"/>
    <tile gid="82"/>
    <tile gid="89"/>
    <tile gid="82"/>
-   <tile gid="50"/>
-   <tile gid="50"/>
    <tile gid="89"/>
    <tile gid="82"/>
    <tile gid="89"/>
    <tile gid="82"/>
-   <tile gid="50"/>
-   <tile gid="50"/>
+   <tile gid="89"/>
+   <tile gid="82"/>
+   <tile gid="89"/>
+   <tile gid="82"/>
+   <tile gid="89"/>
+   <tile gid="82"/>
    <tile gid="57"/>
    <tile gid="58"/>
    <tile gid="58"/>
@@ -2155,16 +2152,16 @@
    <tile gid="51"/>
    <tile gid="51"/>
    <tile gid="51"/>
-   <tile gid="50"/>
-   <tile gid="50"/>
-   <tile gid="50"/>
-   <tile gid="89"/>
-   <tile gid="82"/>
-   <tile gid="50"/>
    <tile gid="82"/>
    <tile gid="89"/>
-   <tile gid="50"/>
-   <tile gid="50"/>
+   <tile gid="82"/>
+   <tile gid="89"/>
+   <tile gid="82"/>
+   <tile gid="89"/>
+   <tile gid="82"/>
+   <tile gid="89"/>
+   <tile gid="82"/>
+   <tile gid="89"/>
    <tile gid="57"/>
    <tile gid="58"/>
    <tile gid="58"/>
