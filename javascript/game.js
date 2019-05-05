@@ -13,9 +13,9 @@ window.addEventListener('load',function()
 	add_Level(Q);
 	add_Mario(Q);
 	
-	Q.loadTMX('level0001.tmx, mario_small.png, mario_small.json', function()
+	Q.loadTMX('level0001.tmx, wario.png, wario.json', function()
 	{		
-		Q.compileSheets('mario_small.png', 'mario_small.json');	
+		Q.compileSheets('wario.png', 'wario.json');	
 		Q.stageScene('level1');
 	});
 });
