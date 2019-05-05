@@ -95,7 +95,7 @@ Q.Sprite.extend("Wario", {
                     this.p.culetazo = false;
                 }
                 if(!this.p.salto) {
-                    Q.audio.play("jump_small.mp3");
+                    //Q.audio.play("jump_small.mp3");
                     this.p.salto=true;
                 }
                 if(this.p.vx > 0) {
@@ -157,8 +157,8 @@ Q.Sprite.extend("Wario", {
             if (Q.state.get("lifes") === 1) {
                 Q.state.dec("lifes", 1);
                 this.del("platformerControls");
-                Q.audio.stop();
-                Q.audio.play("music_die.mp3"); 
+                //Q.audio.stop();
+                //Q.audio.play("music_die.mp3"); 
                 Q.stageScene("endGame", 1, {label: "You Died!"});
                 this.destroy();
             }

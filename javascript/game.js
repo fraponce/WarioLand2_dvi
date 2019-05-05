@@ -11,7 +11,7 @@ window.addEventListener('load',function()
 		    .enableSound();	
 	
 	add_Level(Q);
-	add_Mario(Q);
+	add_wario(Q);
 	
 	Q.loadTMX('level0001.tmx, wario.png, wario.json', function()
 	{		
