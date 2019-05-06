@@ -4,18 +4,18 @@ window.addEventListener('load',function()
 			.include('Sprites, Scenes, Input, 2D, Anim, Touch, UI, TMX, Audio')		
 		    .setup({ 
 		    	width: 320, 
-		    	height: 480 
+		    	height: 320 
 		    })
 		    .controls()
 		    .touch()
 		    .enableSound();	
 	
 	add_Level(Q);
-	add_Mario(Q);
+	add_wario(Q);
 	
-	Q.loadTMX('level0001.tmx, mario_small.png, mario_small.json', function()
+	Q.loadTMX('level0001puerta01.tmx, wario.png, wario.json', function()
 	{		
-		Q.compileSheets('mario_small.png', 'mario_small.json');	
+		Q.compileSheets('wario.png', 'wario.json');	
 		Q.stageScene('level1');
 	});
 });
