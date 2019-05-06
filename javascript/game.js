@@ -13,7 +13,7 @@ window.addEventListener('load',function()
 	add_Level(Q);
 	add_wario(Q);
 	
-	Q.loadTMX('level0001puerta01.tmx, wario.png, wario.json', function()
+	Q.loadTMX('level0000pruebas.tmx, wario.png, wario.json', function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');	
 		Q.stageScene('level1');

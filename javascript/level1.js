@@ -3,8 +3,8 @@ function add_Level(Q){
 	//crea una nueva scene llamada level1
 	Q.scene('level1', function(stage)
 	{
-		Q.stageTMX('level0001puerta01.tmx',stage); 
-		var player = stage.insert(new Q.Wario({ x: 150, y: 80 }));
+		Q.stageTMX('level0000pruebas.tmx',stage); 
+		var player = stage.insert(new Q.Wario({ x: 100, y: 190 }));
 
 		stage.add('viewport')
 			.follow(player, 

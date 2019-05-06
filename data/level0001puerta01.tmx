@@ -4,6 +4,9 @@
   <image source="../images/bloqueswario3.png" width="135" height="203"/>
  </tileset>
  <layer id="2" name="Capa de patrones 2" width="15" height="15">
+    <properties>
+   <property name="collision" value="false"/>
+  </properties>
   <data>
    <tile/>
    <tile/>

@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="bloqueswario3" tilewidth="16" tileheight="16" spacing="1" tilecount="96" columns="8">
   <image source="../images/bloqueswario3.png" width="135" height="203"/>
  </tileset>
- <layer id="2" name="CollisionFondo" width="80" height="20">
+ <layer id="2" name="Fondo" width="80" height="20" visible="0">
   <data>
    <tile gid="36"/>
    <tile gid="37"/>
@@ -1607,9 +1607,9 @@
    <tile/>
   </data>
  </layer>
- <layer id="1" name="Collision" width="80" height="20">
+ <layer id="1" name="Piso" width="80" height="20">
   <properties>
-   <property name="collision" value="true"/>
+   <property name="collision" type="bool" value="true"/>
   </properties>
   <data>
    <tile/>
@@ -2742,14 +2742,14 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
    <tile/>
    <tile/>
    <tile/>
@@ -2822,14 +2822,14 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
-   <tile gid="93"/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
+   <tile/>
    <tile/>
    <tile/>
    <tile/>
@@ -2909,7 +2909,7 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile gid="93"/>
+   <tile/>
    <tile/>
    <tile/>
    <tile/>

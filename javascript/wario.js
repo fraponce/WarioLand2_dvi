@@ -58,6 +58,7 @@ Q.Sprite.extend("Wario", {
            
         },
         step: function(dt) {
+            console.log("X: " + this.p.x + " /// Y: " + this.p.y);
             if(this.p.agachado){
                 this.p.speed = 100;
                 this.p.points = [[-4,-1],[4,-1],[4,16],[-3,16]]; //Cambiamos la colisión. (Representa un poligono formado respecto al centro del sprite)
