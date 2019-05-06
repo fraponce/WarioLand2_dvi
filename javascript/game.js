@@ -1,3 +1,9 @@
+CTE_WARIO = 1;
+CTE_STAIRS = 4;
+CTE_DOOR = 8;
+CTE_NORMAL_BLOCK = 16;
+CTE_COIN = 32;
+
 window.addEventListener('load',function()
 {
 	var Q = Quintus({audioSupported:['mp3','ogg']})
@@ -12,6 +18,7 @@ window.addEventListener('load',function()
 	
 	add_Level(Q);
 	add_wario(Q);
+	add_stair(Q);
 	
 	Q.loadTMX('level0000pruebas.tmx, wario.png, wario.json', function()
 	{		

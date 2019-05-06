@@ -1,3 +1,4 @@
+
 function add_wario(Q) {
     /*===========================================================================================
 =======================================Animaciones de Wario===========================================
@@ -40,25 +41,46 @@ Q.Sprite.extend("Wario", {
                 sprite: "wario",
                 frame: 0,
                 x: 150,
-                y: 380,
+                y: 480,
                 inix: 150,
-                iniy: 380,
+                iniy: 480,
+                type: CTE_WARIO,
+                collisionMask: 1,
                 gravity: 0.7,
                 salto: false, //Para controlar el sonido del salto
                 agachado: false,
-                callendo: false, //AUN NO USADA
+                callendo: false,
                 placando: false,
                 muerto: false,
+                enStair: false,
                 lado: 1, //Representa a donde mira (Izquierda/derecha)
                 points: [[-9,-15],[9,-15],[9,16],[-8,16]] //Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
                 //points: izq-arr|der-arr|der-abj|izq-abj
             });
             this.add('2d, platformerControls, animation');
             this.on("killWario", "die");
+
+            this.on("onStair", function(collision){
+                collision;
+                if(Q.inputs["down"] || Q.inputs["up"]){
+                    this.p.speed=40;
+                    this.p.points = [[-4,-4],[4,-4],[4,4],[-4,4]];
+                    this.p.enStair = true
+                    this.play("up_stairs");
+
+                    if(Q.inputs["down"]){
+                        this.p.vy = this.p.speed;
+                    }else{
+                        this.p.vy = -this.p.speed;
+                    }
+                } else {
+                    this.p.speed = 0;
+                    this.play("stand_stairs");
+                }
+            })
            
         },
         step: function(dt) {
-            console.log("X: " + this.p.x + " /// Y: " + this.p.y);
             if(this.p.agachado){
                 this.p.speed = 100;
                 this.p.points = [[-4,-1],[4,-1],[4,16],[-3,16]]; //Cambiamos la colisión. (Representa un poligono formado respecto al centro del sprite)
@@ -67,10 +89,15 @@ Q.Sprite.extend("Wario", {
                 this.p.vx= this.p.speed;
                 if(this.p.lado == 0) this.p.vx = -this.p.vx;
                 this.p.points = [[-13,-15],[13,-15],[13,16],[-12,16]];
-            } else {
+            } else if(this.p.enStair){
+                this.p.speed=40;
+                this.p.points = [[-4,-4],[4,-4],[4,4],[-4,4]];
+            }
+            else {
                 this.p.speed = 180;
                 this.p.points = [[-9,-15],[9,-15],[9,16],[-8,16]];
             }
+
 
             if(this.p.vx > 0 ) 
                 this.p.lado=1; //Derecha
@@ -158,6 +185,8 @@ Q.Sprite.extend("Wario", {
             if(this.p.y > 700) {
                this.die();
             }
+
+            this.p.enStair = false;
         }, 
 
         die: function() {
