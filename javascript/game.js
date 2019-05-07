@@ -20,11 +20,13 @@ window.addEventListener('load',function()
 	add_wario(Q);
 	add_stair(Q);
 	add_enemy1(Q);
+	add_Goomba(Q);
 	
-	Q.loadTMX('level0000pruebas.tmx, wario.png, wario.json', function()
+	Q.loadTMX('level0000pruebas.tmx, goomba.png, goomba.json, wario.png, wario.json, enemy1.png, enemy1.json', function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
-		Q.compileSheets('enemy1.png', 'enemy1.json')
+		Q.compileSheets('enemy1.png', 'enemy1.json');
+		Q.compileSheets('goomba.png', 'goomba.json');
 		Q.stageScene('level1');
 	});
 });

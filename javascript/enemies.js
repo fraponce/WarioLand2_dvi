@@ -31,7 +31,7 @@ function add_enemy1(Q){
 
     Q.animations('anim_enemy1',{
         walkL:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
-        walkR:{frames:[0,1,2], rate: 1/6, flip: x, loop: true},
+        walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
         die:{frames:[3],loop: false}
     });
 }

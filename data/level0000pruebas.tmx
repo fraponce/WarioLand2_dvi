@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="bloqueswario3" tilewidth="16" tileheight="16" spacing="1" tilecount="96" columns="8">
   <image source="../images/bloqueswario3.png" width="135" height="203"/>
  </tileset>
- <layer id="2" name="Fondo" width="30" height="15">
+ <layer id="2" name="Fondo" width="30" height="15" visible="0">
   <data>
    <tile gid="51"/>
    <tile gid="51"/>
