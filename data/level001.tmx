@@ -3214,11 +3214,4 @@
    <tile gid="10"/>
   </data>
  </layer>
- <objectgroup id="4" name="GameObjects">
-  <object id="4" name="EscaleraDexSuperior" x="1168" y="95.8182" width="14.7273" height="80.3636"/>
-  <object id="6" name="EscaleraDexInferior" x="1136.18" y="176" width="15.0909" height="96.1818"/>
-  <object id="7" name="PuertaRoca" x="1216.25" y="64.5" width="15.25" height="32.25"/>
-  <object id="8" name="PuertaHierba" x="432" y="271.875" width="16.375" height="32.375"/>
-  <object id="9" name="EscaleraIzq" x="49" y="127.75" width="14" height="144.75"/>
- </objectgroup>
 </map>
