@@ -5,6 +5,7 @@ function add_enemy1(Q){
                 sprite: 'anim_enemy1',
                 sheet: 'enemy1',
                 vx: 100,
+                points: [[-6,-6],[6,-6],[6,6],[-6,6]],
                 hamuerto:false
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
@@ -30,7 +31,7 @@ function add_enemy1(Q){
     });
 
     Q.animations('anim_enemy1',{
-        walkL:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
+        walkL:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
         walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
         die:{frames:[3],loop: false}
     });

@@ -8,6 +8,7 @@ function add_stair(Q) {
 	            cy:8,
 	            w: 16,
 	            h: 16,
+	            sensor: true,
 	            color: "red", //Para ver donde las coloco primero
 	            points: [[3,6],[3,-6],[-3,6],[-3,-6]]
 	        });
@@ -33,13 +34,13 @@ function add_stair(Q) {
 		    this.stage.collide(this);
 		},
 	    draw: function(ctx) {
-		    ctx.fillStyle = this.p.color;
+		    //ctx.fillStyle = this.p.color;
 		    // Draw a filled rectangle centered at
 		    // 0,0 (i.e. from -w/2,-h2 to w/2, h/2)
-		    ctx.fillRect(-this.p.cx,
+		    /*ctx.fillRect(-this.p.cx,
 		                 -this.p.cy,
 		                 this.p.w,
-		                 this.p.h);
+		                 this.p.h);*/
   		}
 
     });

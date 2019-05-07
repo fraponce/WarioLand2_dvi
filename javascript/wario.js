@@ -191,6 +191,10 @@ Q.Sprite.extend("Wario", {
 
         die: function() {
             //Si nos quedan vidas perdemos una, si no perdemos definitivamente.
+            this.del("platformerControls");
+           // Q.stageScene("endGame", 1, {label: "You Died!"});
+            this.destroy();
+            /*
             if (Q.state.get("lifes") === 1) {
                 Q.state.dec("lifes", 1);
                 this.del("platformerControls");
@@ -202,7 +206,7 @@ Q.Sprite.extend("Wario", {
             else {
                 Q.state.dec("lifes", 1);
                 Q.stageScene("level1");
-            }
+            }*/
             
         }
     });
