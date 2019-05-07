@@ -7,7 +7,10 @@ function add_Level(Q){
 		var player = stage.insert(new Q.Wario({ x: 150, y: 80 }));
 		//var escalera = stage.insert(new Q.Escalera({x: 57, y: 250}));
 		//var escalera2 = stage.insert(new Q.Escalera({x: 57, y: 234}));
-
+		stage.insert(new Q.Enemy1({
+            x: 200,
+            y: 80
+        }));
 		stage.add('viewport')
 			.follow(player, 
 				{

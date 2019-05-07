@@ -1,0 +1,4 @@
+{
+	"enemy1":{"sx":0,"sy":0,"tileW":40,"tileH":40,"frames":4},
+	"enemyDie":{"sx":120,"sy":0,"tileW":40,"tileH":40,"frames":1}
+}
