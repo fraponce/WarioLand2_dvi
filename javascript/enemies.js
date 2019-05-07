@@ -5,14 +5,51 @@ function add_enemy1(Q){
                 sprite: 'anim_enemy1',
                 sheet: 'enemy1',
                 vx: 100,
+                lado: 1,
                 points: [[-6,-6],[6,-6],[6,6],[-6,6]],
                 hamuerto:false
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
             this.on('die');
+            this.on("bump.top", function(collision) {
+                if (collision.obj.isA("Wario"))
+                  if(collision.obj.p.culetazo){
+                    this.play("die");
+                    this.p.vy = -300;
+                    this.die();
+                }
+          });
+          this.on("bump.left", function(collision) {
+                if (collision.obj.isA("Wario"))
+                  if(this.p.lado == 0){
+                    collision.obj.play("die");
+                    collision.obj.die();
+                  }else if (collision.obj.p.placando){
+                    this.play("die");
+                    this.p.vy = -300;
+                    this.die();
+            }
+          });
+          this.on("bump.right", function(collision) {
+                if (collision.obj.isA("Wario"))
+                  if(this.p.lado == 1){
+                    collision.obj.play("die");
+                    collision.obj.die();
+                  }else if (collision.obj.p.placando){
+                    this.play("die");
+                    this.p.vy = -300;
+                    this.die();
+            }
+          });
         },
         step: function(dt) 
         {
+ 			if(this.p.vx > 0 ) 
+        	  	this.p.lado=1; //Derecha
+      		else if(this.p.vx<0) 
+          		this.p.lado = 0; //Izquierda
+
+
             if(!this.p.hamuerto)
                  if(this.p.vx > 0 ) 
                 this.play('walkL'); //Izquierda
