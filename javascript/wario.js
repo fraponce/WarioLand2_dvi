@@ -49,7 +49,7 @@ Q.Sprite.extend("Wario", {
                 gravity: 0.7,
                 salto: false, //Para controlar el sonido del salto
                 agachado: false,
-                callendo: false,
+                culetazo: false,
                 placando: false,
                 muerto: false,
                 enStair: false,
