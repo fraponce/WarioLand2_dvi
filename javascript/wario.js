@@ -63,7 +63,7 @@ Q.Sprite.extend("Wario", {
             this.on("onStair", function(collision){
                 collision;
                 if(Q.inputs["down"] || Q.inputs["up"]){
-                    this.p.speed=40;
+                    this.p.speed=60;
                     this.p.points = [[-4,-4],[4,-4],[4,4],[-4,4]];
                     this.p.enStair = true
                     this.play("up_stairs");
@@ -74,7 +74,8 @@ Q.Sprite.extend("Wario", {
                         this.p.vy = -this.p.speed;
                     }
                 } else {
-                    this.p.speed = 0;
+                    this.p.speed = -12;
+                    this.p.vy = this.p.speed;
                     this.play("stand_stairs");
                 }
             })
@@ -90,10 +91,11 @@ Q.Sprite.extend("Wario", {
                 if(this.p.lado == 0) this.p.vx = -this.p.vx;
                 this.p.points = [[-13,-15],[13,-15],[13,16],[-12,16]];
             } else if(this.p.enStair){
-                this.p.speed=40;
+                this.p.speed=0;
                 this.p.points = [[-4,-4],[4,-4],[4,4],[-4,4]];
             }
             else {
+                this.p.gravity = 0.7;
                 this.p.speed = 180;
                 this.p.points = [[-9,-15],[9,-15],[9,16],[-8,16]];
             }
@@ -108,7 +110,7 @@ Q.Sprite.extend("Wario", {
             //Control de sus animaciones/ataques:
             if(this.p.vy != 0){ //Está saltando
                 this.p.placando = false;
-                if(this.p.vy>0) { //Cae... puede pegar culetazo
+                if(this.p.vy>0 && !this.p.enStair) { //Cae... puede pegar culetazo
                     if(Q.inputs["fire"] || Q.inputs["down"]){
                         this.p.culetazo = true;
                         if(this.p.lado == 1) {
@@ -193,7 +195,7 @@ Q.Sprite.extend("Wario", {
             //Si nos quedan vidas perdemos una, si no perdemos definitivamente.
             this.play("dieW");
             this.del("platformerControls");
-           // Q.stageScene("endGame", 1, {label: "You Died!"});
+            // Q.stageScene("endGame", 1, {label: "You Died!"});
             this.destroy();
 
             Q.stageScene("level1");

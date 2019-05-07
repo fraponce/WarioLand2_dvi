@@ -16,6 +16,19 @@ function add_Level(Q){
 		var escalera1g = stage.insert(new Q.Escalera({x: 57, y: 154}));
 		var escalera1h = stage.insert(new Q.Escalera({x: 57, y: 138}));
 		var escalera1i = stage.insert(new Q.Escalera({x: 57, y: 266}));
+
+		var escalera2a = stage.insert(new Q.Escalera({x: 1143, y: 266}));
+		var escalera2b = stage.insert(new Q.Escalera({x: 1143, y: 250}));
+		var escalera2c = stage.insert(new Q.Escalera({x: 1143, y: 234}));
+		var escalera2d = stage.insert(new Q.Escalera({x: 1143, y: 218}));
+		var escalera2e = stage.insert(new Q.Escalera({x: 1143, y: 202}));
+		var escalera2f = stage.insert(new Q.Escalera({x: 1143, y: 186}));
+
+		var escalera3a = stage.insert(new Q.Escalera({x: 1175, y: 170}));
+		var escalera3b = stage.insert(new Q.Escalera({x: 1175, y: 154}));
+		var escalera3c = stage.insert(new Q.Escalera({x: 1175, y: 138}));
+		var escalera3d = stage.insert(new Q.Escalera({x: 1175, y: 122}));
+		var escalera3e = stage.insert(new Q.Escalera({x: 1175, y: 106}));
 		//======================
 
 

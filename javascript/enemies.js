@@ -44,10 +44,10 @@ function add_enemy1(Q){
         },
         step: function(dt) 
         {
- 			if(this.p.vx > 0 ) 
-        	  	this.p.lado=1; //Derecha
-      		else if(this.p.vx<0) 
-          		this.p.lado = 0; //Izquierda
+            if(this.p.vx > 0 ) 
+                this.p.lado=1; //Derecha
+            else if(this.p.vx<0) 
+                this.p.lado = 0; //Izquierda
 
 
             if(!this.p.hamuerto)
