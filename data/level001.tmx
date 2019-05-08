@@ -4,6 +4,9 @@
   <image source="../images/bloqueswario3.png" width="135" height="203"/>
  </tileset>
  <layer id="2" name="Fondo" width="80" height="20">
+  <properties>
+   <property name="type" type="int" value="0"/>
+  </properties>
   <data>
    <tile gid="36"/>
    <tile gid="37"/>
@@ -1609,7 +1612,7 @@
  </layer>
  <layer id="1" name="Piso" width="80" height="20">
   <properties>
-   <property name="collision" type="bool" value="true"/>
+   <property name="collision" type="bool" value="true"/> 
   </properties>
   <data>
    <tile/>
