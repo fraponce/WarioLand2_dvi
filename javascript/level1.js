@@ -4,7 +4,7 @@ function add_Level(Q){
 	Q.scene('level1', function(stage)
 	{
 		Q.stageTMX('level001.tmx',stage); 
-		var player = stage.insert(new Q.Wario({ x: 245, y: 275 }));
+		var player = stage.insert(new Q.Wario({ x: 245, y: 480 }));
 
 			//Escaleras a pelo
 		
@@ -36,10 +36,18 @@ function add_Level(Q){
 
 
 
-		var enemy001 = stage.insert(new Q.enemy1({x: 560,y: 450}));
-		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:352}));
-		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:448}));
+		var enemy001 = stage.insert(new Q.enemy1({x: 560,y: 608}));
+		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:512}));
+		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:604}));
 		//var goomba001 = stage.insert(new Q.Goomba({x:200,y:80}))
+
+		//Monedas
+		var bigcoin001 = stage.insert(new Q.bigcoin({x: 330,y: 380}));
+		var bigcoin002 = stage.insert(new Q.bigcoin({x: 400,y: 348}));
+		var bigcoin003 = stage.insert(new Q.bigcoin({x: 490,y: 364}));
+		var bigcoin004 = stage.insert(new Q.bigcoin({x: 672,y: 332}));
+		var bigcoin005 = stage.insert(new Q.bigcoin({x: 830,y: 364}));
+		var bigcoin006 = stage.insert(new Q.bigcoin({x: 1135,y: 396}));
 
 		stage.add('viewport')
 			.follow(player, 
