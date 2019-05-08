@@ -8,29 +8,29 @@ function add_Level(Q){
 
 			//Escaleras a pelo
 		
-		var escalera1a = stage.insert(new Q.Escalera({x: 214, y: 420}));
-		var escalera1b = stage.insert(new Q.Escalera({x: 214, y: 404}));
-		var escalera1c = stage.insert(new Q.Escalera({x: 214, y: 388}));
-		var escalera1d = stage.insert(new Q.Escalera({x: 214, y: 372}));
-		var escalera1e = stage.insert(new Q.Escalera({x: 214, y: 356}));
-		var escalera1f = stage.insert(new Q.Escalera({x: 214, y: 340}));
-		var escalera1g = stage.insert(new Q.Escalera({x: 214, y: 324}));
-		var escalera1h = stage.insert(new Q.Escalera({x: 214, y: 308}));
+		var escalera1a = stage.insert(new Q.Escalera({x: 214, y: 592}));
+		var escalera1b = stage.insert(new Q.Escalera({x: 214, y: 576}));
+		var escalera1c = stage.insert(new Q.Escalera({x: 214, y: 560}));
+		var escalera1d = stage.insert(new Q.Escalera({x: 214, y: 544}));
+		var escalera1e = stage.insert(new Q.Escalera({x: 214, y: 528}));
+		var escalera1f = stage.insert(new Q.Escalera({x: 214, y: 512}));
+		var escalera1g = stage.insert(new Q.Escalera({x: 214, y: 496}));
+		var escalera1h = stage.insert(new Q.Escalera({x: 214, y: 480}));
 		//var escalera1i = stage.insert(new Q.Escalera({x: 214, y: 292}));
-		var escalera1j = stage.insert(new Q.Escalera({x: 214, y: 276}));
+		//var escalera1j = stage.insert(new Q.Escalera({x: 214, y: 276}));
 
-		var escalera2a = stage.insert(new Q.Escalera({x: 1306, y: 416}));
-		var escalera2b = stage.insert(new Q.Escalera({x: 1306, y: 400}));
-		var escalera2c = stage.insert(new Q.Escalera({x: 1306, y: 384}));
-		var escalera2d = stage.insert(new Q.Escalera({x: 1306, y: 368}));
-		var escalera2e = stage.insert(new Q.Escalera({x: 1306, y: 352}));
-		var escalera2f = stage.insert(new Q.Escalera({x: 1306, y: 336}));
+		var escalera2a = stage.insert(new Q.Escalera({x: 1306, y: 576}));
+		var escalera2b = stage.insert(new Q.Escalera({x: 1306, y: 560}));
+		var escalera2c = stage.insert(new Q.Escalera({x: 1306, y: 544}));
+		var escalera2d = stage.insert(new Q.Escalera({x: 1306, y: 528}));
+		var escalera2e = stage.insert(new Q.Escalera({x: 1306, y: 512}));
+		var escalera2f = stage.insert(new Q.Escalera({x: 1306, y: 496}));
 
-		var escalera3a = stage.insert(new Q.Escalera({x: 1338, y: 320}));
-		var escalera3b = stage.insert(new Q.Escalera({x: 1338, y: 306}));
-		var escalera3c = stage.insert(new Q.Escalera({x: 1338, y: 290}));
-		var escalera3d = stage.insert(new Q.Escalera({x: 1338, y: 274}));
-		var escalera3e = stage.insert(new Q.Escalera({x: 1338, y: 258}));
+		var escalera3a = stage.insert(new Q.Escalera({x: 1338, y: 480}));
+		var escalera3b = stage.insert(new Q.Escalera({x: 1338, y: 464}));
+		var escalera3c = stage.insert(new Q.Escalera({x: 1338, y: 448}));
+		var escalera3d = stage.insert(new Q.Escalera({x: 1338, y: 432}));
+		var escalera3e = stage.insert(new Q.Escalera({x: 1338, y: 416}));
 		//======================
 
 
