@@ -1,3 +1,4 @@
+
 function add_enemy1(Q){
     Q.Sprite.extend('enemy1',{
         init: function(p){
@@ -61,9 +62,7 @@ function add_enemy1(Q){
         die: function(dt)
         {
             this.p.hamuerto = true;             
-            setTimeout(function() {
-                Q('enemy1').destroy();
-            }, 200);
+            this.destroy();
         }
     });
 
@@ -72,4 +71,5 @@ function add_enemy1(Q){
         walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
         die:{frames:[3],loop: false}
     });
+       
 }
