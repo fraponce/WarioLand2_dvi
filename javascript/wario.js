@@ -54,7 +54,7 @@ Q.Sprite.extend("Wario", {
                 muerto: false,
                 enStair: false,
                 lado: 1, //Representa a donde mira (Izquierda/derecha)
-                points: [[-9,-15],[9,-15],[9,16],[-8,16]] //Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
+                points: [[-6,-15],[6,-15],[6,16],[-5,16]]//Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
                 //points: izq-arr|der-arr|der-abj|izq-abj
             });
             this.add('2d, platformerControls, animation');
@@ -64,7 +64,7 @@ Q.Sprite.extend("Wario", {
                 collision;
                 if(Q.inputs["down"] || Q.inputs["up"]){
                     this.p.speed=60;
-                    this.p.points = [[-4,-4],[4,-4],[4,4],[-4,4]];
+                    this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
                     this.p.enStair = true
                     this.play("up_stairs");
 
@@ -92,12 +92,13 @@ Q.Sprite.extend("Wario", {
                 this.p.points = [[-13,-15],[13,-15],[13,16],[-12,16]];
             } else if(this.p.enStair){
                 this.p.speed=0;
-                this.p.points = [[-4,-4],[4,-4],[4,4],[-4,4]];
+                this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
             }
             else {
                 this.p.gravity = 0.7;
                 this.p.speed = 180;
-                this.p.points = [[-9,-15],[9,-15],[9,16],[-8,16]];
+                this.p.points = [[-6,-15],[6,-15],[6,16],[-5,16]];
+                //this.p.points = [[-2,-15],[2,-15],[2,16],[-2,16]]
             }
 
 
