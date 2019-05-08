@@ -4,7 +4,7 @@ function add_Level(Q){
 	Q.scene('level1', function(stage)
 	{
 		Q.stageTMX('level001.tmx',stage); 
-		var player = stage.insert(new Q.Wario({ x: 150, y: 230 }));
+		var player = stage.insert(new Q.Wario({ x: 245, y: 275 }));
 
 		//Escaleras a pelo
 		var escalera1a = stage.insert(new Q.Escalera({x: 57, y: 250}));
@@ -33,7 +33,7 @@ function add_Level(Q){
 
 
 
-		var enemy001 = stage.insert(new Q.enemy1({x: 200,y: 80}));
+		var enemy001 = stage.insert(new Q.enemy1({x: 560,y: 450}));
 		//var goomba001 = stage.insert(new Q.Goomba({x:200,y:80}))
 
 		stage.add('viewport')
