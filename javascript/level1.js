@@ -4,7 +4,7 @@ function add_Level(Q){
 	Q.scene('level1', function(stage)
 	{
 		Q.stageTMX('level001.tmx',stage); 
-		var player = stage.insert(new Q.Wario({ x: 245, y: 480 }));
+		var player = stage.insert(new Q.Wario({ x: 245, y: 480, esta: stage }));
 
 			//Escaleras a pelo
 		

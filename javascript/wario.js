@@ -52,6 +52,7 @@ Q.Sprite.extend("Wario", {
                 culetazo: false,
                 placando: false,
                 muerto: false,
+                norepe: false,
                 enStair: false,
                 lado: 1, //Representa a donde mira (Izquierda/derecha)
                 points: [[-6,-15],[6,-15],[6,16],[-5,16]]//Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
@@ -110,6 +111,15 @@ Q.Sprite.extend("Wario", {
 
             //Control de sus animaciones/ataques:
             if(this.p.vy != 0){ //Está saltando
+                if(!this.p.norepe && this.p.y - this.p.esta.viewport.y < 240)
+                    this.p.esta.viewport.directions = {x: true, y: false};
+                else {
+                    //this.p.esta.viewport.y = this.p.y+20
+                    this.p.norepe=true;
+                    this.p.esta.viewport.directions = {x: true, y: true};
+                }
+                this.p.esta.viewport.offsetY = 0;
+
                 this.p.placando = false;
                 if(this.p.vy>0 && !this.p.enStair) { //Cae... puede pegar culetazo
                     if(Q.inputs["fire"] || Q.inputs["down"]){
@@ -137,6 +147,10 @@ Q.Sprite.extend("Wario", {
             } else {
                 this.p.salto = false;
                 this.p.culetazo = false;
+                this.p.esta.viewport.directions = {x: true, y: true};
+                this.p.esta.viewport.offsetY = 60;
+                this.p.norepe=false;
+
             }
             
             
