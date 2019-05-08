@@ -1,5 +1,5 @@
 // inicialización
-function add_Level(Q){
+function add_Level1(Q){
 	//crea una nueva scene llamada level1
 	Q.scene('level1', function(stage)
 	{
