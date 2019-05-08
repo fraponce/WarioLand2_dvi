@@ -4,7 +4,7 @@ function add_enemy1(Q){
             this._super(p,{
                 sprite: 'anim_enemy1',
                 sheet: 'enemy1',
-                vx: 100,
+                vx: 50,
                 lado: 1,
                 points: [[-6,-6],[6,-6],[6,6],[-6,6]],
                 hamuerto:false
