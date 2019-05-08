@@ -34,6 +34,7 @@ function add_Level(Q){
 
 
 		var enemy001 = stage.insert(new Q.enemy1({x: 560,y: 450}));
+		var enemy002 = stage.insert(new Q.enemy1{x:400 , y:352})
 		//var goomba001 = stage.insert(new Q.Goomba({x:200,y:80}))
 
 		stage.add('viewport')
