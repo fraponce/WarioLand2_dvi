@@ -16,14 +16,16 @@ window.addEventListener('load',function()
 		    .touch()
 		    .enableSound();	
 	
-	add_Level(Q);
+	add_Level1(Q);
+	add_Level2(Q);
 	add_wario(Q);
 	add_stair(Q);
 	add_enemy1(Q);
 	add_BigCoin(Q);
+	add_door(Q);
 	//add_Goomba(Q);
 	
-	Q.loadTMX('level001.tmx, wario.png, wario.json, enemy1.png, enemy1.json, bigcoin.png, bigcoin.json', function()
+	Q.loadTMX('level001.tmx, level002.tmx, wario.png, wario.json, enemy1.png, enemy1.json, bigcoin.png, bigcoin.json', function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('enemy1.png', 'enemy1.json');

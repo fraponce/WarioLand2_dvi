@@ -6,8 +6,7 @@ function add_Level(Q){
 		Q.stageTMX('level001.tmx',stage); 
 		var player = stage.insert(new Q.Wario({ x: 245, y: 480, esta: stage }));
 
-			//Escaleras a pelo
-		
+		//Escaleras		
 		var escalera1a = stage.insert(new Q.Escalera({x: 214, y: 592}));
 		var escalera1b = stage.insert(new Q.Escalera({x: 214, y: 576}));
 		var escalera1c = stage.insert(new Q.Escalera({x: 214, y: 560}));
@@ -33,21 +32,26 @@ function add_Level(Q){
 		var escalera3e = stage.insert(new Q.Escalera({x: 1338, y: 416}));
 		//======================
 
-
-
-
+		//Enemigos
 		var enemy001 = stage.insert(new Q.enemy1({x: 560,y: 608}));
 		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:512}));
 		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:604}));
-		//var goomba001 = stage.insert(new Q.Goomba({x:200,y:80}))
 
 		//Monedas
-		var bigcoin001 = stage.insert(new Q.bigcoin({x: 330,y: 380}));
-		var bigcoin002 = stage.insert(new Q.bigcoin({x: 400,y: 348}));
-		var bigcoin003 = stage.insert(new Q.bigcoin({x: 490,y: 364}));
-		var bigcoin004 = stage.insert(new Q.bigcoin({x: 672,y: 332}));
-		var bigcoin005 = stage.insert(new Q.bigcoin({x: 830,y: 364}));
-		var bigcoin006 = stage.insert(new Q.bigcoin({x: 1135,y: 396}));
+		var bigcoin001a = stage.insert(new Q.bigcoin({x: 330,y: 380}));
+		var bigcoin002a = stage.insert(new Q.bigcoin({x: 400,y: 348}));
+		var bigcoin003a = stage.insert(new Q.bigcoin({x: 490,y: 364}));
+		var bigcoin004a = stage.insert(new Q.bigcoin({x: 672,y: 332}));
+		var bigcoin005a = stage.insert(new Q.bigcoin({x: 830,y: 364}));
+		var bigcoin006a = stage.insert(new Q.bigcoin({x: 1135,y: 396}));
+
+		//Puertas
+		//Puerta verde
+		var puerta001a = stage.insert(new Q.Puerta({x: 600, y: 602, escenario: 2}));
+		var puerta002a = stage.insert(new Q.Puerta({x: 600, y: 618, escenario: 2}));
+		// Puerta roca
+		var puerta003a = stage.insert(new Q.Puerta({x: 1383, y: 394, escenario: 2}));
+		var puerta004a = stage.insert(new Q.Puerta({x: 1383, y: 410, escenario: 2}));
 
 		stage.add('viewport')
 			.follow(player, 
