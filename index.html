@@ -34,20 +34,66 @@
 			background-position: center;
 			color: #FF0000;
 		}
-
 		h1 {
 			font-family: 'Luckiest Guy', cursive;
 			text-align: center;
 
 		}
 	  canvas { background-color:black; }
+	  img {
+	  	width: 100%;
+  		height: 100%;
+  		position: absolute;
+  		z-index:-1;
+	  }
+
+
 	</style>
 </head>
 
-<body>
-<h1>WELLCOME TO<h1>
-<h1>¡WARIOLAND!</h1>
-
+<body id="cuerpo">
+<h1>¡WARIOLAND!<h1>
 </body>
+	<img id="imagen" src="images/Game_Boy.png"></img>
+
+<script>
+	window.onload = function() {
+		var divImagen = document.getElementById("imagen");
+
+		divImagen.style.width = "590px";
+		divImagen.style.height = "1100px";
+		divImagen.style.position ="absolute";
+		
+		divImagen.style.left= (window.innerWidth/2-295).toString()+"px";
+		divImagen.style.top= "-60px";
+
+	}
+	window.addEventListener("resize", function(){
+		var divImagen = document.getElementById("imagen");
+		divImagen.style.left= (window.innerWidth/2-295).toString()+"px";
+	});
+
+/*
+	document.addEventListener("onclick", function(evt){
+	  var posX = evt.clientX;
+	  var posY = evt.clientY;
+
+
+	});
+
+
+
+	function estaArriba(posX,posY){
+		var xl = window.innerWidth/2-295+50; //X left
+		var xr = window.innerWidth/2-295+100; //X right
+		var yu=400; //Y up
+		var yd=450; //Y down
+		//Puntos que representan un cuadrado del boton "Arriba" de la cruz de botones
+
+		//if()
+	}
+*/
+
+</script>
 
 </html>
