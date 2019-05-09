@@ -66,7 +66,7 @@ Q.Sprite.extend("Wario", {
                 if(Q.inputs["down"] || Q.inputs["up"]){
                     this.p.speed=60;
                     this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
-                    this.p.enStair = true
+                    this.p.enStair = true;
                     this.play("up_stairs");
 
                     if(Q.inputs["down"]){

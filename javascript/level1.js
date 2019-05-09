@@ -6,6 +6,12 @@ function add_Level1(Q){
 		Q.stageTMX('level001.tmx',stage); 
 		var player = stage.insert(new Q.Wario({ x: 245, y: 480, esta: stage }));
 
+		//var bloque2 = stage.insert(new Q.Bloque({x: 240, y: 576}));
+		var bloque3 = stage.insert(new Q.Bloque({x: 176, y: 432}));
+		var bloque4 = stage.insert(new Q.Bloque({x: 400, y: 576}));
+		var bloque4 = stage.insert(new Q.Bloque({x: 600, y: 608}));
+		//var bloque1 = stage.insert(new Q.Bloque({x: 240, y: 576}));
+
 		//Escaleras		
 		var escalera1a = stage.insert(new Q.Escalera({x: 214, y: 592}));
 		var escalera1b = stage.insert(new Q.Escalera({x: 214, y: 576}));
