@@ -10,37 +10,27 @@ function add_door(Q) {
 	            w: 16,
 	            h: 16,
 	            sensor: true,
-	            color: "yellow", //Para ver donde las coloco primero
+	            //color: "yellow", //Para ver donde las coloco primero
 	            points: [[3,6],[3,-6],[-3,6],[-3,-6]]
 	        });
-	        this.on("hit",this,"collision");
+	        this.on("hit", function(col)
+	        {
+	        	col.distance = 0;
+				this.vx = col.separate[0]=0;
+				this.vy = col.separate[1]=0;
+				if(Q.inputs["up"] && col.obj.isA("Wario"))
+				{
+					//console.log("XXXXXXXXXXX this.p.escenario -> " + this.p.escenario);
+					//console.log("##### 3"); 
+					//col.obj.trigger('onDoor');
+					if(this.p.escenario != -1)
+					{				
+						Q.stageScene(this.p.escenario);
+						this.p.escenario = -1;
+					}
+				}		
+	        });
 	    },
-
-		collision: function(col) 
-		{
-			col.distance = 0;
-
-			this.vx = col.separate[0]=0;
-			this.vy = col.separate[1]=0;
-			if(Q.inputs["up"] 
-				&& col.obj.isA("Wario"))
-			{
-				//console.log("XXXXXXXXXXX this.p.escenario -> " + this.p.escenario);
-				col.obj.trigger("enter_door",col);
-				if(this.p.escenario == 1)
-				{
-					//console.log("XXXXXXXXXXX escenario 1");
-					this.p.escenario = -1;
-					Q.stageScene('level1');
-				}
-				else if(this.p.escenario == 2)
-				{
-					//console.log("XXXXXXXXXXX escenario 2");
-					this.p.escenario = -1;
-					Q.stageScene('level2');
-				}
-			}		    
-		},
 	    step: function(dt) 
 	    {
 		    this.stage.collide(this);

@@ -20,22 +20,22 @@ function add_Level2(Q){
 		//var escalera4i = stage.insert(new Q.Escalera({x: 214, y: 448}));
 
 		//Monedas
-		var bigcoin001b = stage.insert(new Q.bigcoin({x: 305,y: 380}));
-		var bigcoin002b = stage.insert(new Q.bigcoin({x: 400,y: 332}));
-		var bigcoin003b = stage.insert(new Q.bigcoin({x: 470,y: 284}));
-		var bigcoin004b = stage.insert(new Q.bigcoin({x: 645,y: 316}));
-		var bigcoin005b = stage.insert(new Q.bigcoin({x: 725,y: 316}));
-		var bigcoin006b = stage.insert(new Q.bigcoin({x: 945,y: 268}));
-		var bigcoin007b = stage.insert(new Q.bigcoin({x: 1075,y: 220}));
-		var bigcoin008b = stage.insert(new Q.bigcoin({x: 1200,y: 252}));
-		var bigcoin009b = stage.insert(new Q.bigcoin({x: 1310,y: 316}));
+		var bigcoin001b = stage.insert(new Q.bigcoin({x: 305,y: 380, id:'1b'}));
+		var bigcoin002b = stage.insert(new Q.bigcoin({x: 400,y: 332, id:'2b'}));
+		var bigcoin003b = stage.insert(new Q.bigcoin({x: 470,y: 284, id:'3b'}));
+		var bigcoin004b = stage.insert(new Q.bigcoin({x: 645,y: 316, id:'4b'}));
+		var bigcoin005b = stage.insert(new Q.bigcoin({x: 725,y: 316, id:'5b'}));
+		var bigcoin006b = stage.insert(new Q.bigcoin({x: 945,y: 268, id:'6b'}));
+		var bigcoin007b = stage.insert(new Q.bigcoin({x: 1075,y: 220, id:'7b'}));
+		var bigcoin008b = stage.insert(new Q.bigcoin({x: 1200,y: 252, id:'8b'}));
+		var bigcoin009b = stage.insert(new Q.bigcoin({x: 1310,y: 316, id:'9b'}));
 
 		var enemy001 =  stage.insert(new Q.enemy2({x: 1310,y: 316}));
 
 		//Puertas
 		//Puerta verde
-		var puerta001b = stage.insert(new Q.Puerta({x: 120, y: 428, escenario: 1}));
-		var puerta002b = stage.insert(new Q.Puerta({x: 120, y: 444, escenario: 1}));	
+		var puerta001b = stage.insert(new Q.Puerta({x: 120, y: 428, escenario: 'level1'}));
+		var puerta002b = stage.insert(new Q.Puerta({x: 120, y: 444, escenario: 'level1'}));	
 
 		stage.add('viewport')
 			.follow(player, 
