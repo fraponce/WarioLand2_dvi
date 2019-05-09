@@ -24,24 +24,28 @@ function add_enemy2(Q){
             });
             this.on("bump.left", function(collision) {
                 if (collision.obj.isA("Wario"))
+                    if (collision.obj.p.placando){
                     this.play("die");
                     this.p.vy = -300;
                     this.die();
+                }
             });
             this.on("bump.right", function(collision) {
                 if (collision.obj.isA("Wario"))
-                    this.play("die");
-                    this.p.vy = -300;
-                    this.die();
+                    if (collision.obj.p.placando){
+                        this.play("die");
+                        this.p.vy = -300;
+                        this.die();
+                    }
             });
         },
         shoot: function(dt) 
         {
             if(!this.p.hamuerto)
                  if(this.p.lado = 0 ) 
-                    this.play('shootL'); //Izquierda
+                    this.play('chargeL'); //Izquierda
             else if(this.p.lado = 1) 
-                this.play('shootR'); //Derecha
+                this.play('chargeR'); //Derecha
             else
                 this.play('die');           
         },
@@ -52,10 +56,10 @@ function add_enemy2(Q){
         }
     });
     Q.animations('anim_enemy2',{
-        shootL:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
-        chargeL:{frames:[3], rate: 1/6, flip: "x", loop: true},
-        shootR:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
-        chargeR:{frames:[3], rate: 1/6, flip: false, loop: true},
+        chargeL:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
+        shootL:{frames:[3], rate: 1/6, flip: "x", loop: true},
+        chargeR:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
+        shootR:{frames:[3], rate: 1/6, flip: false, loop: true},
         die:{frames:[4],loop: false}
     });
 
