@@ -21,7 +21,6 @@ window.addEventListener('load',function()
 	add_wario(Q);
 	add_stair(Q);
 	add_enemy1(Q);
-	add_enemy2(Q);
 	add_BigCoin(Q);
 	add_sensor(Q);
 	add_door(Q);
