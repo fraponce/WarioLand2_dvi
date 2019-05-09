@@ -21,6 +21,7 @@ window.addEventListener('load',function()
 	add_wario(Q);
 	add_stair(Q);
 	add_enemy1(Q);
+	add_enemy2(Q);
 	add_BigCoin(Q);
 	add_sensor(Q);
 	add_door(Q);
@@ -30,6 +31,7 @@ window.addEventListener('load',function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('enemy1.png', 'enemy1.json');
+		Q.compileSheets('enemy2.png', 'enemy2.json')
 		Q.compileSheets('bigcoin.png', 'bigcoin.json');
 		//Q.compileSheets('goomba.png', 'goomba.json');
 		Q.stageScene('level1');
