@@ -68,7 +68,16 @@ function add_enemy1(Q){
             this.destroy();
         }
     });
-    Q.Sprite.extend('enemy2',{
+   
+    Q.animations('anim_enemy1',{
+        walkL:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
+        walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
+        die:{frames:[3],loop: false}
+    });
+       
+}
+function add_enemy2(Q){
+     Q.Sprite.extend('enemy2',{
         init: function(p){
             this._super(p,{
                 sprite: 'anim_enemy2',
@@ -90,19 +99,19 @@ function add_enemy1(Q){
                     this.p.vy = -300;
                     this.die();
                 }
-          	});
-          	this.on("bump.left", function(collision) {
+            });
+            this.on("bump.left", function(collision) {
                 if (collision.obj.isA("Wario"))
                     this.play("die");
                     this.p.vy = -300;
                     this.die();
-          	});
-          	this.on("bump.right", function(collision) {
+            });
+            this.on("bump.right", function(collision) {
                 if (collision.obj.isA("Wario"))
                     this.play("die");
                     this.p.vy = -300;
                     this.die();
-          	});
+            });
         },
         shoot: function(dt) 
         {
@@ -125,16 +134,11 @@ function add_enemy1(Q){
             this.p.hamuerto = true;             
             this.destroy();
         }
-    });
-    Q.animations('anim_enemy1',{
-        walkL:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
-        walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
-        die:{frames:[3],loop: false}
-    });
-    Q.animations('anim_enemy2',{
-        charge:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
-        shoot:{frames:[3], rate: 1/6, flip: "x", loop: true},
+
+        Q.animations('anim_enemy2',{
+        walkL:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
+        walkR:{frames:[3], rate: 1/6, flip: "x", loop: true},
         die:{frames:[4],loop: false}
     });
-       
+
 }
