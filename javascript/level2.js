@@ -30,7 +30,7 @@ function add_Level2(Q){
 		var bigcoin008b = stage.insert(new Q.bigcoin({x: 1200,y: 252}));
 		var bigcoin009b = stage.insert(new Q.bigcoin({x: 1310,y: 316}));
 
-		var enemy001 =  stage.insert(new Q.enemy002({x: 1310,y: 316}));
+		var enemy001 =  stage.insert(new Q.enemy2({x: 1310,y: 316}));
 
 		//Puertas
 		//Puerta verde
