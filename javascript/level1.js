@@ -37,6 +37,10 @@ function add_Level1(Q){
 		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:512}));
 		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:604}));
 
+
+		//Sensor de enemigos
+		var sensorenemy002 = stage.insert(new Q.Sensor({x:462, y: 520}));
+
 		//Monedas
 		var bigcoin001a = stage.insert(new Q.bigcoin({x: 330,y: 380}));
 		var bigcoin002a = stage.insert(new Q.bigcoin({x: 400,y: 348}));

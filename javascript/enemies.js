@@ -12,6 +12,9 @@ function add_enemy1(Q){
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
             this.on('die');
+
+
+
             this.on("bump.top", function(collision) {
                 if (collision.obj.isA("Wario"))
                   if(collision.obj.p.culetazo){
@@ -19,8 +22,8 @@ function add_enemy1(Q){
                     this.p.vy = -300;
                     this.die();
                 }
-          });
-          this.on("bump.left", function(collision) {
+          	});
+          	this.on("bump.left", function(collision) {
                 if (collision.obj.isA("Wario"))
                   if(this.p.lado == 0){
                     collision.obj.play("die");
@@ -29,9 +32,9 @@ function add_enemy1(Q){
                     this.play("die");
                     this.p.vy = -300;
                     this.die();
-            }
-          });
-          this.on("bump.right", function(collision) {
+            	  }
+          	});
+          	this.on("bump.right", function(collision) {
                 if (collision.obj.isA("Wario"))
                   if(this.p.lado == 1){
                     collision.obj.play("die");
@@ -41,7 +44,7 @@ function add_enemy1(Q){
                     this.p.vy = -300;
                     this.die();
             }
-          });
+          	});
         },
         step: function(dt) 
         {
