@@ -50,8 +50,8 @@ function add_enemy2(Q){
             this.p.hamuerto = true;             
             this.destroy();
         }
-
-        Q.animations('anim_enemy2',{
+    });
+    Q.animations('anim_enemy2',{
         shootL:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
         chargeL:{frames:[3], rate: 1/6, flip: "x", loop: true},
         shootR:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
