@@ -3,14 +3,17 @@ function add_Level1(Q){
 	//crea una nueva scene llamada level1
 	Q.scene('level1', function(stage)
 	{
+		// Guardo el nivel en el que estoy
+		Q.state.set('levelactual', 'level1');
+
 		Q.stageTMX('level001.tmx',stage); 
 		var player = stage.insert(new Q.Wario({ x: 245, y: 480, esta: stage }));
 
-		//var bloque2 = stage.insert(new Q.Bloque({x: 240, y: 576}));
-		//var bloque3 = stage.insert(new Q.Bloque({x: 176, y: 432}));
-		//var bloque4 = stage.insert(new Q.Bloque({x: 400, y: 576}));
-		//var bloque4 = stage.insert(new Q.Bloque({x: 600, y: 608}));
-		//var bloque1 = stage.insert(new Q.Bloque({x: 240, y: 576}));
+		var bloque2 = stage.insert(new Q.Bloque({x: 240, y: 576}));
+		var bloque3 = stage.insert(new Q.Bloque({x: 176, y: 432}));
+		var bloque4 = stage.insert(new Q.Bloque({x: 400, y: 576}));
+		var bloque4 = stage.insert(new Q.Bloque({x: 600, y: 608}));
+		var bloque1 = stage.insert(new Q.Bloque({x: 240, y: 576}));
 
 		//Escaleras		
 		var escalera1a = stage.insert(new Q.Escalera({x: 214, y: 592}));
@@ -58,10 +61,10 @@ function add_Level1(Q){
 		//Puertas
 		//Puerta verde
 		var puerta001a = stage.insert(new Q.Puerta({x: 600, y: 602, escenario: 'level2'}));
-		var puerta002a = stage.insert(new Q.Puerta({x: 600, y: 618, escenario: 'level2'}));
+		//var puerta002a = stage.insert(new Q.Puerta({x: 600, y: 618, escenario: 'level2'}));
 		// Puerta roca
 		var puerta003a = stage.insert(new Q.Puerta({x: 1383, y: 394, escenario: 'level2'}));
-		var puerta004a = stage.insert(new Q.Puerta({x: 1383, y: 410, escenario: 'level2'}));
+		//var puerta004a = stage.insert(new Q.Puerta({x: 1383, y: 410, escenario: 'level2'}));
 
 		stage.add('viewport')
 			.follow(player, 

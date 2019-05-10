@@ -22,10 +22,8 @@ function add_BigCoin(Q){
 		sensor: function()
 		{	
 			//Guardar estado de la moneda
-			//console.log("##### big coin 0");
 			Q.state.set(this.p.id, true);	
 
-			//console.log("##### big coin");
 			var get = function(){
 	        	this.destroy();
 	        }		
@@ -39,13 +37,10 @@ function add_BigCoin(Q){
 		},
 		step: function(dt)
 		{
-			//console.log("##### big coin 1");
 			if(Q.state.get(this.p.id)){
-				//console.log("##### big coin 2");
 				this.destroy();
 			}
 			else{
-				//console.log("##### big coin 3");
 				this.play('bigcoin');	
 			}					
 		}

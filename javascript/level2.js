@@ -3,6 +3,9 @@ function add_Level2(Q){
 	//crea una nueva scene llamada level1
 	Q.scene('level2', function(stage)
 	{
+		// Guardo el nivel en el que estoy
+		Q.state.set('levelactual', 'level2');
+
 		Q.stageTMX('level002.tmx',stage); 
 
 		// level 2
@@ -35,7 +38,7 @@ function add_Level2(Q){
 		//Puertas
 		//Puerta verde
 		var puerta001b = stage.insert(new Q.Puerta({x: 120, y: 428, escenario: 'level1'}));
-		var puerta002b = stage.insert(new Q.Puerta({x: 120, y: 444, escenario: 'level1'}));	
+		//var puerta002b = stage.insert(new Q.Puerta({x: 120, y: 444, escenario: 'level1'}));	
 
 		stage.add('viewport')
 			.follow(player, 

@@ -59,6 +59,7 @@ Q.Sprite.extend("Wario", {
                 //points: izq-arr|der-arr|der-abj|izq-abj
             });
             this.add('2d, platformerControls, animation');
+            this.on("onDoor",this,"atravesar");
             this.on("killWario", "die");
 
             this.on("onStair", function(collision){
@@ -83,6 +84,18 @@ Q.Sprite.extend("Wario", {
            
         },
         step: function(dt) {
+
+            // Cargar las coordenadas de Wario cuando vuelve a un nivel ya visitado
+            if(Q.state.get('cargadoOK' + Q.state.get('levelactual')) 
+                    && (Q.state.get('levelactual') == Q.state.get('siguiente' + Q.state.get('levelactual'))))
+            {
+                //console.log('levelActual -> ' + Q.state.get('levelactual'));
+                //console.log("##### Q.state.get('siguiente' + Q.state.get('levelactual')) -> " + Q.state.get('siguiente' + Q.state.get('levelactual')));    
+                Q.state.set('cargadoOK' + Q.state.get('levelactual'), false); 
+                this.p.x = Q.state.get('x' + Q.state.get('siguiente' + Q.state.get('levelactual'))); 
+                this.p.y = Q.state.get('y' + Q.state.get('siguiente' + Q.state.get('levelactual')));                
+            }
+
             if(this.p.agachado){
                 this.p.speed = 100;
                 this.p.points = [[-4,-1],[4,-1],[4,16],[-3,16]]; //Cambiamos la colisión. (Representa un poligono formado respecto al centro del sprite)
@@ -228,6 +241,17 @@ Q.Sprite.extend("Wario", {
                 Q.stageScene("level1");
             }*/
             
+        },
+        atravesar: function()
+        {
+            if(this.p.vy != 0)
+            {                
+                this.p.jumpSpeed = 0; 
+                this.p.vy = 1;               
+            }
+            this.play("enter_door");
+            
+            this.p.jumpSpeed = -300;                   
         }
     });
 }
