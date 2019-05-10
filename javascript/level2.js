@@ -17,9 +17,9 @@ function add_Level2(Q){
 		var escalera4c = stage.insert(new Q.Escalera({x: 214, y: 544}));
 		var escalera4d = stage.insert(new Q.Escalera({x: 214, y: 528}));
 		var escalera4e = stage.insert(new Q.Escalera({x: 214, y: 512}));
-		var escalera4f = stage.insert(new Q.Escalera({x: 214, y: 496}));
-		var escalera4g = stage.insert(new Q.Escalera({x: 214, y: 480}));
-		var escalera4h = stage.insert(new Q.Escalera({x: 214, y: 464}));
+		var escalera4f = stage.insert(new Q.Escalera({x: 214, y: 493}));
+		var escalera4g = stage.insert(new Q.Escalera({x: 214, y: 476}));
+		var escalera4h = stage.insert(new Q.Escalera({x: 214, y: 458}));
 		//var escalera4i = stage.insert(new Q.Escalera({x: 214, y: 448}));
 
 		//Monedas

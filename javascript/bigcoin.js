@@ -12,6 +12,7 @@ function add_BigCoin(Q){
 		        to stop or change direction
 		        */
 				sensor:true,
+				onSensor:false,
 				get:false
 				
 	        });
@@ -22,6 +23,7 @@ function add_BigCoin(Q){
 		sensor: function()
 		{	
 			//Guardar estado de la moneda
+			this.p.onSensor = true;
 			Q.state.set(this.p.id, true);	
 
 			var get = function(){
@@ -37,7 +39,7 @@ function add_BigCoin(Q){
 		},
 		step: function(dt)
 		{
-			if(Q.state.get(this.p.id)){
+			if(Q.state.get(this.p.id) && !this.p.onSensor){	
 				this.destroy();
 			}
 			else{
