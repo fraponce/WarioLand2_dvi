@@ -7,20 +7,23 @@ function add_enemy1(Q){
                 sheet: 'enemy1',
                 vx: 50,
                 lado: 1,
-                points: [[-6,-6],[6,-6],[6,6],[-6,6]],
-                hamuerto:false
+                points: [[-7,-7],[7,-7],[7,7],[-7,7]],
+                hamuerto:false,
+                vaAmorir:false
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
-            this.on('die');
+            this.on('dieT',this,'die');
 
 
 
             this.on("bump.top", function(collision) {
                 if (collision.obj.isA("Wario"))
-                  if(collision.obj.p.culetazo){
-                    this.play("die");
+                  if(collision.obj.p.culetazo && !this.p.vaAmorir){
+                    this.p.vx=0;
+                    this.p.vaAmorir = true;
                     this.p.vy = -300;
-                    this.die();
+                    this.play("die");
+
                 }
           	});
           	this.on("bump.left", function(collision) {
@@ -28,10 +31,11 @@ function add_enemy1(Q){
                   if(this.p.lado == 0){
                     collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando){
-                    this.play("die");
+                  }else if (collision.obj.p.placando && !this.p.vaAmorir){
+                    this.p.vaAmorir = true;
                     this.p.vy = -300;
-                    this.die();
+                    this.play("die");
+
             	  }
           	});
           	this.on("bump.right", function(collision) {
@@ -39,13 +43,21 @@ function add_enemy1(Q){
                   if(this.p.lado == 1){
                     collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando){
-                    this.play("die");
+                  }else if (collision.obj.p.placando && !this.p.vaAmorir){
+                    this.p.vaAmorir = true;
                     this.p.vy = -300;
-                    this.die();
-            }
+                    this.play("die");
+
+                    }
           	});
         },
+          
+        die: function()
+        {
+            this.p.hamuerto = true;             
+            this.destroy();
+        },
+
         step: function(dt) 
         {
             if(this.p.vx > 0 ) 
@@ -54,25 +66,23 @@ function add_enemy1(Q){
                 this.p.lado = 0; //Izquierda
 
 
-            if(!this.p.hamuerto)
-                 if(this.p.vx > 0 ) 
-                this.play('walkL'); //Izquierda
-            else if(this.p.vx<0) 
-                this.play('walkR'); //Derecha
+            if(!this.p.vaAmorir){
+                if(this.p.vx > 0 ) 
+                    this.play('walkL'); //Izquierda
+                else if(this.p.vx<0) 
+                    this.play('walkR'); //Derecha
+            }
+
             else
                 this.play('die');           
         },
-        die: function(dt)
-        {
-            this.p.hamuerto = true;             
-            this.destroy();
-        }
+
     });
    
     Q.animations('anim_enemy1',{
         walkL:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
-        walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true},
-        die:{frames:[3],loop: false}
+        walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true,},
+        die:{frames:[3], rate: 1/2, loop: false,  trigger: "dieT"}
     });
        
 }
