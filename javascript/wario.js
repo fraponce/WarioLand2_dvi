@@ -205,9 +205,17 @@ Q.Sprite.extend("Wario", {
                 }else {
                     this.p.placando = false;                    
                     if(this.p.vx > 0) {
-                        this.play("run_right");
+                        if(!this.p.entrando){
+                            this.play("run_right");
+                        }else{
+                            this.p.vx=0;
+                        }
                     } else if(this.p.vx < 0) {
-                        this.play("run_left");
+                        if(!this.p.entrando){
+                            this.play("run_left");
+                        } else {
+                            this.p.vx=0;
+                        }
                     } else {
                         if(!this.p.entrando){
                             this.play("stand_" + this.p.direction);
