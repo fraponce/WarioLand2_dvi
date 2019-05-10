@@ -20,26 +20,17 @@ function add_door(Q) {
 				this.vx = col.separate[0]=0;
 				this.vy = col.separate[1]=0;
 			
-				if(Q.inputs["up"] && col.obj.isA("Wario") && this.p.entrar)
-				{		
-					this.p.entrar = false;			
-		            //Guardar estado de la pos de Wario => Nombre/Valor
-					Q.state.set('cargadoOK' + Q.state.get('levelactual'), true);
-					//Guardar como ejemplo: siguientelevel1 xlevel1 ylevel1  
-					Q.state.set('siguiente' + Q.state.get('levelactual'), Q.state.get('levelactual'));  
-					//Guardar las coordenadas        
-			        Q.state.set('x' + Q.state.get('levelactual'), col.obj.p.x + 10); 
-			        Q.state.set('y' + Q.state.get('levelactual'), col.obj.p.y - 5);		
-			        //console.log("##### escenario -> " + Q.state.get('levelactual'));         
-	          		//console.log("##### guarda X -> " + Q.state.get('x' + Q.state.get('levelactual')));
-                	//console.log("##### guarda Y -> " + Q.state.get('y' + Q.state.get('levelactual')));  
-
-					col.obj.trigger('onDoor');
-					if(this.p.escenario != -1)
-					{				
-						Q.stageScene(this.p.escenario);
-						this.p.escenario = -1;
+				if(Q.inputs["up"] && col.obj.isA("Wario"))
+				{
+					if(!this.p.entrando) {
+						this.p.entrando =true;
+						col.obj.p.jumpSpeed = 0; 
+                		col.obj.p.vy = 1;
+                		col.obj.p.entrando = true;
+                		Q.state.set('nombrePuerta', this.p.escenario);     		
+						col.obj.play('enter_door');
 					}
+
 				}		
 	        });
 	    },

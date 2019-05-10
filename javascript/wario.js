@@ -23,7 +23,7 @@ function add_wario(Q) {
 
         up_stairs:  { frames: [13,14,15], rate: 1/4, flip: false,next: "stand_stairs" },
         stand_stairs: {frames: [16], rate: 1, flip:false, next: "stand_right"},
-        enter_door: {frames: [16,17,18], rate: 1/3,loop: false, flip:false, next: "stand_right"},
+        enter_door: {frames: [16,17,18], rate: 1/3,loop: false, flip:false, trigger: "onDoor"},
         winW: { frames: [26,27,28,29,30,31,32,33,34,35,36,37], rate:1/6, loop: false, flip:false, trigger: "winW"},
         sleepW: {frames: [39,40,41,42,43,44,45,46,47,48], rate:1/3, loop: false, flip:false, trigger: "winW"},
 
@@ -53,6 +53,7 @@ Q.Sprite.extend("Wario", {
                 placando: false,
                 muerto: false,
                 norepe: false,
+                entrando: false,
                 enStair: false,
                 lado: 1, //Representa a donde mira (Izquierda/derecha)
                 points: [[-6,-15],[6,-15],[6,16],[-5,16]]//Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
@@ -208,7 +209,9 @@ Q.Sprite.extend("Wario", {
                     } else if(this.p.vx < 0) {
                         this.play("run_left");
                     } else {
-                        this.play("stand_" + this.p.direction);
+                        if(!this.p.entrando){
+                            this.play("stand_" + this.p.direction);
+                        }
                     }   
                 }
             }
@@ -244,14 +247,21 @@ Q.Sprite.extend("Wario", {
         },
         atravesar: function()
         {
-            if(this.p.vy != 0)
-            {                
-                this.p.jumpSpeed = 0; 
-                this.p.vy = 1;               
-            }
-            this.play("enter_door");
+                        //Guardar estado de la pos de Wario => Nombre/Valor
+            Q.state.set('cargadoOK' + Q.state.get('levelactual'), true);
+            //Guardar como ejemplo: siguientelevel1 xlevel1 ylevel1  
+            Q.state.set('siguiente' + Q.state.get('levelactual'), Q.state.get('levelactual'));  
+            //Guardar las coordenadas        
+            Q.state.set('x' + Q.state.get('levelactual'), this.p.x); 
+            Q.state.set('y' + Q.state.get('levelactual'), this.p.y);
+
+            Q.stageScene(Q.state.get('nombrePuerta'));     
+            //console.log("##### escenario -> " + Q.state.get('levelactual'));         
+            //console.log("##### guarda X -> " + Q.state.get('x' + Q.state.get('levelactual')));
+            //console.log("##### guarda Y -> " + Q.state.get('y' + Q.state.get('levelactual')));  
             
-            this.p.jumpSpeed = -300;                   
+            this.p.jumpSpeed = -300;
+            this.p.entrando = false;                   
         }
     });
 }
