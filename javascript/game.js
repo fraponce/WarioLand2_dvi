@@ -44,8 +44,5 @@ window.addEventListener('load',function()
 		//Q.stageScene('level1');
 		Q.stageScene('pantallaMenu');
 		//Q.state.set("score",0);
-        Q.state.set("lifes",8);
-        Q.state.set("score",0);  
-		Q.stageScene("HUD", 1);
 	});
 });

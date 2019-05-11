@@ -52,7 +52,10 @@ function add_MenuWario(Q)
                     //console.log("this.p.asset -> " + this.p.asset);
                     if(this.p.asset === "pantalla_inicial/newgame.png")
                     {
-                        //console.log("xxxxx level1 entra");
+                        //console.log("xxxxx level1 entra");                        
+                        Q.state.set("lifes",8);
+                        Q.state.set("score",0);  
+                        Q.stageScene("HUD", 1);
                       	Q.stageScene("level1");
                     } 
                     else if(this.p.asset === "pantalla_inicial/controls.png") 
