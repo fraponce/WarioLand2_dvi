@@ -18,6 +18,7 @@ window.addEventListener('load',function()
 	
 	add_Level1(Q);
 	add_Level2(Q);
+	add_Level3(Q);
 	add_wario(Q);
 	add_stair(Q);
 	add_enemy1(Q);
@@ -31,7 +32,7 @@ window.addEventListener('load',function()
 	add_ControlesWario(Q);
 	//add_Goomba(Q);
 	
-	Q.loadTMX('level001.tmx, level002.tmx, vidas.png, vidas.json, wario.png, wario.json, enemy1.png, enemy1.json,enemy2.png,enemy2.json, bigcoin.png, bigcoin.json, block.png, bloque.json, pantalla_inicial/titulowario.png, pantalla_inicial/fondopantallaprincipal.png,pantalla_inicial/pantallacontroles.png, pantalla_inicial/controls.png, pantalla_inicial/newgame.png, pantalla_inicial/pressenter.png, cabezawario.png, cabezawario.json', function()
+	Q.loadTMX('level001.tmx, level002.tmx, level003.tmx, vidas.png, vidas.json, wario.png, wario.json, enemy1.png, enemy1.json,enemy2.png,enemy2.json, bigcoin.png, bigcoin.json, block.png, bloque.json, pantalla_inicial/titulowario.png, pantalla_inicial/fondopantallaprincipal.png,pantalla_inicial/pantallacontroles.png, pantalla_inicial/controls.png, pantalla_inicial/newgame.png, pantalla_inicial/pressenter.png, cabezawario.png, cabezawario.json', function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('enemy1.png', 'enemy1.json');
