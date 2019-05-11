@@ -18,32 +18,35 @@ function add_BigCoin(Q){
 				
 	        });
 	        this.add('tween,animation');
-	        this.on('sensor');
+	        this.on("hit",this,"collision");
 
 		},
-		sensor: function()
+		collision: function(col)
 		{	
 			//Guardar estado de la moneda
-			this.p.onSensor = true;
-			Q.state.set(this.p.id, true);	
+			if(col.obj.isA("Wario")){
+				this.p.onSensor = true;
+				Q.state.set(this.p.id, true);	
 
-			var get = function(){
-				if(!this.p.getOnlyFirst){
-					this.p.getOnlyFirst = true;
-					Q.state.set("score",Q.state.get("score")+10); 
-		        	this.destroy();
-		        }
-	        }		
-	        this.animate({ y: this.p.y - 50 }, 0.2, { callback: get });
-			if(!this.p.get)
-			{
-				this.p.get = true;
-				//Q.state.inc('coins',1);	
-				//Q.audio.play('coin.mp3');	
+				var get = function(){
+					if(!this.p.getOnlyFirst){
+						this.p.getOnlyFirst = true;
+						Q.state.set("score",Q.state.get("score")+10); 
+			        	this.destroy();
+			        }
+		        }		
+		        this.animate({ y: this.p.y - 50 }, 0.2, { callback: get });
+				if(!this.p.get)
+				{
+					this.p.get = true;
+					//Q.state.inc('coins',1);	
+					//Q.audio.play('coin.mp3');	
+				}
 			}					
 		},
 		step: function(dt)
 		{
+			this.stage.collide(this);
 			if(Q.state.get(this.p.id) && !this.p.onSensor){	
 				this.destroy();
 			}
