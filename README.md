@@ -7,7 +7,7 @@ link: https://frapoce.github.io/WarioLand2_dvi/
 ## Authors
 
 - Alfonso Soria Muñoz
-- TODO
+- Miguel Jiménez Rodríguez
 - TODO
 
 
