@@ -27,18 +27,22 @@ window.addEventListener('load',function()
 	add_door(Q);
 	add_bloque(Q);
 	add_hud(Q);
+	add_MenuWario(Q);
+	add_ControlesWario(Q);
 	//add_Goomba(Q);
 	
-	Q.loadTMX('level001.tmx, level002.tmx, vidas.png, vidas.json, wario.png, wario.json, enemy1.png, enemy1.json,enemy2.png,enemy2.json, bigcoin.png, bigcoin.json, block.png, bloque.json', function()
+	Q.loadTMX('level001.tmx, level002.tmx, vidas.png, vidas.json, wario.png, wario.json, enemy1.png, enemy1.json,enemy2.png,enemy2.json, bigcoin.png, bigcoin.json, block.png, bloque.json, pantalla_inicial/titulowario.png, pantalla_inicial/fondopantallaprincipal.png,pantalla_inicial/pantallacontroles.png, pantalla_inicial/controls.png, pantalla_inicial/newgame.png, pantalla_inicial/pressenter.png, cabezawario.png, cabezawario.json', function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('enemy1.png', 'enemy1.json');
 		Q.compileSheets('enemy2.png', 'enemy2.json')
 		Q.compileSheets('bigcoin.png', 'bigcoin.json');
 		Q.compileSheets('block.png', 'bloque.json');
-		Q.compileSheets('vidas.png', 'vidas.json');
+		Q.compileSheets('vidas.png', 'vidas.json');		
+		Q.compileSheets('cabezawario.png', 'cabezawario.json');
 		//Q.compileSheets('goomba.png', 'goomba.json');
-		Q.stageScene('level1');
+		//Q.stageScene('level1');
+		Q.stageScene('pantallaMenu');
 		//Q.state.set("score",0);
         Q.state.set("lifes",8);
         Q.state.set("score",0);  
