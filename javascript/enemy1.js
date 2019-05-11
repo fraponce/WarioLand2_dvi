@@ -29,7 +29,7 @@ function add_enemy1(Q){
           	this.on("bump.left", function(collision) {
                 if (collision.obj.isA("Wario"))
                   if(this.p.lado == 0){
-                    collision.obj.play("die");
+                    //collision.obj.play("die");
                     collision.obj.die();
                   }else if (collision.obj.p.placando && !this.p.vaAmorir){
                     this.p.vaAmorir = true;
@@ -42,7 +42,7 @@ function add_enemy1(Q){
           	this.on("bump.right", function(collision) {
                 if (collision.obj.isA("Wario"))
                   if(this.p.lado == 1){
-                    collision.obj.play("die");
+                    //collision.obj.play("die");
                     collision.obj.die();
                   }else if (collision.obj.p.placando && !this.p.vaAmorir){
                     this.p.vaAmorir = true;

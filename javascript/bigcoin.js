@@ -13,7 +13,8 @@ function add_BigCoin(Q){
 		        */
 				sensor:true,
 				onSensor:false,
-				get:false
+				get:false,
+				getOnlyFirst:false
 				
 	        });
 	        this.add('tween,animation');
@@ -27,7 +28,11 @@ function add_BigCoin(Q){
 			Q.state.set(this.p.id, true);	
 
 			var get = function(){
-	        	this.destroy();
+				if(!this.p.getOnlyFirst){
+					this.p.getOnlyFirst = true;
+					Q.state.set("score",Q.state.get("score")+10); 
+		        	this.destroy();
+		        }
 	        }		
 	        this.animate({ y: this.p.y - 50 }, 0.2, { callback: get });
 			if(!this.p.get)

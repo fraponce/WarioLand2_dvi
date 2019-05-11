@@ -23,7 +23,7 @@ function add_Level2(Q){
 		//var escalera4i = stage.insert(new Q.Escalera({x: 214, y: 448}));
 
 		//Monedas
-		var bigcoin001b = stage.insert(new Q.bigcoin({x: 305,y: 380, id:'1b'}));
+		//var bigcoin001b = stage.insert(new Q.bigcoin({x: 305,y: 380, id:'1b'}));
 		var bigcoin002b = stage.insert(new Q.bigcoin({x: 400,y: 332, id:'2b'}));
 		var bigcoin003b = stage.insert(new Q.bigcoin({x: 470,y: 284, id:'3b'}));
 		var bigcoin004b = stage.insert(new Q.bigcoin({x: 645,y: 316, id:'4b'}));

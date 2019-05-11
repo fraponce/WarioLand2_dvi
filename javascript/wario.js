@@ -232,25 +232,35 @@ Q.Sprite.extend("Wario", {
 
         die: function() {
             //Si nos quedan vidas perdemos una, si no perdemos definitivamente.
-            this.play("dieW");
-            this.del("platformerControls");
-            // Q.stageScene("endGame", 1, {label: "You Died!"});
-            this.destroy();
-
-            Q.stageScene("level1");
-            /*
-            if (Q.state.get("lifes") === 1) {
-                Q.state.dec("lifes", 1);
+            var lifes = Q.state.get("lifes");
+            if(lifes == 1) {
+                Q.state.set("lifes", 8);
+                this.p.vidas  = 8;
+                this.p.vidasC = 9;
+                //this.play("dieW");
                 this.del("platformerControls");
-                //Q.audio.stop();
-                //Q.audio.play("music_die.mp3"); 
-                Q.stageScene("endGame", 1, {label: "You Died!"});
+                // Q.stageScene("endGame", 1, {label: "You Died!"});
                 this.destroy();
+                Q.stageScene("level1");
+
             }
             else {
-                Q.state.dec("lifes", 1);
-                Q.stageScene("level1");
-            }*/
+                Q.state.set("lifes",lifes-1);
+                //play.dolor
+            }
+                /*
+                if (Q.state.get("lifes") === 1) {
+                    Q.state.dec("lifes", 1);
+                    this.del("platformerControls");
+                    //Q.audio.stop();
+                    //Q.audio.play("music_die.mp3"); 
+                    Q.stageScene("endGame", 1, {label: "You Died!"});
+                    this.destroy();
+                }
+                else {
+                    Q.state.dec("lifes", 1);
+                    Q.stageScene("level1");
+                }*/
             
         },
         atravesar: function()
