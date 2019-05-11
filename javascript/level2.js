@@ -34,7 +34,7 @@ function add_Level2(Q){
 		var bigcoin009b = stage.insert(new Q.bigcoin({x: 1310,y: 316, id:'9b'}));
 
 		var i;
-		for (i = 0; i < 5; i++) {
+		for (i = 0; i < 30; i++) {
 		  var bloquei = stage.insert(new Q.Bloque({x: 250+i*32, y: 532}));
 		  var bloquei = stage.insert(new Q.Bloque({x: 250+i*32, y: 500}));
 		};

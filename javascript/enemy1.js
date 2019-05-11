@@ -34,6 +34,7 @@ function add_enemy1(Q){
                   }else if (collision.obj.p.placando && !this.p.vaAmorir){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
+                    this.p.sensor=true;
                     this.play("die");
 
             	  }
@@ -46,6 +47,7 @@ function add_enemy1(Q){
                   }else if (collision.obj.p.placando && !this.p.vaAmorir){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
+                    this.p.sensor=true;
                     this.play("die");
 
                     }
@@ -82,7 +84,7 @@ function add_enemy1(Q){
     Q.animations('anim_enemy1',{
         walkL:{frames:[0,1,2], rate: 1/6, flip: "x", loop: true},
         walkR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true,},
-        die:{frames:[3], rate: 1/2, loop: false,  trigger: "dieT"}
+        die:{frames:[3], rate: 1/3, loop: false,  trigger: "dieT"}
     });
        
 }

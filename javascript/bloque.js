@@ -22,8 +22,16 @@ function add_bloque(Q){
 
         },
         collision: function(col) {
-            if(col.obj.isA("Wario") && (col.obj.p.culetazo || col.obj.p.placando || col.normalY==-1) && !this.p.roto){
+
+            if(col.obj.p.placando){
+                var a = 1;
+            }
+
+            
+            if(col.obj.isA("Wario") && ( (col.obj.p.culetazo && col.normalY>0) || (col.obj.p.placando && col.normalX==1 && col.obj.p.lado==1) || (col.obj.p.placando && col.normalX==-1 && col.obj.p.lado==0) || (col.normalY==-1 && !(col.obj.p.placando || col.obj.p.culetazo) ) ) && !this.p.roto){
+
                 this.p.roto=true;
+                this.p.sensor=true;
                 this.play("roto");
 
             }else{

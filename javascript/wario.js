@@ -23,7 +23,7 @@ function add_wario(Q) {
 
         up_stairs:  { frames: [13,14,15], rate: 1/4, flip: false,next: "stand_stairs" },
         stand_stairs: {frames: [16], rate: 1, flip:false, next: "stand_right"},
-        enter_door: {frames: [16,17,18], rate: 1/3,loop: false, flip:false, trigger: "onDoor"},
+        enter_door: {frames: [16,17,18], rate: 1/5,loop: false, flip:false, trigger: "onDoor"},
         winW: { frames: [26,27,28,29,30,31,32,33,34,35,36,37], rate:1/6, loop: false, flip:false, trigger: "winW"},
         sleepW: {frames: [39,40,41,42,43,44,45,46,47,48], rate:1/3, loop: false, flip:false, trigger: "winW"},
 
@@ -104,7 +104,7 @@ Q.Sprite.extend("Wario", {
                 this.p.speed = 200;
                 this.p.vx= this.p.speed;
                 if(this.p.lado == 0) this.p.vx = -this.p.vx;
-                this.p.points = [[-13,-15],[13,-15],[13,16],[-12,16]];
+                this.p.points = [[-13,-15],[13,-15],[13,16],[-13,16]];
             } else if(this.p.enStair){
                 this.p.speed=0;
                 this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
