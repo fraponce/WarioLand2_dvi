@@ -43,7 +43,7 @@ function add_Level1(Q){
 
 		//Enemigos
 		var enemy001 = stage.insert(new Q.enemy1({x: 560,y: 608, vx:-50}));
-		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:512}));
+		var enemy002 = stage.insert(new Q.enemy2({x:400 , y:512}));
 		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:604}));
 
 
