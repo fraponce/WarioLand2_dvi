@@ -8,7 +8,7 @@ link: https://frapoce.github.io/WarioLand2_dvi/
 
 - Alfonso Soria Muñoz
 - Miguel Jiménez Rodríguez
-- TODO
+- Francisco Ponce Belmonte
 
 
 ## Mecanicas implementadas
