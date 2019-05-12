@@ -6,9 +6,9 @@ function add_enemy2(Q){
                 sheet: 'enemy2',
                 vx: 0,
                 lado: 1,
+                tiempo: 0,
                 points: [[-6,-6],[6,-6],[6,6],[-6,6]],
                 cargando: false,
-                disparado: false,
                 hamuerto:false,
                 vaAmorir:false
             });
@@ -44,30 +44,23 @@ function add_enemy2(Q){
             });
         },
         step: function(dt) 
-        {
+        {	
             if(!this.p.vaAmorir){
-	            if(!this.p.cargando){
-	                if(this.p.lado == 0 ) 
-	                    this.play('chargeL'); //Izquierda
-	                else if(this.p.lado == 1) 
-	                    this.play('chargeR'); //Derecha
-	            }else{
-	            	if(this.p.lado == 0 ) 
-	                    this.play('shootL'); //Izquierda
-	                else if(this.p.lado == 1) 
-	                    this.play('shootR');
-	            }
-            }
-
-            else
-                this.play('die');           
+	            if(this.p.time < 1){
+	                this.play('chargeL'); //Izquierd
+	                this.p.time +=dt;
+	            }else if(this.p.time < 2){
+	            		this.play('shootL');
+	            		this.p.time +=dt;
+	            	}else{
+	            		this.p.time = 0;
+	            	}
+	        }else
+               this.play('die');           
         },
-
-        shoot: function(dt)
-        {
-        	this.cargando = !this.cargando;
+        shoot: function(dt){
+        	this.stage.insert(new Q.fireball({x: this.p.x + 2, y: this.p.y}));
         },
-
 
         die: function(dt)
         {
@@ -75,11 +68,13 @@ function add_enemy2(Q){
             this.destroy();
         }
     });
+
+
     Q.animations('anim_enemy2',{
-        chargeR:{frames:[0,1,2], rate: 1/3, flip: false, loop: true, trigger: 'Shoot'},
-        shootR:{frames:[3], rate: 1/3, flip: "x", loop: true, trigger: 'Shoot' },
-        chargeL:{frames:[0,1,2], rate: 1/3, flip: "x", loop: true, trigger: 'Shoot'},
-        shootL:{frames:[3], rate: 1/3, flip: false, loop: true, trigger: 'Shoot'},
+        chargeR:{frames:[0,1,2], rate: 1/3, flip: false, loop: true},
+        chargeL:{frames:[0,1,2], rate: 1/3, flip: "x", loop: true},
+        shootR:{frames:[3], rate: 1/3, flip: "x", loop: true},
+        shootL:{frames:[3], rate: 1/3, flip: false, loop: true,  trigger: "Shoot"},
         die:{frames:[4], rate: 1/3, loop: false,  trigger: "dieT"}
     });
 }
