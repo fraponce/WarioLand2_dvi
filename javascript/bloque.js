@@ -34,6 +34,29 @@ function add_bloque(Q){
                 this.p.sensor=true;
                 this.play("roto");
 
+                var xDesp = 0;
+                var yDesp = 0;
+
+                if(col.obj.culetazo) {
+                    yDesp = 28;
+                }
+
+                if(col.obj.placando) {
+                    if(col.obj.lado==1){
+                        xDesp = 25;
+                    } else {
+                        xDesp = -25;
+                    }
+                }
+                if(!col.obj.placando && !col.obj.culetazo) {
+                    yDesp = -28;
+                }
+                var probCrear = Math.floor(Math.random() * 100);
+                if(probCrear < 25) this.stage.insert(new Q.goldCoin({x: this.p.x+xDesp, y: this.p.y+yDesp}));
+
+                var probCrear = Math.floor(Math.random() * 100);
+                if(probCrear < 75) this.stage.insert(new Q.silverCoin({x: this.p.x+xDesp, y: this.p.y+yDesp}));
+
             }else{
 
             }             
