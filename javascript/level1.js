@@ -13,7 +13,12 @@ function add_Level1(Q){
 		var bloque3 = stage.insert(new Q.Bloque({x: 176, y: 432}));
 		var bloque4 = stage.insert(new Q.Bloque({x: 400, y: 576}));
 		var bloque4 = stage.insert(new Q.Bloque({x: 600, y: 608}));
-		var bloque1 = stage.insert(new Q.Bloque({x: 240, y: 576}));
+		//var bloque1 = stage.insert(new Q.Bloque({x: 240, y: 576}));
+
+		//TODO, ARREGLAR... AL METER ESTAS DOS PASA Q SOLO SE MUESTRA UNA O SE SUPERPONEN, PERO CUENTA COMO Q RECOJO LAS DOS
+		//var g2 = stage.insert(new Q.goldCoin({x: 280, y: 400}));
+		var g2 = stage.insert(new Q.goldCoin({x: 196, y: 400}));
+		//var g1 = stage.insert(new Q.goldCoin({x: 300, y: 430}));
 
 		//Escaleras		
 		var escalera1a = stage.insert(new Q.Escalera({x: 214, y: 592}));

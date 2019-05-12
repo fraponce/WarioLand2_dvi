@@ -32,9 +32,10 @@ window.addEventListener('load',function()
 	add_ControlesWario(Q);
 	add_pantallaWin(Q);
 	add_pantallaLose(Q);
+	add_goldCoin(Q);
 	//add_Goomba(Q);
 	
-	Q.loadTMX('level001.tmx, level002.tmx, level003.tmx, numeros/0.png, numeros/1.png, numeros/2.png, numeros/3.png, numeros/4.png, numeros/5.png, numeros/6.png, numeros/7.png, numeros/8.png, numeros/9.png, vidas.png, vidas.json, wario.png, wario.json, enemy1.png, enemy1.json,enemy2.png,enemy2.json, bigcoin.png, bigcoin.json, block.png, bloque.json, pantalla_inicial/titulowario.png, pantalla_inicial/fondopantallaprincipal.png,pantalla_inicial/pantallacontroles.png, pantalla_inicial/controls.png, pantalla_inicial/newgame.png, pantalla_inicial/pressenter.png, cabezawario.png, cabezawario.json, pantallawinlose/fondonegro.png, pantallawinlose/pressentertocontinue.png, pantallawinlose/score.png, pantallawinlose/youlose.png, pantallawinlose/youwin.png', function()
+	Q.loadTMX('level001.tmx, level002.tmx, level003.tmx, numeros/0.png, numeros/1.png, numeros/2.png, numeros/3.png, numeros/4.png, numeros/5.png, numeros/6.png, numeros/7.png, numeros/8.png, numeros/9.png, vidas.png, vidas.json, wario.png, wario.json, enemy1.png, enemy1.json,enemy2.png,enemy2.json, bigcoin.png, bigcoin.json, miniGoldCoin.png, monedaGold.json, block.png, bloque.json, pantalla_inicial/titulowario.png, pantalla_inicial/fondopantallaprincipal.png,pantalla_inicial/pantallacontroles.png, pantalla_inicial/controls.png, pantalla_inicial/newgame.png, pantalla_inicial/pressenter.png, cabezawario.png, cabezawario.json, pantallawinlose/fondonegro.png, pantallawinlose/pressentertocontinue.png, pantallawinlose/score.png, pantallawinlose/youlose.png, pantallawinlose/youwin.png', function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('enemy1.png', 'enemy1.json');
@@ -43,6 +44,7 @@ window.addEventListener('load',function()
 		Q.compileSheets('block.png', 'bloque.json');
 		Q.compileSheets('vidas.png', 'vidas.json');		
 		Q.compileSheets('cabezawario.png', 'cabezawario.json');
+		Q.compileSheets('miniGoldCoin.png', 'monedaGold.json');
 		//Q.compileSheets('goomba.png', 'goomba.json');
 		Q.stageScene('pantallaMenu');
 		//Q.stageScene('level1');
