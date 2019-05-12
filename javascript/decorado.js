@@ -22,7 +22,7 @@ function add_stair(Q) {
 
 			this.vx = col.separate[0]=0;
 			this.vy = col.separate[1]=0;
-			if(col.obj.isA("Wario") && col.obj.p.vx==0){
+			if(col.obj.isA("Wario") && col.obj.p.vx==0 && !col.obj.p.culetazo){
 				col.obj.trigger("onStair",col);
 			}else{
 
