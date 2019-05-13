@@ -10,11 +10,16 @@ function add_pantallaLose(Q)
                 opacity: 1
             });
         },
-        step: function (dt){}
+        step: function (dt){
+
+            var a = 0;
+        }
     });
 
      Q.scene('derrota',function(stage) 
      {
+        Q.stageScene(null, 1);
+        Q.state.set("reset",true);
         stage.insert(new Q.pantallacontroles({
         	asset: "pantallawinlose/fondonegro.png",
         	x: 160,

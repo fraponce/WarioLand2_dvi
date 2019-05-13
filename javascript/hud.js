@@ -81,13 +81,19 @@ function add_hud(Q){
 
 	        step: function(dt) {
 	            this.p.vidas = Q.state.get("lifes");
+
+
 	            if(this.p.vidas!=this.p.vidasC){
 	            	this.p.vidasC = this.p.vidas; //Para no hacer todo el rato el .play, solo cuando cambian las vidas.
-	            	this.play("normal"+this.p.vidas)
+	            	
+		            if(this.p.vidas >= 0){
+		            	this.play("normal"+this.p.vidas)
+		            } else {
+		            	var a = 0;
+		            }
 	            }
-	            if(this.p.vidas == 0) {
 
-	            }
+
 	        },
 
 	        resetLifes: function(){
@@ -98,6 +104,7 @@ function add_hud(Q){
 	    });
 	    stage.insert(new Q.Vidas());
         container.insert(new Q.Monedas());
+
         //container.insert(new Q.Vidas());
 	});
 

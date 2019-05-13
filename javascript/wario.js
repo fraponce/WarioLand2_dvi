@@ -27,7 +27,7 @@ function add_wario(Q) {
         winW: { frames: [26,27,28,29,30,31,32,33,34,35,36,37], rate:1/6, loop: false, flip:false, trigger: "winW"},
         sleepW: {frames: [39,40,41,42,43,44,45,46,47,48], rate:1/3, loop: false, flip:false, trigger: "winW"},
 
-        dieW:       { frames: [49,50], rate:1/3, loop: false, trigger: "deadW"} //TODO, AÑADIR
+        dieW: { frames: [49,47,48], rate:1/3, loop: false, trigger: "deadW"} //TODO, AÑADIR
     });
 
 
@@ -62,7 +62,7 @@ Q.Sprite.extend("Wario", {
             this.add('2d, platformerControls, animation');
             this.on("onDoor",this,"atravesar");
             this.on("killWario", "die");
-
+            this.on("deadW","deadWf");
             this.on("onStair", function(collision){
                 collision;
                 if(Q.inputs["down"] || Q.inputs["up"]){
@@ -84,164 +84,176 @@ Q.Sprite.extend("Wario", {
             })
            
         },
+
+        deadWf: function() {
+
+                //Q.state.set("lifes", 8);
+                //this.p.vidas  = 8;
+                //this.p.vidasC = 9;
+                //this.play("dieW");
+                Q.stageScene("derrota");
+                this.del("platformerControls");
+                // Q.stageScene("endGame", 1, {label: "You Died!"});
+                this.destroy();
+        },
         step: function(dt) {
-
-            // Cargar las coordenadas de Wario cuando vuelve a un nivel ya visitado
-            if(Q.state.get('cargadoOK' + Q.state.get('levelactual')) 
-                    && (Q.state.get('levelactual') == Q.state.get('siguiente' + Q.state.get('levelactual'))))
-            {
-                //console.log('levelActual -> ' + Q.state.get('levelactual'));
-                //console.log("##### Q.state.get('siguiente' + Q.state.get('levelactual')) -> " + Q.state.get('siguiente' + Q.state.get('levelactual')));    
-                Q.state.set('cargadoOK' + Q.state.get('levelactual'), false); 
-                this.p.x = Q.state.get('x' + Q.state.get('siguiente' + Q.state.get('levelactual'))); 
-                this.p.y = Q.state.get('y' + Q.state.get('siguiente' + Q.state.get('levelactual')));                
-            }
-
-            if(this.p.agachado){
-                this.p.speed = 100;
-                this.p.points = [[-4,-1],[4,-1],[4,16],[-3,16]]; //Cambiamos la colisión. (Representa un poligono formado respecto al centro del sprite)
-            }else if(this.p.placando){
-                this.p.speed = 200;
-                this.p.vx= this.p.speed;
-                if(this.p.lado == 0) this.p.vx = -this.p.vx;
-                this.p.points = [[-13,-15],[13,-15],[13,16],[-13,16]];
-            } else if(this.p.enStair){
-                this.p.speed=0;
-                this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
-            }
-            else {
-                this.p.gravity = 0.7;
-                this.p.speed = 180;
-                this.p.points = [[-6,-15],[6,-15],[6,16],[-5,16]];
-                //this.p.points = [[-2,-15],[2,-15],[2,16],[-2,16]]
-            }
-
-
-            if(this.p.vx > 0 ) 
-                this.p.lado=1; //Derecha
-            else if(this.p.vx<0) 
-                this.p.lado = 0; //Izquierda
-
-
-            //Control de sus animaciones/ataques:
-            if(this.p.vy != 0){ //Está saltando
-                if(!this.p.norepe && this.p.y - this.p.esta.viewport.y < 240)
-                    this.p.esta.viewport.directions = {x: true, y: false};
-                else {
-                    //this.p.esta.viewport.y = this.p.y+20
-                    this.p.norepe=true;
-                    this.p.esta.viewport.directions = {x: true, y: true};
+            if(!this.p.muerto){
+                // Cargar las coordenadas de Wario cuando vuelve a un nivel ya visitado
+                if(Q.state.get('cargadoOK' + Q.state.get('levelactual')) 
+                        && (Q.state.get('levelactual') == Q.state.get('siguiente' + Q.state.get('levelactual'))))
+                {
+                    //console.log('levelActual -> ' + Q.state.get('levelactual'));
+                    //console.log("##### Q.state.get('siguiente' + Q.state.get('levelactual')) -> " + Q.state.get('siguiente' + Q.state.get('levelactual')));    
+                    Q.state.set('cargadoOK' + Q.state.get('levelactual'), false); 
+                    this.p.x = Q.state.get('x' + Q.state.get('siguiente' + Q.state.get('levelactual'))); 
+                    this.p.y = Q.state.get('y' + Q.state.get('siguiente' + Q.state.get('levelactual')));                
                 }
-                this.p.esta.viewport.offsetY = 0;
 
-                this.p.placando = false;
-                if(this.p.vy>0 && !this.p.enStair) { //Cae... puede pegar culetazo
-                    if(Q.inputs["fire"] || Q.inputs["down"]){
-                        this.p.culetazo = true;
-                        if(this.p.lado == 1) {
-                            this.play("culetazo_right");
+                if(this.p.agachado){
+                    this.p.speed = 100;
+                    this.p.points = [[-4,-1],[4,-1],[4,16],[-3,16]]; //Cambiamos la colisión. (Representa un poligono formado respecto al centro del sprite)
+                }else if(this.p.placando){
+                    this.p.speed = 200;
+                    this.p.vx= this.p.speed;
+                    if(this.p.lado == 0) this.p.vx = -this.p.vx;
+                    this.p.points = [[-13,-15],[13,-15],[13,16],[-13,16]];
+                } else if(this.p.enStair){
+                    this.p.speed=0;
+                    this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
+                }
+                else {
+                    this.p.gravity = 0.7;
+                    this.p.speed = 180;
+                    this.p.points = [[-6,-15],[6,-15],[6,16],[-5,16]];
+                    //this.p.points = [[-2,-15],[2,-15],[2,16],[-2,16]]
+                }
+
+
+                if(this.p.vx > 0 ) 
+                    this.p.lado=1; //Derecha
+                else if(this.p.vx<0) 
+                    this.p.lado = 0; //Izquierda
+
+
+                //Control de sus animaciones/ataques:
+                if(this.p.vy != 0){ //Está saltando
+                    if(!this.p.norepe && this.p.y - this.p.esta.viewport.y < 240)
+                        this.p.esta.viewport.directions = {x: true, y: false};
+                    else {
+                        //this.p.esta.viewport.y = this.p.y+20
+                        this.p.norepe=true;
+                        this.p.esta.viewport.directions = {x: true, y: true};
+                    }
+                    this.p.esta.viewport.offsetY = 0;
+
+                    this.p.placando = false;
+                    if(this.p.vy>0 && !this.p.enStair) { //Cae... puede pegar culetazo
+                        if(Q.inputs["fire"] || Q.inputs["down"]){
+                            this.p.vy = 230;
+                            this.p.culetazo = true;
+                            if(this.p.lado == 1) {
+                                this.play("culetazo_right");
+                            } else {
+                                this.play("culetazo_left");
+                            }
                         } else {
-                            this.play("culetazo_left");
+                            this.p.culetazo = false;
                         }
                     } else {
                         this.p.culetazo = false;
                     }
-                } else {
-                    this.p.culetazo = false;
-                }
-                if(!this.p.salto) {
-                    //Q.audio.play("jump_small.mp3");
-                    this.p.salto=true;
-                }
-                if(this.p.vx > 0) {
-                    this.play("jump_right");
-                } else if(this.p.vx < 0) {
-                    this.play("jump_left");
-                }
-            } else {
-                this.p.salto = false;
-                this.p.culetazo = false;
-                this.p.esta.viewport.directions = {x: true, y: true};
-                this.p.esta.viewport.offsetY = 60;
-                this.p.norepe=false;
-
-            }
-            
-            
-            //  || (this.p.agachado==true && !colision || colision.normalY!=0)
-            if ((Q.inputs["down"] && !this.p.vy!=0) || (this.p.agachado && this.stage.collide(this).normalY==1)){ //Está agachado
-                this.p.agachado = true;
-                if(this.p.vx !=0){
-                    if(this.p.lado==1){
-                        this.play("agachado_right");
-                    }else{                
-                        this.play("agachado_left");
+                    if(!this.p.salto) {
+                        //Q.audio.play("jump_small.mp3");
+                        this.p.salto=true;
                     }
-                } else {
-                   if(this.p.lado==1){
-                        this.play("agachado_stand_right");
-                    }else{                
-                        this.play("agachado_stand_left");
-                    } 
-                }
-            } else {
-                colision = this.stage.collide(this)
-                if(!colision || colision.normalY!=1) //Si hay colision arriba seguira agachado. 
-                    this.p.agachado = false;
-                    //break;
-                //if(colision && !colision.normalY==1)
-                
-            }
-
-
-            if(this.p.salto==false && this.p.agachado == false){
-                if(Q.inputs["fire"]){
-                    this.p.placando = true;
-                    if(this.p.lado == 1) {
-                        this.play("placa_right");
-                    } else if(this.p.lado == 0) {
-                        this.play("placa_left");
-                    }
-                }else {
-                    this.p.placando = false;                    
                     if(this.p.vx > 0) {
-                        if(!this.p.entrando){
-                            this.play("run_right");
-                        }else{
-                            this.p.vx=0;
-                        }
+                        this.play("jump_right");
                     } else if(this.p.vx < 0) {
-                        if(!this.p.entrando){
-                            this.play("run_left");
-                        } else {
-                            this.p.vx=0;
+                        this.play("jump_left");
+                    }
+                } else {
+                    this.p.salto = false;
+                    this.p.culetazo = false;
+                    this.p.esta.viewport.directions = {x: true, y: true};
+                    this.p.esta.viewport.offsetY = 60;
+                    this.p.norepe=false;
+
+                }
+                
+                
+                //  || (this.p.agachado==true && !colision || colision.normalY!=0)
+                if ((Q.inputs["down"] && !this.p.vy!=0) || (this.p.agachado && this.stage.collide(this).normalY==1)){ //Está agachado
+                    this.p.agachado = true;
+                    if(this.p.vx !=0){
+                        if(this.p.lado==1){
+                            this.play("agachado_right");
+                        }else{                
+                            this.play("agachado_left");
                         }
                     } else {
-                        if(!this.p.entrando){
-                            this.play("stand_" + this.p.direction);
-                        }
-                    }   
+                       if(this.p.lado==1){
+                            this.play("agachado_stand_right");
+                        }else{                
+                            this.play("agachado_stand_left");
+                        } 
+                    }
+                } else {
+                    colision = this.stage.collide(this)
+                    if(!colision || colision.normalY!=1) //Si hay colision arriba seguira agachado. 
+                        this.p.agachado = false;
+                        //break;
+                    //if(colision && !colision.normalY==1)
+                    
                 }
-            }
-            if(this.p.y > 700) {
-               this.die();
-            }
 
-            this.p.enStair = false;
+
+                if(this.p.salto==false && this.p.agachado == false){
+                    if(Q.inputs["fire"]){
+                        this.p.placando = true;
+                        if(this.p.lado == 1) {
+                            this.play("placa_right");
+                        } else if(this.p.lado == 0) {
+                            this.play("placa_left");
+                        }
+                    }else {
+                        this.p.placando = false;                    
+                        if(this.p.vx > 0) {
+                            if(!this.p.entrando){
+                                this.play("run_right");
+                            }else{
+                                this.p.vx=0;
+                            }
+                        } else if(this.p.vx < 0) {
+                            if(!this.p.entrando){
+                                this.play("run_left");
+                            } else {
+                                this.p.vx=0;
+                            }
+                        } else {
+                            if(!this.p.entrando){
+                                this.play("stand_" + this.p.direction);
+                            }
+                        }   
+                    }
+                }
+                if(this.p.y > 700) {
+                   this.die();
+                }
+
+                this.p.enStair = false;
+
+            }
         }, 
 
         die: function() {
             //Si nos quedan vidas perdemos una, si no perdemos definitivamente.
             var lifes = Q.state.get("lifes");
-            if(lifes == 1) {
-                Q.state.set("lifes", 8);
-                this.p.vidas  = 8;
-                this.p.vidasC = 9;
-                //this.play("dieW");
-                this.del("platformerControls");
-                // Q.stageScene("endGame", 1, {label: "You Died!"});
-                this.destroy();
-                Q.stageScene("level1");
+            if(lifes == 1 && !this.p.muerto) {
+                this.p.muerto = true;
+                Q.state.set("lifes",lifes-1);
+                this.play("dieW");
+                this.p.points= [[-7,-5],[7,-5],[7,5],[-7,5]];
+                this.p.y = this.p.y-30;
 
             }
             else {
