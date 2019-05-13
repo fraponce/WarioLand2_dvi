@@ -5,8 +5,8 @@ function add_fireball(Q){
 
 			this._super(p, {
 				sensor: true,
-				sprite: 'anim_bigcoin',
-				sheet: 'monedaGold',
+				sprite: 'anim_fireball',
+				sheet: 'fireball',
 				points: [[-6,-6],[6,-6],[6,6],[-6,6]],
 				gravity:0,
 				time: 0,
@@ -27,14 +27,17 @@ function add_fireball(Q){
 
 		step: function(dt){
 			this.p.time += dt;
-			this.play("bigcoin");
+			this.play("fireR");
 			if(this.p.time > 10)
 				this.destroy();
 		}
 
 	});
 
-	Q.animations('anim_bigcoin',{
-    	bigcoin:{frames:[0,1,2,3,4], rate: 1/10, flip: false, loop: true}
+	Q.animations('anim_fireball',{
+    	fireR:{frames:[0,1], rate: 1/3, flip: false, loop: true},
+    	explosionR:{frames:[2,3,4], rate: 1/3, flip: false, loop: false},
+    	fireL:{frames:[0,1], rate: 1/3, flip: "x", loop: true},
+    	explosionL:{frames:[2,3,4], rate: 1/3, flip: "x", loop: false}
     });
 }
