@@ -3,6 +3,9 @@ function add_Level1(Q){
 	//crea una nueva scene llamada level1
 	Q.scene('level1', function(stage)
 	{
+
+		Q.audio.stop();
+		Q.audio.play('02 Out of the Woods (Night).mp3',{ loop: true });
 		// Guardo el nivel en el que estoy
 		Q.state.set('levelactual', 'level1');
 

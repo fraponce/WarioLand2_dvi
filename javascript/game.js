@@ -15,7 +15,10 @@ window.addEventListener('load',function()
 		    .controls()
 		    .touch()
 		    .enableSound();	
-	
+    
+	Q.load(["02 Out of the Woods (Night).mp3"], function(){});
+	Q.load(["WL3_Climb.mp3"], function(){});
+
 	add_Level1(Q);
 	add_Level2(Q);
 	add_Level3(Q);
@@ -38,6 +41,7 @@ window.addEventListener('load',function()
 	add_silverCoin(Q);
 	//add_Goomba(Q);
 	
+
 	Q.loadTMX('level001.tmx, level002.tmx, level003.tmx,level004.tmx,'+
 		' numeros/0.png, numeros/1.png, numeros/2.png,'+
 		' numeros/3.png, numeros/4.png, numeros/5.png,'+
@@ -56,7 +60,8 @@ window.addEventListener('load',function()
 		' cabezawario.json, pantallawinlose/fondonegro.png,'+
 		' pantallawinlose/pressentertocontinue.png,'+
 		' pantallawinlose/score.png, pantallawinlose/youlose.png,'+
-		' pantallawinlose/youwin.png', function()
+		' pantallawinlose/youwin.png',
+		 function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('fireball.png', 'fireball.json');
