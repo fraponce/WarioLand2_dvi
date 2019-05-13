@@ -35,8 +35,8 @@ function add_Level2(Q){
 
 		var i;
 		for (i = 0; i < 30; i++) {
-		  var bloquei = stage.insert(new Q.Bloque({x: 250+i*32, y: 532}));
-		  var bloquei = stage.insert(new Q.Bloque({x: 250+i*32, y: 500}));
+		  var bloquei = stage.insert(new Q.Bloque({x: 250+i*32, y: 532, id: 'bloquelvl2a' + i}));
+		  var bloquei = stage.insert(new Q.Bloque({x: 250+i*32, y: 500, id: 'bloquelvl2b' + i}));
 		};
 
 		var enemy001 =  stage.insert(new Q.enemy2({x: 1310,y: 316}));

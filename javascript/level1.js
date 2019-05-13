@@ -9,11 +9,11 @@ function add_Level1(Q){
 		Q.stageTMX('level001.tmx',stage); 
 		var player = stage.insert(new Q.Wario({ x: 245, y: 480, esta: stage }));
 
-		var bloque2 = stage.insert(new Q.Bloque({x: 240, y: 576}));
-		var bloque3 = stage.insert(new Q.Bloque({x: 176, y: 432}));
-		var bloque4 = stage.insert(new Q.Bloque({x: 400, y: 576}));
-		var bloque4 = stage.insert(new Q.Bloque({x: 600, y: 608}));
-		var bloque5 = stage.insert(new Q.Bloque({x: 815, y: 592}));
+		var bloque2 = stage.insert(new Q.Bloque({x: 240, y: 576, id: 'bloquelvl1a01'}));
+		var bloque3 = stage.insert(new Q.Bloque({x: 176, y: 432, id: 'bloquelvl1a02'}));
+		var bloque4 = stage.insert(new Q.Bloque({x: 400, y: 576, id: 'bloquelvl1a03'}));
+		var bloque4 = stage.insert(new Q.Bloque({x: 600, y: 608, id: 'bloquelvl1a04'}));
+		var bloque5 = stage.insert(new Q.Bloque({x: 815, y: 592, id: 'bloquelvl1a05'}));
 
 
 

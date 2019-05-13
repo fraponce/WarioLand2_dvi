@@ -9,6 +9,7 @@ function add_bloque(Q){
     Q.Sprite.extend('Bloque',{
         init: function(p){
             this._super(p,{
+                id: 'ab',
                 sprite: 'anim_bloque',
                 sheet: 'bloque',
                 gravity: 0,
@@ -30,6 +31,7 @@ function add_bloque(Q){
             
             if(col.obj.isA("Wario") && ( (col.obj.p.culetazo && col.normalY>0) || (col.obj.p.placando && col.normalX==1 && col.obj.p.lado==1) || (col.obj.p.placando && col.normalX==-1 && col.obj.p.lado==0) || (col.normalY==-1 && !(col.obj.p.placando || col.obj.p.culetazo) ) ) && !this.p.roto){
 
+                Q.state.set(this.p.id, true);
                 this.p.roto=true;
                 this.p.sensor=true;
                 this.play("roto");
@@ -68,6 +70,10 @@ function add_bloque(Q){
 
         step: function(dt) {
             this.stage.collide(this);
+            if(Q.state.get(this.p.id))
+            { 
+                this.destroy();
+            }
         }
     });
        
