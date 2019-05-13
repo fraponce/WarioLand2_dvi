@@ -13,8 +13,7 @@ function add_fireball(Q){
 				vx: 50,
 			});
 
-			this.add('2d, animation, Stats');
-		    this.setStats(100, 2, true);
+			this.add('2d, animation');
 		    this.on("hit", function(collision){
 		    		if(collision.obj.isA("Wario")){
 						collision.obj.die();
@@ -28,6 +27,7 @@ function add_fireball(Q){
 
 		step: function(dt){
 			this.p.time += dt;
+			this.play("bigcoin");
 			if(this.p.time > 10)
 				this.destroy();
 		}

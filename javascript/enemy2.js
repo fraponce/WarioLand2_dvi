@@ -14,7 +14,6 @@ function add_enemy2(Q){
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
             this.on('dieT',this,'die');
-            this.on('Shoot',this,'shoot');
 
             this.on("bump.top", function(collision) {
                 if (collision.obj.isA("Wario"))
@@ -54,12 +53,10 @@ function add_enemy2(Q){
 	            		this.p.time +=dt;
 	            	}else{
 	            		this.p.time = 0;
+	            		this.stage.insert(new Q.fireball({x: this.x - 5, y: this.y}));
 	            	}
 	        }else
                this.play('die');           
-        },
-        shoot: function(dt){
-        	this.stage.insert(new Q.fireball({x: this.p.x + 2, y: this.p.y}));
         },
 
         die: function(dt)
@@ -74,7 +71,7 @@ function add_enemy2(Q){
         chargeR:{frames:[0,1,2], rate: 1/3, flip: false, loop: true},
         chargeL:{frames:[0,1,2], rate: 1/3, flip: "x", loop: true},
         shootR:{frames:[3], rate: 1/3, flip: "x", loop: true},
-        shootL:{frames:[3], rate: 1/3, flip: false, loop: true,  trigger: "Shoot"},
+        shootL:{frames:[3], rate: 1/3, flip: false, loop: true},
         die:{frames:[4], rate: 1/3, loop: false,  trigger: "dieT"}
     });
 }
