@@ -29,7 +29,9 @@ function add_goldCoin(Q){
 			        	this.destroy();
 			        }
 		        }
-		        var xDesp = 0;		
+
+		        var xDesp = 0;	
+		        /*	
 		        if(col.obj.p.vx>0 && col.obj.p.placando){
 		        	xDesp = 200;
 		        }
@@ -39,7 +41,7 @@ function add_goldCoin(Q){
 		        	xDesp = -200;
 		        } else if( col.obj.p.vx<0){
 		        	xDesp = -180;
-		        }
+		        }*/
 
 		        this.animate({ x: this.p.x-120+xDesp, y: this.p.y-170 }, 0.70, { callback: get });
 			}					
