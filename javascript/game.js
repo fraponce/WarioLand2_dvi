@@ -41,6 +41,7 @@ window.addEventListener('load',function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('enemy1.png', 'enemy1.json');
+		Q.compileSheets('fireball.png', 'fireball.json');
 		Q.compileSheets('enemy2.png', 'enemy2.json')
 		Q.compileSheets('bigcoin.png', 'bigcoin.json');
 		Q.compileSheets('block.png', 'bloque.json');
