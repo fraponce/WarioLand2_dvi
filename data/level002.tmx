@@ -1891,10 +1891,10 @@
    <tile gid="51"/>
    <tile gid="51"/>
    <tile gid="51"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
+   <tile gid="51"/>
+   <tile gid="94"/>
+   <tile gid="93"/>
+   <tile gid="95"/>
    <tile/>
    <tile/>
    <tile/>
@@ -1991,10 +1991,10 @@
    <tile gid="51"/>
    <tile gid="51"/>
    <tile gid="51"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
+   <tile gid="51"/>
+   <tile gid="94"/>
+   <tile gid="47"/>
+   <tile gid="95"/>
    <tile/>
    <tile/>
    <tile/>
@@ -2091,10 +2091,10 @@
    <tile gid="51"/>
    <tile gid="51"/>
    <tile gid="51"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
-   <tile gid="13"/>
+   <tile gid="51"/>
+   <tile gid="94"/>
+   <tile gid="55"/>
+   <tile gid="95"/>
    <tile/>
    <tile/>
    <tile/>
