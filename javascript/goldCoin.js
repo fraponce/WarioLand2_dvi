@@ -28,8 +28,20 @@ function add_goldCoin(Q){
 						Q.state.set("score",Q.state.get("score")+3); 
 			        	this.destroy();
 			        }
-		        }		
-		        this.animate({ x: 100, y: 150 }, 0.65, { callback: get });
+		        }
+		        var xDesp = 0;		
+		        if(col.obj.p.vx>0 && col.obj.p.placando){
+		        	xDesp = 200;
+		        }
+		        else if(col.obj.p.vx>0) {
+		        	xDesp = 180;
+		        } else if(col.obj.p.vx<0 && col.obj.p.placando){
+		        	xDesp = -200;
+		        } else if( col.obj.p.vx<0){
+		        	xDesp = -180;
+		        }
+
+		        this.animate({ x: this.p.x-120+xDesp, y: this.p.y-170 }, 0.70, { callback: get });
 			}					
 		},
 		step: function(dt)
@@ -75,7 +87,7 @@ function add_silverCoin(Q){
 			        	this.destroy();
 			        }
 		        }		
-		        this.animate({ x: 100, y: 150 }, 0.65, { callback: get });
+		        this.animate({ x: this.p.x-120, y: this.p.y-170  }, 0.70, { callback: get });
 			}					
 		},
 		step: function(dt)
