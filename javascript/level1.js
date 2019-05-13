@@ -62,11 +62,9 @@ function add_Level1(Q){
 
 		//Puertas
 		//Puerta verde
-		var puerta001a = stage.insert(new Q.Puerta({x: 600, y: 602, escenario: 'level2'}));
-		//var puerta002a = stage.insert(new Q.Puerta({x: 600, y: 618, escenario: 'level2'}));
+		var puerta001a = stage.insert(new Q.Puerta({x: 600, y: 602, escenario: 'level4'}));
 		// Puerta roca
-		var puerta003a = stage.insert(new Q.Puerta({x: 1383, y: 394, escenario: 'level3'}));
-		//var puerta004a = stage.insert(new Q.Puerta({x: 1383, y: 410, escenario: 'level2'}));
+		var puerta002a = stage.insert(new Q.Puerta({x: 1383, y: 394, escenario: 'level2'}));
 
 		stage.add('viewport')
 			.follow(player, 

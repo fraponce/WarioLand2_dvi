@@ -9,7 +9,7 @@ function add_Level2(Q){
 		Q.stageTMX('level002.tmx',stage); 
 
 		// level 2
-		var player = stage.insert(new Q.Wario({ x: 190, y: 432, esta: stage  }));	
+		var player = stage.insert(new Q.Wario({ x: 120, y: 432, esta: stage  }));	
 
 		//Escaleras
 		var escalera4a = stage.insert(new Q.Escalera({x: 214, y: 576}));
@@ -44,7 +44,8 @@ function add_Level2(Q){
 		//Puertas
 		//Puerta verde
 		var puerta001b = stage.insert(new Q.Puerta({x: 120, y: 428, escenario: 'level1'}));
-		//var puerta002b = stage.insert(new Q.Puerta({x: 120, y: 444, escenario: 'level1'}));	
+		//Puerta BOSS
+		var puerta002b = stage.insert(new Q.Puerta({x: 1365, y: 316, escenario: 'level3'}));
 
 		stage.add('viewport')
 			.follow(player, 
