@@ -1,3 +1,12 @@
+/*
+    TODO: ESCALERAS + PLACAJE ARREGLAR
+    TODO: AGACHADO + ENTRAR PUERTA ARREGLAR
+    TODO: ANIMACION WARIO AL SALTAR PLACANDO SE PARA (DEBE HABER UN PLAY X AHI Q COMPITA)
+
+
+
+*/
+
 
 function add_wario(Q) {
     /*===========================================================================================
@@ -148,7 +157,7 @@ Q.Sprite.extend("Wario", {
 
                     this.p.placando = false;
                     if(this.p.vy>0 && !this.p.enStair) { //Cae... puede pegar culetazo
-                        if(Q.inputs["fire"] || Q.inputs["down"]){
+                        if(Q.inputs["down"]  ){ //&& !this.p.placando
                             this.p.vy = 230;
                             this.p.culetazo = true;
                             if(this.p.lado == 1) {
@@ -166,10 +175,12 @@ Q.Sprite.extend("Wario", {
                         //Q.audio.play("jump_small.mp3");
                         this.p.salto=true;
                     }
-                    if(this.p.vx > 0) {
-                        this.play("jump_right");
-                    } else if(this.p.vx < 0) {
-                        this.play("jump_left");
+                    if(!this.p.placando){
+                        if(this.p.vx > 0) {
+                            this.play("jump_right");
+                        } else if(this.p.vx < 0) {
+                            this.play("jump_left");
+                        }
                     }
                 } else {
                     this.p.salto = false;
@@ -206,8 +217,8 @@ Q.Sprite.extend("Wario", {
                     
                 }
 
-
-                if(this.p.salto==false && this.p.agachado == false){
+                if(!this.p.culetazo && !this.p.agachado && !this.p.entrando){
+                //if(this.p.salto==false && this.p.agachado == false && !this.p.entrando){
                     if(Q.inputs["fire"]){
                         this.p.placando = true;
                         if(this.p.lado == 1) {
@@ -230,7 +241,7 @@ Q.Sprite.extend("Wario", {
                                 this.p.vx=0;
                             }
                         } else {
-                            if(!this.p.entrando){
+                            if(!this.p.entrando && this.p.salto==false){
                                 this.play("stand_" + this.p.direction);
                             }
                         }   
@@ -291,6 +302,7 @@ Q.Sprite.extend("Wario", {
             //console.log("##### guarda Y -> " + Q.state.get('y' + Q.state.get('levelactual')));  
             
             this.p.jumpSpeed = -300;
+            this.p.vx = 180;
             this.p.entrando = false;                   
         }
     });

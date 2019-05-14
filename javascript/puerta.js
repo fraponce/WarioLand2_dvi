@@ -8,6 +8,7 @@ function add_door(Q) {
 	            type: 0,
 	            cx:8,
 	            cy:8,
+	            entrando: false,
 	            w: 16,
 	            h: 16,
 	            sensor: true,
@@ -20,13 +21,14 @@ function add_door(Q) {
 				this.vx = col.separate[0]=0;
 				this.vy = col.separate[1]=0;
 			
-				if(Q.inputs["up"] && col.obj.isA("Wario") && col.obj.p.vx==0)
+				if(Q.inputs["up"] && col.obj.isA("Wario") && col.obj.p.vx==0 && !col.obj.p.placando && !col.obj.p.culetazo && !col.obj.p.agachado)
 				{
 					if(!this.p.entrando) {
 						this.p.entrando =true;
 						col.obj.p.jumpSpeed = 0; 
                 		col.obj.p.vy = 1;
                 		col.obj.p.entrando = true;
+                		col.obj.p.vx = 0;
                 		Q.state.set('nombrePuerta', this.p.escenario);     		
 						col.obj.play('enter_door');
 					}
