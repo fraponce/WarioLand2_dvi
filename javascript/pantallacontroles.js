@@ -22,12 +22,12 @@ function add_ControlesWario(Q)
         	scale: 0.45
         }));
 
-        let cara1 = stage.insert(new Q.SelectorMenu({
+        let cara1 = stage.insert(new Q.CabezaWinLose({
         	x: 95, 
         	y: 275
         }));
 
-        let cara2 = stage.insert(new Q.SelectorMenu({
+        let cara2 = stage.insert(new Q.CabezaWinLose({
         	x: 237, 
         	y: 275
         }));

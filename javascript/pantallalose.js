@@ -1,7 +1,7 @@
 function add_pantallaLose(Q)
 {
 	/////////////////////////////////////////////////
-	// FONDO PANTALLA WIN
+	// FONDO PANTALLA LOSE
 	/////////////////////////////////////////////////
 	Q.Sprite.extend("pantallalose", {
         init: function(p) {
@@ -11,15 +11,12 @@ function add_pantallaLose(Q)
             });
         },
         step: function (dt){
-
             var a = 0;
         }
     });
 
      Q.scene('derrota',function(stage) 
      {
-        Q.stageScene(null, 1);
-        Q.state.set("reset",true);
         stage.insert(new Q.pantallacontroles({
         	asset: "pantallawinlose/fondonegro.png",
         	x: 160,
@@ -48,12 +45,12 @@ function add_pantallaLose(Q)
             scale: 0.2
         }));
 
-        let cara1 = stage.insert(new Q.SelectorMenu({
+        let cara1 = stage.insert(new Q.CabezaWinLose({
         	x: 75, 
         	y: 275
         }));
 
-        let cara2 = stage.insert(new Q.SelectorMenu({
+        let cara2 = stage.insert(new Q.CabezaWinLose({
         	x: 255, 
         	y: 275
         }));
@@ -156,6 +153,28 @@ function add_pantallaLose(Q)
                     break;
                 default:
             }
+        }
+    });
+
+    /////////////////////////////////////////////////
+    // CABEZA WARIO - PANTALLA WIN / LOSE
+    /////////////////////////////////////////////////
+    Q.Sprite.extend("CabezaWinLose", {
+        init: function(p) {
+            this._super(p, {
+                sprite: "cabezawario",
+                sheet: "cabezawario",
+                x:60,
+                y:150,
+                gravity:0,
+                scale: 1.5,
+                opacity: 1
+            });
+            this.add('animation', 'platformerControl');
+        },
+        step: function (dt)
+        {
+            this.play("cabeza_wario");
         }
     });
 }

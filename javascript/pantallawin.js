@@ -43,12 +43,12 @@ function add_pantallaWin(Q)
             scale: 0.2
         }));
 
-        let cara1 = stage.insert(new Q.SelectorMenu({
+        let cara1 = stage.insert(new Q.CabezaWinLose({
         	x: 75, 
         	y: 275
         }));
 
-        let cara2 = stage.insert(new Q.SelectorMenu({
+        let cara2 = stage.insert(new Q.CabezaWinLose({
         	x: 255, 
         	y: 275
         }));
