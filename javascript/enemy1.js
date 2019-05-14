@@ -40,7 +40,7 @@ function add_enemy1(Q){
             	  }
           	});
           	this.on("bump.right", function(collision) {
-                if (collision.obj.isA("Wario" && !this.p.vaAmorir))
+                if (collision.obj.isA("Wario") && !this.p.vaAmorir)
                   if(this.p.lado == 1){
                     //collision.obj.play("die");
                     collision.obj.die();
