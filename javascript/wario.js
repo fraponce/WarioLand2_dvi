@@ -269,6 +269,7 @@ Q.Sprite.extend("Wario", {
             }
             else {
                 Q.state.set("lifes",lifes-1);
+                Q.audio.play('WL3_WarioHit.mp3',{loop: false});
                 //play.dolor
             }
                 /*
