@@ -16,8 +16,7 @@ window.addEventListener('load',function()
 		    .touch()
 		    .enableSound();	
     
-	Q.load(["02 Out of the Woods (Night).mp3"], function(){});
-	Q.load(["WL3_Climb.mp3"], function(){});
+	Q.load(["02 Out of the Woods (Night).mp3","WL3_Steps.mp3","WL3_Climb.mp3","WL3_WarioHit.mp3"], function(){});
 
 	add_Level1(Q);
 	add_Level2(Q);

@@ -58,6 +58,8 @@ function add_MenuWario(Q)
                         Q.state.set("score",0);  
                         Q.stageScene("HUD", 1);
                       	Q.stageScene("level1");
+                      	Q.audio.stop();
+						Q.audio.play('02 Out of the Woods (Night).mp3',{ loop: true });
                     } 
                     else if(this.p.asset === "pantalla_inicial/controls.png") 
                     {
