@@ -39,6 +39,7 @@ window.addEventListener('load',function()
 	add_pantallaLose(Q);
 	add_goldCoin(Q);
 	add_silverCoin(Q);
+	add_lifeObj(Q);
 	//add_Goomba(Q);
 	
 
@@ -60,7 +61,7 @@ window.addEventListener('load',function()
 		' cabezawario.json, pantallawinlose/fondonegro.png,'+
 		' pantallawinlose/pressentertocontinue.png,'+
 		' pantallawinlose/score.png, pantallawinlose/youlose.png,'+
-		' pantallawinlose/youwin.png',
+		' pantallawinlose/youwin.png, obj_life.png, lifes.json',
 		 function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
@@ -69,7 +70,8 @@ window.addEventListener('load',function()
 		Q.compileSheets('enemy2.png', 'enemy2.json')
 		Q.compileSheets('bigcoin.png', 'bigcoin.json');
 		Q.compileSheets('block.png', 'bloque.json');
-		Q.compileSheets('vidas.png', 'vidas.json');		
+		Q.compileSheets('vidas.png', 'vidas.json');
+		Q.compileSheets('obj_life.png','lifes.json');		
 		Q.compileSheets('cabezawario.png', 'cabezawario.json');
 		Q.compileSheets('miniGoldCoin.png', 	'monedaGold.json');
 		Q.compileSheets('miniSilverCoin.png', 	'monedaSilver.json');

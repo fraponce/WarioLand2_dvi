@@ -103,3 +103,59 @@ function add_silverCoin(Q){
     	bigcoin: {frames:[0,1,2,3,4,5,6], rate: 1/10, flip: false, loop: true}
     });
 }
+
+
+function add_lifeObj(Q){
+	Q.Sprite.extend('lifeObj',{
+		init: function(p){
+			this._super(p,{
+				sprite: 'anim_vidasObj',
+				sheet: 'vidasObj',
+				sensor: false,
+				points: [[-2,-2],[2,-2],[2,2],[-2,2]],
+				onSensor:false,
+				getOnlyFirst:false,
+				col: false
+				
+	        });
+	        this.add('tween,animation,2d');
+	        this.on("hit",this,"collision");
+
+		},
+		collision: function(col)
+		{	
+			this.p.col = true;
+			//Guardar estado de la moneda
+			if(col.obj.isA("Wario")){
+				this.p.onSensor = true;
+				this.p.sensor = true;
+				var get = function(){
+					if(!this.p.getOnlyFirst){
+						this.p.getOnlyFirst = true;
+						if(Q.state.get("lifes")<8){
+							Q.state.set("lifes",Q.state.get("lifes")+1); 
+						}
+			        	this.destroy();
+			        }
+		        }		
+		        this.animate({ x: this.p.x-120, y: this.p.y-190  }, 0.70, { callback: get });
+			} else {
+				//De esta forma, los enemigos podrán atravesarlo, aunque quizas se pueda quedar atascado en algun punto
+				this.p.gravity = 0;
+				this.p.jumpSpeed = 0;
+				this.p.vx = 0;
+				this.p.vy = 0;
+				this.p.sensor=true;
+			}					
+		},
+		step: function(dt)
+		{
+			this.stage.collide(this);
+			this.play('life');					
+		}
+	});
+
+	Q.animations('anim_vidasObj',{
+    	life: {frames:[0,1,2,3], rate: 1/10, flip: false, loop: true}
+    });
+}

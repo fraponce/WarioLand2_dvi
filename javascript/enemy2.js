@@ -61,6 +61,10 @@ function add_enemy2(Q){
 
         die: function(dt)
         {
+            var probCrear = Math.floor(Math.random() * 100);
+            if(probCrear<5){
+                this.stage.insert(new Q.lifeObj({x: this.p.x, y: this.p.y}));
+            }
             this.p.hamuerto = true;             
             this.destroy();
         }

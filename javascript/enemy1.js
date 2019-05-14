@@ -17,8 +17,8 @@ function add_enemy1(Q){
 
 
             this.on("bump.top", function(collision) {
-                if (collision.obj.isA("Wario"))
-                  if(collision.obj.p.culetazo && !this.p.vaAmorir){
+                if (collision.obj.isA("Wario") && !this.p.vaAmorir)
+                  if(collision.obj.p.culetazo){
                     this.p.vx=0;
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
@@ -27,11 +27,11 @@ function add_enemy1(Q){
                 }
           	});
           	this.on("bump.left", function(collision) {
-                if (collision.obj.isA("Wario"))
+                if (collision.obj.isA("Wario") && !this.p.vaAmorir)
                   if(this.p.lado == 0){
                     //collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando && !this.p.vaAmorir){
+                  }else if (collision.obj.p.placando){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
                     this.p.sensor=true;
@@ -40,11 +40,11 @@ function add_enemy1(Q){
             	  }
           	});
           	this.on("bump.right", function(collision) {
-                if (collision.obj.isA("Wario"))
+                if (collision.obj.isA("Wario" && !this.p.vaAmorir))
                   if(this.p.lado == 1){
                     //collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando && !this.p.vaAmorir){
+                  }else if (collision.obj.p.placando){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
                     this.p.sensor=true;
@@ -56,6 +56,10 @@ function add_enemy1(Q){
           
         die: function()
         {
+            var probCrear = Math.floor(Math.random() * 100);
+            if(probCrear<5){
+                this.stage.insert(new Q.lifeObj({x: this.p.x, y: this.p.y}));
+            }
             this.p.hamuerto = true;             
             this.destroy();
         },
@@ -74,9 +78,9 @@ function add_enemy1(Q){
                 else if(this.p.vx<0) 
                     this.play('walkR'); //Derecha
             }
-
-            else
+            else{
                 this.play('die');           
+            }
         },
 
     });
