@@ -8,7 +8,7 @@ function add_Level3(Q){
 
 		Q.stageTMX('level003.tmx',stage); 
 		var player = stage.insert(new Q.Wario({ x: 170, y: 558, esta: stage }));	
-
+		var boss = stage.insert(new Q.boss({x: 500, y: 500}));
 		stage.add('viewport')
 			.follow(player, 
 				{

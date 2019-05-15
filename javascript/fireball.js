@@ -1,5 +1,5 @@
 function add_fireball(Q){
-	Q.Sprite.extend('add_fireball',{
+	Q.Sprite.extend('fireball',{
 
 		init: function(p){
 

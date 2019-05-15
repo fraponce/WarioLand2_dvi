@@ -39,6 +39,7 @@ window.addEventListener('load',function()
 	add_goldCoin(Q);
 	add_silverCoin(Q);
 	add_lifeObj(Q);
+	add_boss(Q);
 	//add_Goomba(Q);
 	
 
@@ -48,6 +49,7 @@ window.addEventListener('load',function()
 		' numeros/6.png, numeros/7.png, numeros/8.png,'+
 		' numeros/9.png, vidas.png, vidas.json, wario.png,'+
 		' wario.json, enemy1.png, enemy1.json,'+
+		' boss.json, boss.png,'+
 		' enemy2.png,enemy2.json, bigcoin.png, bigcoin.json,'+
 		' miniSilverCoin.png, monedaSilver.json, miniGoldCoin.png,'+
 		' monedaGold.json, block.png, bloque.json,'+
@@ -66,7 +68,8 @@ window.addEventListener('load',function()
 		Q.compileSheets('wario.png', 'wario.json');
 		Q.compileSheets('fireball.png', 'fireball.json');
 		Q.compileSheets('enemy1.png', 'enemy1.json');
-		Q.compileSheets('enemy2.png', 'enemy2.json')
+		Q.compileSheets('enemy2.png', 'enemy2.json');
+		Q.compileSheets('boss.png', 'boss.json');
 		Q.compileSheets('bigcoin.png', 'bigcoin.json');
 		Q.compileSheets('block.png', 'bloque.json');
 		Q.compileSheets('vidas.png', 'vidas.json');

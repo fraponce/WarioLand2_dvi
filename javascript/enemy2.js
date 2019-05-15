@@ -53,7 +53,7 @@ function add_enemy2(Q){
 	            		this.p.time +=dt;
 	            	}else{
 	            		this.p.time = 0;
-	            		this.stage.insert(new Q.add_fireball({x: this.x - 5, y: this.y}));
+	            		this.stage.insert(new Q.fireball({x: this.x - 5, y: this.y, vx:-50}));
 	            	}
 	        }else
                this.play('die');           

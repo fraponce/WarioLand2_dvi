@@ -65,7 +65,7 @@ Q.Sprite.extend("Wario", {
                 entrando: false,
                 enStair: false,
                 lado: 1, //Representa a donde mira (Izquierda/derecha)
-                points: [[-6,-15],[6,-15],[6,16],[-5,16]]//Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
+                points: [[-6,-15],[6,-15],[6,15],[-5,15]]//Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
                 //points: izq-arr|der-arr|der-abj|izq-abj
             });
             this.add('2d, platformerControls, animation');
