@@ -79,8 +79,8 @@ window.addEventListener('load',function()
 		Q.compileSheets('miniSilverCoin.png', 	'monedaSilver.json');
 		Q.compileSheets('intro.png', 'intro.json');
 		//Q.compileSheets('goomba.png', 'goomba.json');
-		//Q.stageScene('pantallaIntro');
-		Q.stageScene('level3');
+		Q.stageScene('pantallaIntro');
+		//Q.stageScene('level3');
 		//Q.stageScene('derrota');
 		//Q.stageScene('victoria');
 		//Q.state.set("score",0);
