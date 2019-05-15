@@ -28,33 +28,34 @@ function add_boss(Q){
                 }
           	});
           	this.on("bump.left", function(collision) {
-                if (collision.obj.isA("Wario") && !this.p.vaAmorir && !this.p.bola)
+                if (collision.obj.isA("Wario") && !this.p.vaAmorir && !this.p.bola){
                   if(this.p.lado == 0){
                     //collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando && this.p.bola){
+                  }
+                }else if (collision.obj.p.placando && this.p.bola){
                     this.p.vaAmorir = true;
                     this.p.bola = false;
                     this.p.vy = -300;
                     this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]],
                     this.p.sensor=true;
                     this.play("ballhitL");
-
-            	  }
+                } 
           	});
           	this.on("bump.right", function(collision) {
-                if (collision.obj.isA("Wario") && !this.p.vaAmorir && !this.p.bola)
+                if (collision.obj.isA("Wario") && !this.p.vaAmorir && !this.p.bola){
                   if(this.p.lado == 1){
                     //collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando && this.p.bola){
+                  }               
+                }else if (collision.obj.p.placando && this.p.bola){
                     this.p.vaAmorir = true;
                     this.p.bola = false;
                     this.p.vy = -300;
+                    this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]],
                     this.p.sensor=true;
                     this.play("ballhitL");
-
-                }
+                } 
           	});
         },
           
