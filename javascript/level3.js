@@ -5,7 +5,8 @@ function add_Level3(Q){
 	{
 		// Guardo el nivel en el que estoy
 		Q.state.set('levelactual', 'level3');
-
+		Q.audio.stop();
+		Q.audio.play('39 Boss Fight.mp3',{loop: true});
 		Q.stageTMX('level003.tmx',stage); 
 		var player = stage.insert(new Q.Wario({ x: 170, y: 558, esta: stage }));	
 		var boss = stage.insert(new Q.boss({x: 588, y: 624}));

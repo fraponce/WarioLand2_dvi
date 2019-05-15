@@ -65,7 +65,8 @@ function add_bloque(Q){
         },
 
         deadB: function() {
-             Q.state.set(this.p.id, true);
+            Q.state.set(this.p.id, true);
+            Q.audio.play('WL3_Break.mp3',{loop: false});
             this.destroy();
         },
 

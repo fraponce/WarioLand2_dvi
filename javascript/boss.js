@@ -34,9 +34,11 @@ function add_boss(Q){
                     collision.obj.die();
                   }else if (collision.obj.p.placando && this.p.bola){
                     this.p.vaAmorir = true;
+                    this.p.bola = false;
                     this.p.vy = -300;
+                    this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]],
                     this.p.sensor=true;
-                    this.play("die");
+                    this.play("ballhitL");
 
             	  }
           	});
@@ -47,9 +49,10 @@ function add_boss(Q){
                     collision.obj.die();
                   }else if (collision.obj.p.placando && this.p.bola){
                     this.p.vaAmorir = true;
+                    this.p.bola = false;
                     this.p.vy = -300;
                     this.p.sensor=true;
-                    this.play("die");
+                    this.play("ballhitL");
 
                     }
           	});
@@ -57,10 +60,6 @@ function add_boss(Q){
           
         die: function()
         {
-            var probCrear = Math.floor(Math.random() * 100);
-            if(probCrear<5){
-                this.stage.insert(new Q.lifeObj({x: this.p.x, y: this.p.y}));
-            }
             this.p.hamuerto = true;             
             this.destroy();
         },
@@ -91,7 +90,7 @@ function add_boss(Q){
    
     Q.animations('anim_boss',{
         jumpL:{frames:[0,1,2,3,4], rate: 1/6, flip: "x", loop: true},
-        jumpR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true,},
+        jumpR:{frames:[0,1,2,3,4], rate: 1/6, flip: false, loop: true,},
         ball:{frames:[5], rate: 1/6, flip: false, loop: true, },
         ballhitL:{frames:[6], rate: 1/6, flip: "x", loop: true,},
         ballhitR:{frames:[6], rate: 1/6, flip: false, loop: true,},

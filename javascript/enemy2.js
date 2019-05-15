@@ -20,6 +20,7 @@ function add_enemy2(Q){
                   if(collision.obj.p.culetazo && !this.p.vaAmorir){
                   	this.p.vaAmorir = true;
                     this.p.vy = -300;
+                    Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
                     this.play("die");
                 }
             });
@@ -29,6 +30,7 @@ function add_enemy2(Q){
                     this.p.vaAmorir = true;
                     this.p.vx = -50;
                     this.p.vy = -300;
+                    Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
                     this.play("die");
                 }
             });
@@ -38,6 +40,7 @@ function add_enemy2(Q){
                     	this.p.vaAmorir = true;
                     	this.p.vx = -50;
                         this.p.vy = -300;
+                        Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
                         this.play("die");
                     }
             });
@@ -55,8 +58,9 @@ function add_enemy2(Q){
 	            		this.p.time = 0;
 	            		this.stage.insert(new Q.fireball({x: this.x - 5, y: this.y, vx:-50}));
 	            	}
-	        }else
-               this.play('die');           
+	        }else{
+                this.play('die');           
+            }
         },
 
         die: function(dt)

@@ -11,7 +11,7 @@ function add_PantallaIntro(Q)
 		{
             if (confirm) 
             { 
-                Q.audio.stop();           
+                Q.audio.stop();       
                 Q.clearStages();
                 Q.stageScene('pantallaMenu');
                 confirm = false;

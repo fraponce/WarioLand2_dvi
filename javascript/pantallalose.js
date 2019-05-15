@@ -18,6 +18,7 @@ function add_pantallaLose(Q)
      Q.scene('derrota',function(stage) 
      {
         Q.audio.stop();
+        Q.audio.play('48 Game Over.mp3',{loop: true});
         stage.insert(new Q.pantallacontroles({
         	asset: "pantallawinlose/fondonegro.png",
         	x: 160,

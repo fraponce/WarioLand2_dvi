@@ -31,6 +31,7 @@ function add_BigCoin(Q){
 				var get = function(){
 					if(!this.p.getOnlyFirst){
 						this.p.getOnlyFirst = true;
+						Q.audio.play('WL3_Collect.mp3',{loop: false});
 						Q.state.set("score",Q.state.get("score")+10); 
 			        	this.destroy();
 			        }

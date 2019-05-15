@@ -22,6 +22,7 @@ function add_enemy1(Q){
                     this.p.vx=0;
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
+                    Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
                     this.play("die");
 
                 }
@@ -35,6 +36,7 @@ function add_enemy1(Q){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
                     this.p.sensor=true;
+                    Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
                     this.play("die");
 
             	  }
@@ -48,6 +50,7 @@ function add_enemy1(Q){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
                     this.p.sensor=true;
+                    Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
                     this.play("die");
 
                     }
@@ -60,7 +63,7 @@ function add_enemy1(Q){
             if(probCrear<5){
                 this.stage.insert(new Q.lifeObj({x: this.p.x, y: this.p.y}));
             }
-            this.p.hamuerto = true;             
+            this.p.hamuerto = true;            
             this.destroy();
         },
 
