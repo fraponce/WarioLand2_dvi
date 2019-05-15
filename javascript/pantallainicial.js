@@ -10,7 +10,6 @@ function add_MenuWario(Q)
                 x:160,
                 y:160,
                 scale:2.3,
-                musica: false,
                 gravity:0,
                 opacity: 1
             });
@@ -36,11 +35,6 @@ function add_MenuWario(Q)
         },
         step: function (dt)
         {
-            if(!this.p.musica){
-                Q.audio.stop();
-                Q.audio.play("51 Title.mp3",{loop: true});
-                this.p.musica = true;
-            }
             if(this.p.elegida)
             {
                 if(this.p.opacity > 0) {                    
@@ -54,18 +48,18 @@ function add_MenuWario(Q)
 
                 if(horaActual-this.p.horaElegida >= 2000)
                 {
-                    Q.clearStages();   
+                    Q.clearStages();
                     //console.log("this.p.asset -> " + this.p.asset);
                     if(this.p.asset === "pantalla_inicial/newgame.png")
                     {
                         //console.log("xxxxx level1 entra");
+                        Q.state.p = {};
                         Q.state.set("reset",false);                        
                         Q.state.set("lifes",8);
                         Q.state.set("score",0);  
                         Q.stageScene("HUD", 1);
                       	Q.stageScene("level1");
                         Q.audio.stop();
-                        this.p.musica = false;
                         Q.audio.play('02 Out of the Woods (Night).mp3',{ loop: true });
                     } 
                     else if(this.p.asset === "pantalla_inicial/controls.png") 
