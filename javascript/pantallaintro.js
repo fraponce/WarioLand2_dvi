@@ -1,7 +1,5 @@
 function add_PantallaIntro(Q)
 {
-    Q.load('Intro.mp3');
-    
 	Q.scene('pantallaIntro',function(stage) 
 	{
 		var intro = stage.insert(new Q.Intro30sec());

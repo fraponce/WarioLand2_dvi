@@ -16,7 +16,7 @@ window.addEventListener('load',function()
 		    .touch()
 		    .enableSound();	
     
-	Q.load(["02 Out of the Woods (Night).mp3","WL3_Steps.mp3","WL3_Climb.mp3","WL3_WarioHit.mp3"], function(){});
+	Q.load(["Intro.mp3","02 Out of the Woods (Night).mp3","WL3_Steps.mp3","WL3_Climb.mp3","WL3_WarioHit.mp3"], function(){});
 
 	add_Level1(Q);
 	add_Level2(Q);
@@ -79,8 +79,8 @@ window.addEventListener('load',function()
 		Q.compileSheets('miniSilverCoin.png', 	'monedaSilver.json');
 		Q.compileSheets('intro.png', 'intro.json');
 		//Q.compileSheets('goomba.png', 'goomba.json');
-		Q.stageScene('pantallaIntro');
-		//Q.stageScene('level1');
+		//Q.stageScene('pantallaIntro');
+		Q.stageScene('level3');
 		//Q.stageScene('derrota');
 		//Q.stageScene('victoria');
 		//Q.state.set("score",0);
