@@ -45,7 +45,7 @@ function add_bloque(Q){
 
                 if(col.obj.placando) {
                     if(col.obj.lado==1){
-                        xDesp = 25;
+                        xDesp = 20;
                     } else {
                         xDesp = -25;
                     }

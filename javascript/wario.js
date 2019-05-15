@@ -106,6 +106,7 @@ Q.Sprite.extend("Wario", {
                 this.destroy();
         },
         step: function(dt) {
+            Q.state.set("warioX", this.p.x);
             if(!this.p.muerto){
                 // Cargar las coordenadas de Wario cuando vuelve a un nivel ya visitado
                 if(Q.state.get('cargadoOK' + Q.state.get('levelactual')) 

@@ -23,7 +23,7 @@ function add_boss(Q){
                     this.p.vx=0;
                     this.p.vy=0;
                     this.p.bola = true;
-                    this.p.points = [[-6,-15],[6,-15],[6,15],[-5,15]];
+                    this.p.points = [[-6,-12],[6,-12],[6,15],[-5,15]];
                     this.play("ball");
                 }
           	});
@@ -54,7 +54,7 @@ function add_boss(Q){
                     this.p.sensor=true;
                     this.play("ballhitL");
 
-                    }
+                }
           	});
         },
           
@@ -66,6 +66,22 @@ function add_boss(Q){
 
         step: function(dt) 
         {
+            var posWario = Q.state.get("warioX");
+
+            var dondeVoy = posWario-this.p.x;
+            //Si es menor que -25, estoy a su derecha, si es mayor que 25, estoy a su izquierda. (PONGO ESE RANGO PA Q NO SE RAYE CUANDO WARIO ESTE SOBRE EL)
+
+            if(dondeVoy>25 && !this.p.bola){
+                this.p.vx = 50;
+
+            }else if(dondeVoy<-25 && !this.p.bola){
+                this.p.vx = -50;
+            } /*else if (dondeVoy>25 && this.p.bola){
+                this.p.vx = -50;
+            }  else if (dondeVoy<-25 && this.p.bola){
+                this.p.vx = 50;
+            } */
+
             if(this.p.vx > 0 ) 
                 this.p.lado=1; //Derecha
             else if(this.p.vx<0) 
