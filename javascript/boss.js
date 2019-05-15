@@ -5,9 +5,10 @@ function add_boss(Q){
                 sprite: 'anim_boss',
                 sheet: 'boss',
                 vx: -50,
-                vy: -400,
+                vy: -50, 
                 lado: 1,
                 points: [[-6,-15],[6,-15],[6,24],[-5,24]],
+                bola: false,
                 hamuerto:false,
                 vaAmorir:false
             });
@@ -20,18 +21,18 @@ function add_boss(Q){
                 if (collision.obj.isA("Wario") && !this.p.vaAmorir)
                   if(collision.obj.p.culetazo){
                     this.p.vx=0;
-                    this.p.vaAmorir = true;
-                    this.p.vy = -300;
-                    this.play("die");
-
+                    this.p.vy=0;
+                    this.p.bola = true;
+                    this.p.points = [[-6,-15],[6,-15],[6,15],[-5,15]];
+                    this.play("ball");
                 }
           	});
           	this.on("bump.left", function(collision) {
-                if (collision.obj.isA("Wario") && !this.p.vaAmorir)
+                if (collision.obj.isA("Wario") && !this.p.vaAmorir && !this.p.bola)
                   if(this.p.lado == 0){
                     //collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando){
+                  }else if (collision.obj.p.placando && this.p.bola){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
                     this.p.sensor=true;
@@ -40,11 +41,11 @@ function add_boss(Q){
             	  }
           	});
           	this.on("bump.right", function(collision) {
-                if (collision.obj.isA("Wario") && !this.p.vaAmorir)
+                if (collision.obj.isA("Wario") && !this.p.vaAmorir && !this.p.bola)
                   if(this.p.lado == 1){
                     //collision.obj.play("die");
                     collision.obj.die();
-                  }else if (collision.obj.p.placando){
+                  }else if (collision.obj.p.placando && this.p.bola){
                     this.p.vaAmorir = true;
                     this.p.vy = -300;
                     this.p.sensor=true;
@@ -73,10 +74,13 @@ function add_boss(Q){
 
 
             if(!this.p.vaAmorir){
-                if(this.p.vx > 0 ) 
+                if(this.p.vy == 0 && !this.p.bola)
+                    this.p.vy = -200;
+                if(this.p.vx > 0 ){
                     this.play('jumpL'); //Izquierda
-                else if(this.p.vx<0) 
+                }else if(this.p.vx<0){
                     this.play('jumpR'); //Derecha
+                }
             }
             else{
                 this.play('die');           
@@ -88,7 +92,7 @@ function add_boss(Q){
     Q.animations('anim_boss',{
         jumpL:{frames:[0,1,2,3,4], rate: 1/6, flip: "x", loop: true},
         jumpR:{frames:[0,1,2], rate: 1/6, flip: false, loop: true,},
-        ball:{frames:[5], rate: 1/6, flip: false, loop: true,},
+        ball:{frames:[5], rate: 1/6, flip: false, loop: true, },
         ballhitL:{frames:[6], rate: 1/6, flip: "x", loop: true,},
         ballhitR:{frames:[6], rate: 1/6, flip: false, loop: true,},
         die:{frames:[7,8,9], rate: 1/3, loop: false,  trigger: "dieT"}
