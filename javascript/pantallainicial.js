@@ -28,6 +28,7 @@ function add_MenuWario(Q)
                 x:-1,
                 y:-1,
                 gravity:0,
+                musica: false,
                 scale: 0.5,
                 opacity: 1,
                 elegida: false
