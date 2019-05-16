@@ -19,7 +19,7 @@ window.addEventListener('load',function()
 	Q.load(["Intro.mp3","02 Out of the Woods (Night).mp3","WL3_Steps.mp3",
 		"WL3_Climb.mp3","WL3_WarioHit.mp3","WL3_Collect.mp3","WL3_Break.mp3",
 		"WL3_EnemyDestroyed.mp3","51 Title.mp3","39 Boss Fight.mp3","48 Game Over.mp3",
-		"54 Perfect!.mp3","WL3_EnemyHit.mp3"], function(){});
+		"54 Perfect!.mp3","WL3_EnemyHit.mp3","WL3_Jump.mp3", "WL3_PauseSound2.mp3", "WL3_PauseSound.mp3"], function(){});
 	add_Level1(Q);
 	add_Level2(Q);
 	add_Level3(Q);

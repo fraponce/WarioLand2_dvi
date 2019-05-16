@@ -61,6 +61,7 @@ Q.Sprite.extend("Wario", {
                 culetazo: false,
                 placando: false,
                 muerto: false,
+                audioJump: false,
                 norepe: false,
                 entrando: false,
                 enStair: false,
@@ -191,6 +192,10 @@ Q.Sprite.extend("Wario", {
                         this.p.salto=true;
                     }
                     if(!this.p.placando){
+                        if(!this.p.audioJump && this.p.vy<0){
+                            Q.audio.play('WL3_Jump.mp3',{loop: false});
+                            this.p.audioJump = true;
+                        }
                         if(this.p.vx > 0) {
                             this.play("jump_right");
                         } else if(this.p.vx < 0) {
@@ -233,6 +238,7 @@ Q.Sprite.extend("Wario", {
                 }
 
                 if(!this.p.culetazo && !this.p.agachado && !this.p.entrando){
+                    
                 //if(this.p.salto==false && this.p.agachado == false && !this.p.entrando){
                     if(Q.inputs["fire"]){
                         this.p.placando = true;
@@ -265,6 +271,8 @@ Q.Sprite.extend("Wario", {
                 if(this.p.y > 700) {
                    this.die();
                 }
+                if(this.p.vy==0)
+                    this.p.audioJump = false;
 
                 this.p.enStair = false;
 

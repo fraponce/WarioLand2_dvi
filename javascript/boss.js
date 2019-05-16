@@ -95,10 +95,10 @@ function add_boss(Q){
             var dondeVoy = posWario-this.p.x;
             //Si es menor que -25, estoy a su derecha, si es mayor que 25, estoy a su izquierda. (PONGO ESE RANGO PA Q NO SE RAYE CUANDO WARIO ESTE SOBRE EL)
 
-            if(dondeVoy>25 && !this.p.bola && !this.p.vaAmorir){
+            if(dondeVoy>80 && !this.p.bola && !this.p.vaAmorir){
                 this.p.vx = 50;
 
-            }else if(dondeVoy<-25 && !this.p.bola && !this.p.vaAmorir){
+            }else if(dondeVoy<-80 && !this.p.bola && !this.p.vaAmorir){
                 this.p.vx = -50;
             } else if(this.p.vaAmorir){
                 this.p.vx = 0;

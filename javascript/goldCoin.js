@@ -137,6 +137,7 @@ function add_lifeObj(Q){
 						if(Q.state.get("lifes")<8){
 							Q.state.set("lifes",Q.state.get("lifes")+1); 
 						}
+						Q.audio.play('WL3_PauseSound2.mp3',{loop: false});
 			        	this.destroy();
 			        }
 		        }		

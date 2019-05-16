@@ -60,6 +60,7 @@ function add_MenuWario(Q)
                     if(this.p.asset === "pantalla_inicial/newgame.png")
                     {
                         //console.log("xxxxx level1 entra");
+
                         Q.state.p = {};
                         Q.state.set("reset",false);                        
                         Q.state.set("lifes",8);
@@ -123,7 +124,7 @@ function add_MenuWario(Q)
                         this.p.opcion_apuntada = 0;
                     else 
                         this.p.opcion_apuntada++;
-
+                    Q.audio.play('WL3_PauseSound.mp3',{loop: false});
                     this.actualizaCoordenadas();
                 }
                 else if(Q.inputs['up'] && this.p.puede_usarse){
@@ -135,6 +136,9 @@ function add_MenuWario(Q)
                         this.p.opcion_apuntada = 1;
                     else 
                         this.p.opcion_apuntada--;
+
+
+                    Q.audio.play('WL3_PauseSound.mp3',{loop: false});
 
                     this.actualizaCoordenadas();
                 }
@@ -180,6 +184,8 @@ function add_MenuWario(Q)
         {    
             if(!selector.p.inhabilitado)
             {
+
+                Q.audio.play('WL3_PauseSound2.mp3',{loop: false});
                 selector.p.inhabilitado = true;
                 // Opcion NEW GAME
                 if(selector.p.opcion_apuntada == 0){
