@@ -7,7 +7,6 @@
 	<link rel="icon" href="images/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|ZCOOL+KuaiLe" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-	<script type="text/javascript" src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 
 	<script type="text/javascript" src='lib/quintus.js'></script>
 	<script type="text/javascript" src='lib/quintus_sprites.js'></script>
@@ -55,15 +54,7 @@
 
 	<style>
 
-		#loading {
-	    background: url('./images/loading.gif') no-repeat center center;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    height: 100%;
-	    width: 100%;
-	    z-index: 9999999;
-	}
+
 		body {
 			background-image: url('https://images3.alphacoders.com/725/725621.jpg');
 			background-repeat: no-repeat;
@@ -90,20 +81,13 @@
 
 <body id="cuerpo">
 <h1>¡WARIOLAND!<h1>
-<div id="loading"></div>
-</body>
 
 	<img id="imagen" src="images/Game_Boy.png"></img>
+</body>
+
 
 <script>
-	function hideLoader() {
-	    $('#loading').hide();
-	}
 
-	$(window).ready(hideLoader);
-
-	// Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
-	setTimeout(hideLoader, 20 * 1000);
 
 
 	window.onload = function() {
