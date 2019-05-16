@@ -36,7 +36,8 @@ function add_wario(Q) {
         winW: { frames: [26,27,28,29,30,31,32,33,34,35,36,37], rate:1/6, loop: false, flip:false, trigger: "winW"},
         sleepW: {frames: [39,40,41,42,43,44,45,46,47,48], rate:1/3, loop: false, flip:false, trigger: "winW"},
 
-        dieW: { frames: [49,47,48], rate:1/3, loop: false, trigger: "deadW"} //TODO, AÑADIR
+        dieW: { frames: [49,47,48], rate:1/3, loop: false, trigger: "deadW"},
+        oneLifeLess: { frames: [49], rate:1/3, loop: false, trigger: "dolorT"}
     });
 
 
@@ -64,14 +65,19 @@ Q.Sprite.extend("Wario", {
                 audioJump: false,
                 norepe: false,
                 entrando: false,
+                dolor: false,
                 enStair: false,
+                win: false,
                 lado: 1, //Representa a donde mira (Izquierda/derecha)
                 points: [[-6,-15],[6,-15],[6,15],[-5,15]]//Representa la colision (X defecto lo pone en 20 ya que el centro es "20")
                 //points: izq-arr|der-arr|der-abj|izq-abj
             });
             this.add('2d, platformerControls, animation');
+
+            this.on("winW","victoria");
             this.on("onDoor",this,"atravesar");
             this.on("killWario", "die");
+            this.on("dolorT","yaPasoEldolor");
             this.on("deadW","deadWf");
             this.on("onStair", function(collision){
                 collision;
@@ -94,6 +100,20 @@ Q.Sprite.extend("Wario", {
             })
            
         },
+        yaPasoEldolor: function() {
+            this.p.dolor = false;
+        },
+
+        victoria: function() {
+                //Q.state.set("lifes", 8);
+                //this.p.vidas  = 8;
+                //this.p.vidasC = 9;
+                //this.play("dieW");
+                Q.stageScene("victoria");
+                this.del("platformerControls");
+                // Q.stageScene("endGame", 1, {label: "You Died!"});
+                this.destroy();
+        },
 
         deadWf: function() {
 
@@ -108,6 +128,10 @@ Q.Sprite.extend("Wario", {
         },
         step: function(dt) {
             Q.state.set("warioX", this.p.x);
+            if(this.p.win){
+                this.p.vx=0;
+                this.p.vy=0;
+            }
             if(this.p.muerto){
                 this.p.vx=0;
                 this.p.jumpSeed=0;
@@ -115,7 +139,7 @@ Q.Sprite.extend("Wario", {
             }
 
 
-            if(!this.p.muerto){
+            if(!this.p.muerto && !this.p.win){
                 if(this.p.entrando){
                     this.p.jumpSpeed = 0; 
                     this.p.vy = 1;
@@ -135,14 +159,17 @@ Q.Sprite.extend("Wario", {
                 }
 
                 if(this.p.agachado){
+                    this.p.dolor = false;
                     this.p.speed = 100;
                     this.p.points = [[-4,-1],[4,-1],[4,16],[-3,16]]; //Cambiamos la colisión. (Representa un poligono formado respecto al centro del sprite)
                 }else if(this.p.placando){
+                    this.p.dolor = false;
                     this.p.speed = 200;
                     this.p.vx= this.p.speed;
                     if(this.p.lado == 0) this.p.vx = -this.p.vx;
                     this.p.points = [[-13,-15],[13,-15],[13,16],[-13,16]];
                 } else if(this.p.enStair){
+                    this.p.dolor = false;
                     this.p.speed=0;
                     this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
                 }
@@ -162,6 +189,7 @@ Q.Sprite.extend("Wario", {
 
                 //Control de sus animaciones/ataques:
                 if(this.p.vy != 0){ //Está saltando
+                    this.p.dolor = false;
                     if(!this.p.norepe && this.p.y - this.p.esta.viewport.y < 240)
                         this.p.esta.viewport.directions = {x: true, y: false};
                     else {
@@ -213,19 +241,22 @@ Q.Sprite.extend("Wario", {
                 
                 
                 //  || (this.p.agachado==true && !colision || colision.normalY!=0)
-                if ((Q.inputs["down"] && !this.p.vy!=0) || (this.p.agachado && this.stage.collide(this).normalY==1)){ //Está agachado
+                if ((Q.inputs["down"] && !this.p.vy!=0) || (this.p.agachado && this.stage.collide(this).normalY==1) && !this.p.dolor){ //Está agachado
                     this.p.agachado = true;
                     if(this.p.vx !=0){
                         if(this.p.lado==1){
                             this.play("agachado_right");
                         }else{                
                             this.play("agachado_left");
+                            this.p.dolor = false;
                         }
                     } else {
                        if(this.p.lado==1){
                             this.play("agachado_stand_right");
+                            this.p.dolor = false;
                         }else{                
                             this.play("agachado_stand_left");
+                            this.p.dolor = false;
                         } 
                     }
                 } else {
@@ -244,26 +275,33 @@ Q.Sprite.extend("Wario", {
                         this.p.placando = true;
                         if(this.p.lado == 1) {
                             this.play("placa_right");
+                            this.p.dolor = false;
                         } else if(this.p.lado == 0) {
                             this.play("placa_left");
+                            this.p.dolor = false;
                         }
                     }else {
                         this.p.placando = false;                    
                         if(this.p.vx > 0) {
                             if(!this.p.entrando){
-                                this.play("run_right");
+                                if(!this.p.dolor)
+                                    this.play("run_right");
+                                    this.p.dolor = false;
                             }else{
                                 this.p.vx=0;
                             }
                         } else if(this.p.vx < 0) {
                             if(!this.p.entrando){
-                                this.play("run_left");
+                                if(!this.p.dolor)
+                                    this.play("run_left");
+                                    this.p.dolor = false;
                             } else {
                                 this.p.vx=0;
                             }
                         } else {
-                            if(!this.p.entrando && this.p.salto==false){
+                            if(!this.p.entrando && this.p.salto==false && !this.p.dolor){
                                 this.play("stand_" + this.p.direction);
+                                this.p.dolor = false;
                             }
                         }   
                     }
@@ -275,7 +313,6 @@ Q.Sprite.extend("Wario", {
                     this.p.audioJump = false;
 
                 this.p.enStair = false;
-
             }
         }, 
 
@@ -288,13 +325,19 @@ Q.Sprite.extend("Wario", {
                 this.p.vx=0;
                 this.p.jumpSpeed=0;
                 this.p.vy=0;
-                this.play("dieW");
+                if(this.p.muerto){
+                    Q.audio.play('WL3_IntoThePipe.mp3',{loop: false});
+
+                } 
                 this.p.points= [[-7,-5],[7,-5],[7,5],[-7,5]];
                 this.p.y = this.p.y-30;
+                this.play("dieW");
 
             }
-            else {
+            else if(lifes>0){
                 Q.state.set("lifes",lifes-1);
+                this.p.dolor=true;
+                this.play("oneLifeLess");
                 if(!this.p.muerto) Q.audio.play('WL3_WarioHit.mp3',{loop: false});
                 //play.dolor
             }

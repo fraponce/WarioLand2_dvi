@@ -18,6 +18,7 @@ function add_boss(Q){
             this.on('dieT',this,'die');
 
             this.on("bump.top", function(collision) {
+                this.p.warioNotifies = collision.obj;
                 if (collision.obj.isA("Wario") && !this.p.vaAmorir)
                   if(collision.obj.p.culetazo){
                     this.p.vx=0;
@@ -69,7 +70,8 @@ function add_boss(Q){
                         this.p.vidas--;
                     }else if(this.p.vidas>1){
                         this.p.vidas--;
-                        Q.audio.play('WL3_EnemyHit.mp3',{loop: false})
+                        Q.audio.play('WL3_EnemyHit.mp3',{loop: false});
+                        
                         this.play("ballhitL");
                     }
                 } 
@@ -77,14 +79,18 @@ function add_boss(Q){
         },
 
 
-        die: function(col)
+        die: function()
         {
-            if(this.p.vidas == 1 && !this.p.hamuerto) {
+            if(this.p.vidas == 0 && !this.p.hamuerto) {
                 this.p.hamuerto = true;
                 this.p.vidas--;
+                Q.audio.stop();
                 Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
+                this.p.warioNotifies.p.win=true;
+                this.p.warioNotifies.play("winW");
+                Q.audio.play('WL3_Throw.mp3',{loop: false});
                 this.destroy();
-                col.obj.play(winW);
+
             }
         },
 
