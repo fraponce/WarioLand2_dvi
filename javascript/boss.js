@@ -7,6 +7,7 @@ function add_boss(Q){
                 vx: -50,
                 vy: -50, 
                 lado: 1,
+                vidas: 3,
                 points: [[-6,-15],[6,-15],[6,24],[-5,24]],
                 bola: false,
                 hamuerto:false,
@@ -14,8 +15,6 @@ function add_boss(Q){
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
             this.on('dieT',this,'die');
-
-
 
             this.on("bump.top", function(collision) {
                 if (collision.obj.isA("Wario") && !this.p.vaAmorir)
@@ -34,12 +33,20 @@ function add_boss(Q){
                     collision.obj.die();
                   }
                 }else if (collision.obj.p.placando && this.p.bola){
-                    this.p.vaAmorir = true;
                     this.p.bola = false;
+                    this.p.vx = 50;
                     this.p.vy = -300;
-                    this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]],
-                    this.p.sensor=true;
-                    this.play("ballhitL");
+                    this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]];
+                    if(this.p.vidas == 1){
+                        this.p.vaAmorir = true;
+                        this.play("die");
+                        collision.obj.play("winW");
+                    }else{
+                        this.p.vidas--;
+                        Q.audio.play('WL3_EnemyHit.mp3',{loop: false})
+                        this.play("ballhitR");
+                    }
+                    
                 } 
           	});
           	this.on("bump.right", function(collision) {
@@ -49,20 +56,34 @@ function add_boss(Q){
                     collision.obj.die();
                   }               
                 }else if (collision.obj.p.placando && this.p.bola){
-                    this.p.vaAmorir = true;
                     this.p.bola = false;
+                    this.p.vx = -50;
                     this.p.vy = -300;
-                    this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]],
-                    this.p.sensor=true;
-                    this.play("ballhitL");
+                    this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]];
+                    if(this.p.vidas == 1){
+                        console.log("muere");
+                        this.p.vaAmorir = true;
+                        this.play("die");
+                        collision.obj.play("winW");
+                    }else{
+                        this.p.vidas--;
+                        Q.audio.play('WL3_EnemyHit.mp3',{loop: false})
+                        this.play("ballhitL");
+                    }
                 } 
           	});
         },
-          
-        die: function()
+
+
+        die: function(col)
         {
-            this.p.hamuerto = true;             
-            this.destroy();
+            if(this.p.vidas == 1 && !this.p.hamuerto) {
+                this.p.hamuerto = true;
+                this.p.vidas--;
+                Q.audio.play('WL3_EnemyDestroyed.mp3',{loop: false});
+                this.destroy();
+                col.obj.play(winW);
+            }
         },
 
         step: function(dt) 
@@ -106,11 +127,11 @@ function add_boss(Q){
     });
    
     Q.animations('anim_boss',{
-        jumpL:{frames:[0,1,2,3,4], rate: 1/6, flip: "x", loop: true},
-        jumpR:{frames:[0,1,2,3,4], rate: 1/6, flip: false, loop: true,},
-        ball:{frames:[5], rate: 1/6, flip: false, loop: true, },
-        ballhitL:{frames:[6], rate: 1/6, flip: "x", loop: true,},
-        ballhitR:{frames:[6], rate: 1/6, flip: false, loop: true,},
+        jumpL:{frames:[0,1,2,3,4], rate: 1/5, flip: "x", loop: true},
+        jumpR:{frames:[0,1,2,3,4], rate: 1/5, flip: false, loop: true},
+        ball:{frames:[5], rate: 1/6, flip: false, loop: true},
+        ballhitL:{frames:[6], rate: 1/6, flip: "x", loop: true},
+        ballhitR:{frames:[6], rate: 1/6, flip: false, loop: true},
         die:{frames:[7,8,9], rate: 1/3, loop: false,  trigger: "dieT"}
     });
        
