@@ -21,7 +21,7 @@ function add_door(Q) {
 				this.vx = col.separate[0]=0;
 				this.vy = col.separate[1]=0;
 			
-				if(Q.inputs["up"] && col.obj.isA("Wario") && col.obj.p.vx==0 && !col.obj.p.placando && !col.obj.p.culetazo && !col.obj.p.agachado)
+				if(Q.inputs["up"] && !Q.inputs["down"] && col.obj.isA("Wario") && col.obj.p.vx==0 && !col.obj.p.placando && !col.obj.p.culetazo && !col.obj.p.agachado)
 				{
 					if(!this.p.entrando) {
 						this.p.entrando =true;

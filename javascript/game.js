@@ -67,7 +67,7 @@ window.addEventListener('load',function()
 		' pantallawinlose/pressentertocontinue.png,'+
 		' pantallawinlose/score.png, pantallawinlose/youlose.png,'+
 		' pantallawinlose/youwin.png, obj_life.png, lifes.json,' +
-		' intro.png, intro.json',
+		' intro.jpg, intro.json',
 		 function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
@@ -82,7 +82,7 @@ window.addEventListener('load',function()
 		Q.compileSheets('cabezawario.png', 'cabezawario.json');
 		Q.compileSheets('miniGoldCoin.png', 	'monedaGold.json');
 		Q.compileSheets('miniSilverCoin.png', 	'monedaSilver.json');
-		Q.compileSheets('intro.png', 'intro.json');
+		Q.compileSheets('intro.jpg', 'intro.json');
 		//Q.compileSheets('goomba.png', 'goomba.json');
 		Q.stageScene('pantallaIntro');
 		//Q.stageScene('level3');

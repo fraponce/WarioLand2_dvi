@@ -107,7 +107,21 @@ Q.Sprite.extend("Wario", {
         },
         step: function(dt) {
             Q.state.set("warioX", this.p.x);
+            if(this.p.muerto){
+                this.p.vx=0;
+                this.p.jumpSeed=0;
+
+            }
+
+
             if(!this.p.muerto){
+                if(this.p.entrando){
+                    this.p.jumpSpeed = 0; 
+                    this.p.vy = 1;
+                    this.p.entrando = true;
+                    this.p.vx = 0;
+                }
+
                 // Cargar las coordenadas de Wario cuando vuelve a un nivel ya visitado
                 if(Q.state.get('cargadoOK' + Q.state.get('levelactual')) 
                         && (Q.state.get('levelactual') == Q.state.get('siguiente' + Q.state.get('levelactual'))))
@@ -263,6 +277,9 @@ Q.Sprite.extend("Wario", {
             if(lifes == 1 && !this.p.muerto) {
                 this.p.muerto = true;
                 Q.state.set("lifes",lifes-1);
+                this.p.vx=0;
+                this.p.jumpSpeed=0;
+                this.p.vy=0;
                 this.play("dieW");
                 this.p.points= [[-7,-5],[7,-5],[7,5],[-7,5]];
                 this.p.y = this.p.y-30;

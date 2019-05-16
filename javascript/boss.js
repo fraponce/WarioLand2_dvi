@@ -11,7 +11,8 @@ function add_boss(Q){
                 points: [[-6,-15],[6,-15],[6,24],[-5,24]],
                 bola: false,
                 hamuerto:false,
-                vaAmorir:false
+                vaAmorir:false,
+                sellamoADie:false
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
             this.on('dieT',this,'die');
@@ -39,9 +40,10 @@ function add_boss(Q){
                     this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]];
                     if(this.p.vidas == 1){
                         this.p.vaAmorir = true;
-                        this.play("die");
                         collision.obj.play("winW");
-                    }else{
+                        this.play("die");
+                        this.p.vidas--;
+                    }else if(this.p.vidas>1){
                         this.p.vidas--;
                         Q.audio.play('WL3_EnemyHit.mp3',{loop: false})
                         this.play("ballhitR");
@@ -61,11 +63,11 @@ function add_boss(Q){
                     this.p.vy = -300;
                     this.p.points = [[-6,-15],[6,-15],[6,24],[-5,24]];
                     if(this.p.vidas == 1){
-                        console.log("muere");
                         this.p.vaAmorir = true;
-                        this.play("die");
                         collision.obj.play("winW");
-                    }else{
+                        this.play("die");
+                        this.p.vidas--;
+                    }else if(this.p.vidas>1){
                         this.p.vidas--;
                         Q.audio.play('WL3_EnemyHit.mp3',{loop: false})
                         this.play("ballhitL");
@@ -93,11 +95,13 @@ function add_boss(Q){
             var dondeVoy = posWario-this.p.x;
             //Si es menor que -25, estoy a su derecha, si es mayor que 25, estoy a su izquierda. (PONGO ESE RANGO PA Q NO SE RAYE CUANDO WARIO ESTE SOBRE EL)
 
-            if(dondeVoy>25 && !this.p.bola){
+            if(dondeVoy>25 && !this.p.bola && !this.p.vaAmorir){
                 this.p.vx = 50;
 
-            }else if(dondeVoy<-25 && !this.p.bola){
+            }else if(dondeVoy<-25 && !this.p.bola && !this.p.vaAmorir){
                 this.p.vx = -50;
+            } else if(this.p.vaAmorir){
+                this.p.vx = 0;
             } /*else if (dondeVoy>25 && this.p.bola){
                 this.p.vx = -50;
             }  else if (dondeVoy<-25 && this.p.bola){
@@ -120,7 +124,10 @@ function add_boss(Q){
                 }
             }
             else{
-                this.play('die');           
+                if(!this.p.sellamoADie){
+                    this.play('die');
+                    this.p.sellamoADie=true;
+                }           
             }
         },
 
