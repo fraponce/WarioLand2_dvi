@@ -54,6 +54,6 @@ Se empieza una partida nueva, reseteando todos los valores anteriores para el ca
 # :seven: Objetos del escenario
 # :eight: HUD
 # :nine: Enemigos
-# :one::zero: Jefe
-# :one::two: Pantalla victoria & derrota
+# :one: :zero: Jefe
+# :one: :one: Pantalla victoria & derrota
 
