@@ -7,7 +7,7 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 
 :heavy_exclamation_mark: Nosotros hemos creado una versión del juego Wario Land 3 lanzado para la game boy color en el año 2000. Aunque hemos querido mantener algunas cosas fieles al juego original, el menú y el mapa inicial no corresponden a los originales.
 
-## Enlace al juego en GIitHub :bomb:
+## Enlace al juego en GitHub :bomb:
 
 link: https://fraponce.github.io/WarioLand2_dvi/
 
