@@ -40,4 +40,11 @@ En el menú de inicio puede seleccionar dos opciones con la tecla de intro, acce
 
 Una escena donde se muestra de una forma clara todos los botones de acción que tiene el jugador una vez inicio una partida para controlar a Wario.
 
+* Flecha hacia arriba - saltar/cabezazo para romper bloques
+* Flecha hacia la derecha/izquierda - movimiento del personaje
+* Flecha hacia abajo - agacharse/culetazo cuando Wario está en el aire
+* Tecla espacio - el personaje realiza un placaje
+
 # :four: Nueva partida
+
+Se empieza una partida nueva, reseteando todos los valores anteriores para el caso de que se volviera de una partida previa.
