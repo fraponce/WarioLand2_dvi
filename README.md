@@ -15,7 +15,9 @@ link: https://fraponce.github.io/WarioLand2_dvi/
 ## Authors :sparkling_heart:
 
 :arrow_forward: Alfonso Soria Muñoz
+
 :arrow_forward: Miguel Jiménez Rodríguez
+
 :arrow_forward: Francisco Ponce Belmonte
 
 
