@@ -9,8 +9,9 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 
 ## Enlace al juego en GitHub :bomb:
 
+```
 link: https://fraponce.github.io/WarioLand2_dvi/
-
+```
 
 ## Authors :sparkling_heart:
 
@@ -23,4 +24,20 @@ link: https://fraponce.github.io/WarioLand2_dvi/
 
 ## Mecanicas implementadas :pencil:
 
-- TODO
+En esta sección explicaremos las mecánicas implementadas siguiendo un orden lógico desde que se ejecuta el juego.
+
+# :one: Intro
+
+Cuando se accede al juego se inicia una intro de una duracción de unos 30 segundos aproximadamente, la cual, es fiel a la intro original del juego y tiene el sonido original. El jugador puede dar a la tecla de intro en cualquier momento para pasar la intro.
+
+# :two: Menu de inicio
+
+Una vez que el jugador ha pulsado en la tecla de intro, avanza a la pantalla del menú de inicio.
+
+En el menú de inicio puede seleccionar dos opciones con la tecla de intro, acceder a un nuevo juego o entrar en el panel de controles.
+
+# :three: Panel de controles
+
+Una escena donde se muestra de una forma clara todos los botones de acción que tiene el jugador una vez inicio una partida para controlar a Wario.
+
+# :four: Nueva partida
