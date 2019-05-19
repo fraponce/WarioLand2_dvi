@@ -48,3 +48,12 @@ Una escena donde se muestra de una forma clara todos los botones de acción que 
 # :four: Nueva partida
 
 Se empieza una partida nueva, reseteando todos los valores anteriores para el caso de que se volviera de una partida previa.
+
+# :five: Wario
+# :six: Escenarios
+# :seven: Objetos del escenario
+# :eight: HUD
+# :nine: Enemigos
+# :eleven: Jefe
+# :twelve: Pantalla victoria & derrota
+
