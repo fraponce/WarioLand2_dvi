@@ -100,15 +100,6 @@ Al llegar al cuarto escenario, Wario se tendrá que enfrentar con el jefe final 
 
 :arrow_forward: Alfonso Soria Muñoz
 
-*
-*
-
 :arrow_forward: Miguel Jiménez Rodríguez
 
-*
-*
-
 :arrow_forward: Francisco Ponce Belmonte
-
-*
-*
