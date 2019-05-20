@@ -12,6 +12,10 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 
 :heavy_exclamation_mark: Nosotros hemos creado una versión del juego Wario Land 3 lanzado para la game boy color en el año 2000. Aunque hemos querido mantener algunas cosas fieles al juego original, el menú y el mapa inicial no corresponden a los originales.
 
+### Objetivo :checkered_flag:
+
+El objetivo final del juego es intentar ganar la partida, llegando hasta el boss y derrotandolo, de manera que durante el camino tendrá que sortear diferentes enemigos y escenarios, a la vez que intentará hacerse con el máximo de monedas posibles.
+
 ## Enlace al juego en GitHub :bomb:
 
 link: <https://fraponce.github.io/WarioLand2_dvi>
@@ -146,10 +150,47 @@ Por otro lado, se ha añadido de fondo un background sobre el mundo de Warioland
 
 ---
 
-## Autores :sparkling_heart:
+## Diseño de la implementación: Arquitectura y principales componentes :file_folder:
+
+Para poder satisfacer la división de tareas del juego, se ha creado un .js por lo general, que representa cada elemento interno del juego. Estos JS se incorporan en game.js, a través de una función add_NombreElemento(Q); que contiene el propio elemento y lo añade al motor de juego. En algunos casos, se han usado archivos .js para tener elementos similares, como es el caso de las monedas pequeñas, o de los huds. Esto quiere decir que dentro del mismo .js se encuentran los dos tipos de monedas, o los dos tipos de huds.
+
+Por otro lado se han separado también en archivos independientes cada escenario, por el mismo motivo de tener todo separado para poder trabajar mejor bajo github y poder dividir cómodamente el trabajo en paralelo por parte de los miembros del grupo.
+
+Para mejorar la organización, se ha separado el código ejecutable, con los recursos de imágenes y audio, así como los .json asociados a cada imagen, en diferentes directorios. De esta manera se tienen los siguientes directorios:
++ _audio_: contiene los archivos de audio.
++ _data_: contiene archivos json asociados a cada imagen. Cada sprite diferente tiene un ".json" diferente asociado.
++ _images_: contiene las imágenes asociados a cada sprite. Cada sprite diferente tiene una imagen diferente asociada.
++ _javascript_: contiene la lógica del juego. Tanto desde la clase game.js como los escenarios, menús y sprites.
++ _lib_: contiene las librerías del motor de juego Quintus.
+
+
+## Autores y división de trabajo :sparkling_heart:
 
 :arrow_forward: Alfonso Soria Muñoz
-
+  + Creación de Wario y dinámicas asociadas
+  + Gestión de la mayoría de png's (Excluyendo escenarios y menús)
+  + Objetos del juego (Escaleras,monedas,vidas,bloques...)
+  + Huds del juego (Wario + Boss)
+  + Game tester + bugs solver
+  + Compresión de recursos (Para obtener un juego ligero)
+  + Gestión de algún sonido del juego
+  + Incorporación de fuentes externas para el score del hud principal
+  + Diseño de la estética de la página
+  + Organización y desarrollo del readme
+  
 :arrow_forward: Miguel Jiménez Rodríguez
+  + Creación intro del juego
+  + Creación menú principal
+  + Creación pantallas de controles, victoria y derrota
+  + Gestión del estado de bloques y bigcoins
+  + Tema algun objeto del juego (coin grande + puerta)
+  + Creación y actualización de los escenarios del juego y sus .js asociados
+  + Tema animación
+  + Favicon de la página
+  + Organización y desarrollo del readme
 
 :arrow_forward: Francisco Ponce Belmonte
+  + Tema sonido
+  + Tema sensor invisible de enemigos
+  + Tema boss
+  + Tema enemigo 1 y 2
