@@ -66,10 +66,34 @@ El juego se divide en 4 escenarios distintos.
 * El cuarto escenario pertenece al mapa del jefe, una vez dentro, el personaje no podrá regresar a los mapas anteriores y se tendrá que enfrentar al jefe final para obtener una victoria, en caso contrario obtendrá una derrota. La derrota podrá ser obtenida si Wario muere por los anteriores mapas a manos de los enemigos.
 
 # :seven: Objetos del escenario
+
+En el escenario podemos encontrar una multitud de objetos diferentes, entre ellos están:
+
+* Bloques: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad.
+
+* Corazones: de color rojo, aparecerán con una probabilidad al destruir enemigos y cada corazón recuperará otro corazón de vida de Wario.
+
+* Monedas grandes: se encuentran repartida por todos los escenarios sin necesidad de destruir bloques y valdrán 10 monedas de las normales.
+
+* Monedas pequeñas: se dividen en monedas doradas y monedas plateadas. Son más pequeñas que las monedas grandes y aparecen bajo una probabilidad al destruir bloques.
+
 # :eight: HUD
+
+Hay dos HUDs diferentes en el juego, el primer hud general pertenece a Wario y en el se podrá ver la cantidad de vidas que tiene el protagonista y la cantidad de monedas que ha conseguido. El segundo es un hud que pertenece al jefe final para indicar el número de vidas restantes que le quedan.
+
 # :nine: Enemigos
+
+Hay dos tipos de enemigos presentes en los mapas, el primero es un enemigo que porta una lanza y Wario tendrá que atacarlo por arriba o por la espalda para poder destruirlo y el segundo enemigo lanzará bolas de fuego en la dirección que se encuentre Wario.
+
 # :one: :zero: Jefe
+
+Al llegar al cuarto escenario, Wario se tendrá que enfrentar con el jefe final que será el conejo pandillero. Wario tendrá que atacarlo varias veces hasta que se convierta en una bola y será entonces cuando pueda quitarle un punto de vida. Después de repetir unas cuantas veces esta acción, Wario acabará destruyendo al conejo y ganando el juego. Mientras el conejo esté vivo, estará persiguiendo a Wario por el escenario.
+
 # :one: :one: Pantalla victoria & derrota
+
+Cuando Wario muera en alguno de los escenarios del juego, aparecerá el panel de la pantalla de derrota, donde se le mostrará al jugador la cantidad de puntos obtenidos hasta la muerte de Wario.
+En el caso de que Wario llegue al escenario final y derrote al jefe, aparecerá el panel de la pantalla de victoria, donde se le mostrará al jugador la cantidad de puntos obtenidos hasta la muerte de Wario.
+En ambas opciones, si el jugador presiona intro, volverá al menú inicial y podrá decidir si quiere iniciar una nueva partida. (En el caso de empezar una nueva partida, los valores de la cantidad de las monedas y la puntuación total se reiniciarán).
 
 ## Autores :sparkling_heart:
 
