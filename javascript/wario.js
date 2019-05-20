@@ -57,12 +57,18 @@ Q.Sprite.extend("Wario", {
                 type: CTE_WARIO,
                 collisionMask: 1,
                 gravity: 0.7,
-                salto: false, //Para controlar el sonido del salto
-                agachado: false,
+                salto: false,   
                 culetazo: false,
                 placando: false,
                 muerto: false,
-                audioJump: false,
+                quieto: false,
+                audioJump: false,   //Para controlar el sonido del salto
+                audioWalk: false,   //Para controlar el sonido del caminar
+                audioCrouch: false, //Para controlar el sonido del caminar agachado
+                audioClimb: false,  //Para controlar el sonido del subir/bajar escaleras
+                audioStomp: false,  //Para controlar el sonido del culetazo
+                audioCharge: false,  //Para controlar el sonido del cargar
+                agachado: false,
                 norepe: false,
                 entrando: false,
                 dolor: false,
@@ -85,14 +91,21 @@ Q.Sprite.extend("Wario", {
                     this.p.speed=60;
                     this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
                     this.p.enStair = true;
+                    if(!this.p.audioClimb) {
+                        Q.audio.play('WL3_Climb.mp3',{loop:true});
+                        this.p.audioClimb = true;
+                    }
                     this.play("up_stairs");
-
+                    this.p.quieto = true;
                     if(Q.inputs["down"]){
                         this.p.vy = this.p.speed;
                     }else{
                         this.p.vy = -this.p.speed;
                     }
                 } else {
+                    Q.audio.stop('WL3_Climb.mp3');
+                    this.p.audioClimb = false;
+                    this.p.quieto = true;
                     this.p.speed = -12;
                     this.p.vy = this.p.speed;
                     this.play("stand_stairs");
@@ -174,6 +187,8 @@ Q.Sprite.extend("Wario", {
                     this.p.points = [[-1,-8],[1,-8],[1,8],[-1,8]];
                 }
                 else {
+                    Q.audio.stop('WL3_Climb.mp3');
+                    this.p.audioClimb = false;
                     this.p.gravity = 0.7;
                     this.p.speed = 180;
                     this.p.points = [[-6,-15],[6,-15],[6,16],[-5,16]];
@@ -198,12 +213,19 @@ Q.Sprite.extend("Wario", {
                         this.p.esta.viewport.directions = {x: true, y: true};
                     }
                     this.p.esta.viewport.offsetY = 0;
-
+                    Q.audio.stop('WL3_Dash_Normal');
+                    this.p.audioCharge = false;
                     this.p.placando = false;
                     if(this.p.vy>0 && !this.p.enStair) { //Cae... puede pegar culetazo
+                        Q.audio.stop('WL3_Climb.mp3');
+                        this.p.audioClimb = false;
                         if(Q.inputs["down"]  ){ //&& !this.p.placando
                             this.p.vy = 230;
                             this.p.culetazo = true;
+                            if(!this.p.audioStomp){
+                                this.p.audioStomp = true;
+                                Q.audio.play('WL3_Stomp.mp3',{loop: false});
+                            }
                             if(this.p.lado == 1) {
                                 this.play("culetazo_right");
                             } else {
@@ -220,7 +242,7 @@ Q.Sprite.extend("Wario", {
                         this.p.salto=true;
                     }
                     if(!this.p.placando){
-                        if(!this.p.audioJump && this.p.vy<0){
+                        if(!this.p.audioJump && this.p.vy<0 && !this.p.quieto){
                             Q.audio.play('WL3_Jump.mp3',{loop: false});
                             this.p.audioJump = true;
                         }
@@ -244,6 +266,10 @@ Q.Sprite.extend("Wario", {
                 if ((Q.inputs["down"] && !this.p.vy!=0) || (this.p.agachado && this.stage.collide(this).normalY==1) && !this.p.dolor){ //Está agachado
                     this.p.agachado = true;
                     if(this.p.vx !=0){
+                        if(!this.p.audioCrouch){
+                            Q.audio.play('WL3_CrouchWalk.mp3',{loop: true});
+                            this.p.audioCrouch = true;
+                        }
                         if(this.p.lado==1){
                             this.play("agachado_right");
                         }else{                
@@ -251,7 +277,9 @@ Q.Sprite.extend("Wario", {
                             this.p.dolor = false;
                         }
                     } else {
-                       if(this.p.lado==1){
+                        Q.audio.stop('WL3_CrouchWalk.mp3');
+                        this.p.audioCrouch = false;
+                        if(this.p.lado==1){
                             this.play("agachado_stand_right");
                             this.p.dolor = false;
                         }else{                
@@ -263,6 +291,8 @@ Q.Sprite.extend("Wario", {
                     colision = this.stage.collide(this)
                     if(!colision || colision.normalY!=1) //Si hay colision arriba seguira agachado. 
                         this.p.agachado = false;
+                        Q.audio.stop('WL3_CrouchWalk.mp3');
+                        this.p.audioCrouch = false;
                         //break;
                     //if(colision && !colision.normalY==1)
                     
@@ -272,6 +302,10 @@ Q.Sprite.extend("Wario", {
                     
                 //if(this.p.salto==false && this.p.agachado == false && !this.p.entrando){
                     if(Q.inputs["fire"]){
+                        if(!this.p.audioCharge){
+                            Q.audio.play('WL3_Dash_Normal.mp3',{loop: true});
+                            this.p.audioCharge = true;
+                        }
                         this.p.placando = true;
                         if(this.p.lado == 1) {
                             this.play("placa_right");
@@ -281,27 +315,47 @@ Q.Sprite.extend("Wario", {
                             this.p.dolor = false;
                         }
                     }else {
+                        Q.audio.stop('WL3_Dash_Normal.mp3');
+                        this.p.audioCharge = false;
                         this.p.placando = false;                    
                         if(this.p.vx > 0) {
+                            if(!this.p.audioWalk){
+                                Q.audio.play('WL3_Steps.mp3',{loop: true});
+                                this.p.audioWalk = true;
+                            }
                             if(!this.p.entrando){
-                                if(!this.p.dolor)
-                                    this.play("run_right");
-                                    this.p.dolor = false;
+                                this.play("run_right");
+                                this.p.dolor = false;
                             }else{
+                                Q.audio.stop('WL3_Steps.mp3');
+                                this.p.audioWalk = false;
                                 this.p.vx=0;
                             }
-                        } else if(this.p.vx < 0) {
+                        }else if(this.p.vx < 0) {
                             if(!this.p.entrando){
-                                if(!this.p.dolor)
+                                if(!this.p.audioWalk){
+                                    Q.audio.play('WL3_Steps.mp3',{loop: true});
+                                    this.p.audioWalk = true;
+                                }
+                                if(!this.p.dolor){
                                     this.play("run_left");
                                     this.p.dolor = false;
+                                }
                             } else {
+                                Q.audio.stop('WL3_Steps.mp3');
+                                this.p.audioWalk = false;
                                 this.p.vx=0;
                             }
                         } else {
                             if(!this.p.entrando && this.p.salto==false && !this.p.dolor){
+                                Q.audio.stop('WL3_Steps.mp3');
+                                this.p.audioWalk = false;
                                 this.play("stand_" + this.p.direction);
                                 this.p.dolor = false;
+                            }
+                            if(this.p.quieto) {
+                                Q.audio.stop('WL3_Steps.mp3');
+                                this.p.audioWalk = false;
                             }
                         }   
                     }
@@ -309,10 +363,12 @@ Q.Sprite.extend("Wario", {
                 if(this.p.y > 700) {
                    this.die();
                 }
-                if(this.p.vy==0)
+                if(this.p.vy==0){
                     this.p.audioJump = false;
-
+                    this.p.audioStomp = false;
+                }
                 this.p.enStair = false;
+                this.p.quieto = false;
             }
         }, 
 

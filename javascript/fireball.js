@@ -4,9 +4,10 @@ function add_fireball(Q){
 		init: function(p){
 
 			this._super(p, {
-				sensor: true,
+				sensor: 'true',
 				sprite: 'anim_fireball',
 				sheet: 'fireball',
+				disparado: false,
 				points: [[-6,-6],[6,-6],[6,6],[-6,6]],
 				gravity:0,
 				time: 0,
@@ -19,25 +20,35 @@ function add_fireball(Q){
 						collision.obj.die();
 						this.destroy();
 					}
-					else if(collision.obj.isA("Wario"))
-						this.destroy();
 		    });
 
 		},
 
 		step: function(dt){
 			this.p.time += dt;
-			this.play("fireR");
-			if(this.p.time > 10)
-				this.destroy();
+			if(!this.p.disparado){
+				console.log("exist");
+				this.play("fireR");
+				this.p.disparado = true;
+			}else{
+				if(this.p.time > 5){
+					console.log("adios");
+					this.destroy();
+					this.p.disparado = false;
+					this.p.time = 0;
+				}
+				
+			}
+			
+			
 		}
 
 	});
 
 	Q.animations('anim_fireball',{
-    	fireR:{frames:[0,1], rate: 1/3, flip: false, loop: true},
+    	fireR:{frames:[0,1], rate: 1/2, flip: false, loop: true},
     	explosionR:{frames:[2,3,4], rate: 1/3, flip: false, loop: false},
-    	fireL:{frames:[0,1], rate: 1/3, flip: "x", loop: true},
+    	fireL:{frames:[0,1], rate: 1/2, flip: "x", loop: true},
     	explosionL:{frames:[2,3,4], rate: 1/3, flip: "x", loop: false}
     });
 }

@@ -7,6 +7,7 @@ function add_enemy2(Q){
                 vx: 0,
                 lado: 1,
                 tiempo: 0,
+                audioFire: false,
                 points: [[-6,-6],[6,-6],[6,6],[-6,6]],
                 cargando: false,
                 hamuerto:false,
@@ -56,7 +57,10 @@ function add_enemy2(Q){
 	            		this.p.time +=dt;
 	            	}else{
 	            		this.p.time = 0;
-	            		this.stage.insert(new Q.fireball({x: this.x - 5, y: this.y, vx:-50}));
+                        Q.audio.play('WL3_Fire.mp3',{loop: false});
+                        console.log("disparo");
+                        this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y}));
+
 	            	}
 	        }else{
                 this.play('die');           
