@@ -58,6 +58,10 @@ Las mecánicas que tiene Wario son las siguientes:
 * Subir escaleras - capacidad de subir escaleras para alcanzar partes altas.
 * Atravesar puertas - capacidad de pasar por puertas para pasar a otro escenario. Pulsando la tecla de saltar una vez estás en la puerta.
 
+~~~
+Se ha intentado dar especial interés a la jugabilidad, cuidando con detalle los puntos de colisión así como la fluided de movimiento y control sobre wario respecto a las interacciones que tiene con el resto de componentes del juego.
+~~~
+
 ### :six: Escenarios
 
 El juego se divide en 4 escenarios distintos.
