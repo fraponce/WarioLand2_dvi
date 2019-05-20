@@ -180,8 +180,7 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
 :arrow_forward: Miguel Jiménez Rodríguez
   + Creación intro del juego
   + Creación menú principal
-  + Creación pantalla controles
-  + Creación pantallas de win y lose
+  + Creación pantallas de controles, victoria y derrota
   + Gestión del estado de bloques y bigcoins
   + Tema algun objeto del juego (coin grande + puerta)
   + Creación y actualización de los escenarios del juego y sus .js asociados
