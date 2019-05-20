@@ -12,7 +12,7 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 ## Enlace al juego en GitHub :bomb:
 
 ```
-link: https://fraponce.github.io/WarioLand2_dvi
+link: <https://fraponce.github.io/WarioLand2_dvi>
 ```
 
 ## Mecanicas implementadas :pencil:
@@ -51,9 +51,10 @@ Las mecánicas que tiene Wario son las siguientes:
 * Movimiento derecha / izquierda.
 * Salto / Cabezazo para el caso de encontrarse con un bloque arriba, lo destruiría.
 * Agacharse para poder atravesar túneles de poca altura.
+* Placaje, pulsando espacio, Wario es capaz de moverse placando para así destruir bloques o golpear enemigos. Además es capaz de combinar el placaje con el salto para placar mientras salta.
 * Culetazo, mientras se salta, si se pulsa hacia abajo, Wario hace un culetazo hacía abajo capaz de matar enemigos o destruir bloques.
 * Subir escaleras - capacidad de subir escaleras para alcanzar partes altas.
-* Atravesar puertas - capacidad de pasar por puertas para pasar a otro escenario.
+* Atravesar puertas - capacidad de pasar por puertas para pasar a otro escenario. Pulsando la tecla de saltar una vez estás en la puerta.
 
 ### :six: Escenarios
 
