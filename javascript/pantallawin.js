@@ -16,7 +16,7 @@ function add_pantallaWin(Q)
      Q.scene('victoria',function(stage) 
      {
         Q.stageScene(null,1);
-        
+        Q.stageScene(null,2);
         stage.insert(new Q.pantallacontroles({
         	asset: "pantallawinlose/fondonegro.png",
         	x: 160,
