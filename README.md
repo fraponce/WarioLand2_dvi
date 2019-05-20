@@ -176,6 +176,7 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + Gestión de algún sonido del juego
   + Incorporación de fuentes externas para el score del hud principal
   + Diseño de la estética de la página
+  + Organización y desarrollo del readme
   
 :arrow_forward: Miguel Jiménez Rodríguez
   + Creación intro del juego
@@ -185,8 +186,8 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + Tema algun objeto del juego (coin grande + puerta)
   + Creación y actualización de los escenarios del juego y sus .js asociados
   + Tema animación
-  + Organización del readme
   + Favicon de la página
+  + Organización y desarrollo del readme
 
 :arrow_forward: Francisco Ponce Belmonte
   + Tema sonido
