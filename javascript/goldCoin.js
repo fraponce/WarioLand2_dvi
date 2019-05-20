@@ -114,7 +114,7 @@ function add_lifeObj(Q){
 				sprite: 'anim_vidasObj',
 				sheet: 'vidasObj',
 				sensor: false,
-				points: [[-2,-2],[2,-2],[2,2],[-2,2]],
+				points: [[-3,-3],[3,-3],[3,3],[-3,3]],
 				onSensor:false,
 				getOnlyFirst:false,
 				col: false

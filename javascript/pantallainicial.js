@@ -64,6 +64,7 @@ function add_MenuWario(Q)
                         Q.state.p = {};
                         Q.state.set("reset",false);                        
                         Q.state.set("lifes",8);
+                        Q.state.set("lifesBoss", 3);
                         Q.state.set("score",0);  
                         Q.stageScene("HUD", 1);
                       	Q.stageScene("level1");

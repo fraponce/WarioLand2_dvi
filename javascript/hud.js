@@ -109,3 +109,67 @@ function add_hud(Q){
 	});
 
 }
+
+function add_hud_Boss(Q){
+
+    Q.scene("HUDBOSS",function(stage) {
+
+		var container = stage.insert(new Q.UI.Container({
+	        x: 20, y: 15, fill: "rgba(0,0,0,1)", scale:0.5
+	    }));
+		
+		    
+		    Q.animations('anim_vidas_boss',{
+		    		normal:{frames: [0], rate: 1, loop: true},
+			    	normal3:{frames: [0], rate: 1, loop: true},
+			        normal2:{frames: [1], rate: 1, loop: true},
+			        normal1:{frames: [2], rate: 1, loop: true},
+			        normal0:{frames: [3], rate: 1, loop: true}
+	    	});
+
+	    Q.Sprite.extend('VidasBoss',{
+	        init: function(p){
+	            this._super(p,{
+	                sprite: 'anim_vidas_boss',
+	                sheet: 'vidasBoss',
+	                x: Q.width-50,
+	                y: 12,
+	                vidas:3,
+	                vidasC:4,
+	                gravity: 0,
+	                sensor: true,
+	                points: [[1,1],[1,-1],[-1,1],[-1,-1]]
+	            });
+	            
+	            this.add("animation");
+
+	        },
+
+	        step: function(dt) {
+	            this.p.vidas = Q.state.get("lifesBoss");
+
+
+	            if(this.p.vidas!=this.p.vidasC){
+	            	this.p.vidasC = this.p.vidas; //Para no hacer todo el rato el .play, solo cuando cambian las vidas.
+	            	
+		            if(this.p.vidas >= 0){
+		            	this.play("normal"+this.p.vidas)
+		            } else {
+		            	var a = 0;
+		            }
+	            }
+
+
+	        },
+
+	        resetLifes: function(){
+	        	Q.state.set("lifesBoss", 3);
+	        	this.p.vidas  = 3;
+	        	this.p.vidasC = 4;
+	        }
+	    });
+	    stage.insert(new Q.VidasBoss());
+        //container.insert(new Q.Vidas());
+	});
+
+}

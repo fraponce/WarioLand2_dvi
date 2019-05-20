@@ -12,6 +12,7 @@ function add_boss(Q){
                 bola: false,
                 hamuerto:false,
                 vaAmorir:false,
+                tengoHud:false,
                 sellamoADie:false
             });
             this.add('2d, aiBounce, animation, defaultEnemy');
@@ -44,8 +45,10 @@ function add_boss(Q){
                         collision.obj.play("winW");
                         this.play("die");
                         this.p.vidas--;
+                        Q.state.set("lifesBoss", this.p.vidas);
                     }else if(this.p.vidas>1){
                         this.p.vidas--;
+                        Q.state.set("lifesBoss", this.p.vidas);
                         Q.audio.play('WL3_EnemyHit.mp3',{loop: false})
                         this.play("ballhitR");
                     }
@@ -68,8 +71,10 @@ function add_boss(Q){
                         collision.obj.play("winW");
                         this.play("die");
                         this.p.vidas--;
+                        Q.state.set("lifesBoss", this.p.vidas);
                     }else if(this.p.vidas>1){
                         this.p.vidas--;
+                        Q.state.set("lifesBoss", this.p.vidas);
                         Q.audio.play('WL3_EnemyHit.mp3',{loop: false});
                         
                         this.play("ballhitL");
@@ -96,9 +101,25 @@ function add_boss(Q){
 
         step: function(dt) 
         {
+
             var posWario = Q.state.get("warioX");
 
             var dondeVoy = posWario-this.p.x;
+
+
+            var distancia = dondeVoy;
+
+            if (distancia<0){ distancia = -distancia;}
+
+            //Para activar o desactivar el hud del boss según esté wario cerca de él.
+            if(this.p.tengoHud && distancia > 170){
+                this.p.tengoHud = false;
+                Q.stageScene(null, 2);
+            }else if(!this.p.tengoHud && distancia < 170){
+                this.p.tengoHud = true;
+                Q.stageScene("HUDBOSS", 2);
+            }
+
             //Si es menor que -25, estoy a su derecha, si es mayor que 25, estoy a su izquierda. (PONGO ESE RANGO PA Q NO SE RAYE CUANDO WARIO ESTE SOBRE EL)
 
             if(dondeVoy>80 && !this.p.bola && !this.p.vaAmorir){

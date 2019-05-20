@@ -40,7 +40,7 @@ function add_bloque(Q){
                 var yDesp = 0;
 
                 if(col.obj.culetazo) {
-                    yDesp = 28;
+                    yDesp = 10;
                 }
 
                 if(col.obj.placando) {
@@ -54,7 +54,7 @@ function add_bloque(Q){
                     yDesp = -28;
                 }
                 var probCrear = Math.floor(Math.random() * 100);
-                if(probCrear < 25) this.stage.insert(new Q.goldCoin({x: this.p.x+xDesp, y: this.p.y+yDesp}));
+                if(probCrear < 25) this.stage.insert(new Q.goldCoin({x: this.p.x+xDesp-20, y: this.p.y+yDesp}));
 
                 var probCrear = Math.floor(Math.random() * 100);
                 if(probCrear < 75) this.stage.insert(new Q.silverCoin({x: this.p.x+xDesp, y: this.p.y+yDesp}));

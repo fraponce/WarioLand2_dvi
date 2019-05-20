@@ -34,6 +34,8 @@ window.addEventListener('load',function()
 	add_door(Q);
 	add_bloque(Q);
 	add_hud(Q);
+	add_hud_Boss(Q);	
+
 	add_MenuWario(Q);
 	add_ControlesWario(Q);
 	add_pantallaWin(Q);
@@ -67,7 +69,8 @@ window.addEventListener('load',function()
 		' pantallawinlose/pressentertocontinue.png,'+
 		' pantallawinlose/score.png, pantallawinlose/youlose.png,'+
 		' pantallawinlose/youwin.png, obj_life.png, lifes.json,' +
-		' intro.jpg, intro.json',
+		' intro.jpg, intro.json,' +
+		' vidas_boss.png, vidasBoss.json',
 		 function()
 	{		
 		Q.compileSheets('wario.png', 'wario.json');
@@ -83,6 +86,7 @@ window.addEventListener('load',function()
 		Q.compileSheets('miniGoldCoin.png', 	'monedaGold.json');
 		Q.compileSheets('miniSilverCoin.png', 	'monedaSilver.json');
 		Q.compileSheets('intro.jpg', 'intro.json');
+		Q.compileSheets('vidas_boss.png','vidasBoss.json');
 		//Q.compileSheets('goomba.png', 'goomba.json');
 		Q.stageScene('pantallaIntro');
 		//Q.stageScene('level3');
