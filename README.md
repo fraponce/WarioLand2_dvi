@@ -55,7 +55,7 @@ Las mecánicas que tiene Wario son las siguientes:
 * Atravesar puertas - capacidad de pasar por puertas para pasar a otro escenario. Pulsando la tecla de saltar una vez estás en la puerta.
 
 ~~~
-Se ha intentado dar especial interés a la jugabilidad, cuidando con detalle los puntos de colisión así como la fluided de movimiento y control sobre wario respecto a las interacciones que tiene con el resto de componentes del juego.
+Se ha intentado dar especial interés a la jugabilidad, cuidando con detalle los puntos de colisión así como la fluided de movimiento y control sobre Wario respecto a las interacciones que tiene con el resto de componentes del juego.
 ~~~
 
 ### :six: Escenarios
@@ -76,9 +76,9 @@ En el escenario podemos encontrar una multitud de objetos diferentes, entre ello
 
 * _Cámara del juego_: la cámara del juego dispone de una configuración personalizada a la hora de seguir al personaje principal. De esta manera, la cámara deja libertad de movimiento en el eje ''y'' para los saltos de Wario, pero recupera su posición cuando este toca el suelo. Además, si la cámara detecta que en una de sus caidas Wario se va a salir del límite de lo que esta muestra de la escena, automáticamente Wario pierde la libertad en el eje ''y'' y esta le centra en pantalla.
 
-* _Bloques_: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad. Esta probabilidad será de 25% para las de oro y 75% para las de plata. Los bloques pueden ser destruidos por wario mediante cabezazo si éste los golpea desde abajo. Placando, si los golpea lateralmente, y mediante culetazo si los golpea desde arriba. En otros casos wario podrá moverse sobre los bloques y colisionar contra ellos como un solido.
+* _Bloques_: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad. Esta probabilidad será de 25% para las de oro y 75% para las de plata. Los bloques pueden ser destruidos por Wario mediante cabezazo si éste los golpea desde abajo, placando, si los golpea lateralmente, y mediante culetazo si los golpea desde arriba. En otros casos Wario podrá moverse sobre los bloques y colisionar contra ellos como un solido.
 
-  Para hacer fluido romper varios bloques pegados sin que funcione el sólido de la colisión, una vez pasan a su animación de destrucción, estos modifican su atributo sensor a true para que wario pueda atravesarlos mientras tienen la animación de destrucción.
+  Para hacer fluido romper varios bloques pegados sin que funcione el sólido de la colisión, una vez pasan a su animación de destrucción, estos modifican su atributo sensor a true para que Wario pueda atravesarlos mientras tienen la animación de destrucción.
   
   ![Elemento bloque](https://raw.githubusercontent.com/fraponce/WarioLand2_dvi/master/images/block.png)
 
@@ -116,7 +116,7 @@ Los bloques y las monedas grandes mantienen su estado de destruidos en caso de q
 Hay dos HUDs diferentes en el juego.
 
   * El primer hud general, pertenece a Wario y en el se podrá ver la cantidad de vidas que tiene el protagonista y la cantidad de monedas que ha conseguido.
-  * El segundo es un hud que pertenece al jefe final para indicar el número de vidas restantes que le quedan, este solo se mostrará en el último escenario, siempre que wario esté a una distancia mínima del boss necesaria.
+  * El segundo es un hud que pertenece al jefe final para indicar el número de vidas restantes que le quedan, este solo se mostrará en el último escenario, siempre que Wario esté a una distancia mínima del boss necesaria.
 
 ### :nine: Enemigos
 
@@ -139,7 +139,7 @@ Al llegar al cuarto escenario, Wario se tendrá que enfrentar con el jefe final 
 
 Para mejorar el entorno del juego, se ha estilizado la página web para simular que corre sobre una de las consolas sobre las que el juego original usaba, la gameBoy. También se ha ajustado la imagen con JS, para que la gameBoy siempre esté lo más centrada posible al juego al redimensionar la página.
 
-Por otro lado, se ha añadido de fondo un background sobre el mundo de warioland 3, para mejorar la imagen general de la página a la hora de que los usuarios entren a jugar a ella.
+Por otro lado, se ha añadido de fondo un background sobre el mundo de Warioland 3, para mejorar la imagen general de la página a la hora de que los usuarios entren a jugar a ella.
 
 ---
 
