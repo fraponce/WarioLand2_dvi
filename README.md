@@ -131,6 +131,12 @@ Al llegar al cuarto escenario, Wario se tendrá que enfrentar con el jefe final 
 
 :boom: En ambas opciones, si el jugador presiona intro, volverá al menú inicial y podrá decidir si quiere iniciar una nueva partida. (En el caso de empezar una nueva partida, los valores de la cantidad de las monedas y la puntuación total se reiniciarán).
 
+### :one: :two: Extras
+
+Para mejorar el entorno del juego, se ha estilizado la página web para simular que corre sobre una de las consolas sobre las que el juego original se usaba, la gameBoy. También se ha ajustado la imagen con JS, para que la gameBoy siempre esté lo más centrada posible al juego al redimensionar la página.
+
+Por otro lado, se ha añadido de fondo un background sobre el mundo de warioland 3, para mejorar la imagen general de la página a la hora de que los usuarios entren a jugar a ella.
+
 ---
 
 ## Autores :sparkling_heart:
