@@ -86,9 +86,14 @@ Para que los enemigos no reboten contra el corazón cuando este está sobre el s
 
 * _Monedas pequeñas_: se dividen en monedas doradas y monedas plateadas. Son más pequeñas que las monedas grandes y aparecen bajo una probabilidad al destruir bloques. Las monedas plateadas valen 1 punto, y las doradas valen 2 puntos.
 
-* _Escaleras_: TODO
+* _Escaleras_: las escaleras se encuentrán en el fondo del juego dentro del tmx, sin embargo, para que Wario pueda interactuar con estas, se ha creado un objeto invisible que representan las escaleras y se superpone sobre los puntos donde estén estas en el fondo. De esta manera, Wario cambia su estado y pasa a poder subir y bajar siempre que detecte que está superpuesto sobre el objeto de las escaleras.
 
-* _Puertas_: TODO
+Si antes de subir sobre las escaleras pegas un culetazo, se prioriza el ataque. De esta forma se puede da el caso de poder ocultar escaleras sobre bloques y acceder a escenarios ocultos. De todas formas en este juego no se ha dado el caso de crear escenarios ocultos, por facilitar al usuario que vaya a usarlo comprobar todas las mecánicas sin necesidad de mirar con lupa tantos detalles.
+
+* _Puertas_: de manera similar que las escaleras, las puertas se encuentran en el fondo del juego, creadas en el tmx, pero se ha creado un objeto invisible que se superpone sobre estas, para así poder interactuar con ellas. Las puertas permiten a Wario cambiar entre escenarios, superponiendose sobre estas y pulsando la tecla de saltar.
+
+Para que Wario pueda acceder a una puerta se ha considerado que debe estar quieto sobre ella sin ningún estado especial. De esta manera si Wario necesita placar y saltar o agacharse, y pasa sobre una puerta, se dará prioridad última a la acción de acceder a la puerta, para que no interrumpan dinámicas más importantes como es la de romper bloques, matar enemigos, o esquivar sus golpes y ataques.
+
 ~~~
 Los bloques y las monedas grandes mantienen su estado de destruidos en caso de que wario los haya roto, para que, al cambiar de escenarios, si wario vuelve a un escenario previo, estos no reaparezcan.
 ~~~
@@ -96,6 +101,7 @@ Los bloques y las monedas grandes mantienen su estado de destruidos en caso de q
 ### :eight: HUD
 
 Hay dos HUDs diferentes en el juego, el primer hud general pertenece a Wario y en el se podrá ver la cantidad de vidas que tiene el protagonista y la cantidad de monedas que ha conseguido. El segundo es un hud que pertenece al jefe final para indicar el número de vidas restantes que le quedan.
+todo Alfonso +
 
 ### :nine: Enemigos
 
