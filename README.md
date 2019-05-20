@@ -178,17 +178,19 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + Diseño de la estética de la página
   
 :arrow_forward: Miguel Jiménez Rodríguez
-  + tema menu principal
-  + pantallas de win y lose
-  + gestión del estado de bloques y bigcoins
-  + tema algun objeto del juego (coin grande + puerta)
-  + tema escenarios
-  + tema animacion
-  + tema organización del readme
+  + Creación intro del juego
+  + Creación menú principal
+  + Creación pantalla controles
+  + Creación pantallas de win y lose
+  + Gestión del estado de bloques y bigcoins
+  + Tema algun objeto del juego (coin grande + puerta)
+  + Creación y actualización de los escenarios del juego y sus .js asociados
+  + Tema animación
+  + Organización del readme
   + Favicon de la página
 
 :arrow_forward: Francisco Ponce Belmonte
-  + tema sonido
-  + tema sensor invisible de enemigos
-  + tema boss
-  + tema enemigo 1 y 2
+  + Tema sonido
+  + Tema sensor invisible de enemigos
+  + Tema boss
+  + Tema enemigo 1 y 2
