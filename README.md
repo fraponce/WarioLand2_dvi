@@ -3,6 +3,9 @@
 Proyecto final de la asignatura Desarrollo de videojuegos mediante tecnologías web.
 ```
 
+![Wario](https://www.ssbwiki.com/images/thumb/1/15/Wario_SSB4.png/250px-Wario_SSB4.png)
+
+
 ## Comenzando :running:
 
 Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por primera vez como el archienemigo de Mario y jefe final del mismo juego en 1992, Wario ha sido protagonista de su propio catálogo de juegos. 
