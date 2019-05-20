@@ -11,11 +11,7 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 
 ## Enlace al juego en GitHub :bomb:
 
-```
-link:
-```
-<https://fraponce.github.io/WarioLand2_dvi>
-
+link: <https://fraponce.github.io/WarioLand2_dvi>
 
 ## Mecanicas implementadas :pencil:
 
@@ -80,11 +76,11 @@ En el escenario podemos encontrar una multitud de objetos diferentes, entre ello
 
 * _Bloques_: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad. Esta probabilidad será de 25% para las de oro y 75% para las de plata. Los bloques pueden ser destruidos por wario mediante cabezazo si éste los golpea desde abajo. Placando, si los golpea lateralmente, y mediante culetazo si los golpea desde arriba. En otros casos wario podrá moverse sobre los bloques y colisionar contra ellos como un solido.
 
-Para hacer fluido romper varios bloques pegados sin que funcione el sólido de la colisión, una vez pasan a su animación de destrucción, estos modifican su atributo sensor a true para que wario pueda atravesarlos mientras tienen la animación de destrucción.
+  Para hacer fluido romper varios bloques pegados sin que funcione el sólido de la colisión, una vez pasan a su animación de destrucción, estos modifican su atributo sensor a true para que wario pueda atravesarlos mientras tienen la animación de destrucción.
 
 * _Corazones_: de color rojo, aparecerán con una probabilidad del 5% al destruir enemigos y cada corazón recuperará un punto de vida de Wario.
 
-Para que los enemigos no reboten contra el corazón cuando este está sobre el suelo, se ha hecho que cuando un enemigo suelte un corazón, este pase a dejar de ser sólido en cuanto detecta colisión contra el suelo, y se le asigna una gravedad y y velocidad de 0, para así fijarlo en el punto donde se ha quedado.
+  Para que los enemigos no reboten contra el corazón cuando este está sobre el suelo, se ha hecho que cuando un enemigo suelte un corazón, este pase a dejar de ser sólido en cuanto detecta colisión contra el suelo, y se le asigna una gravedad y y velocidad de 0, para así fijarlo en el punto donde se ha quedado.
 
 * _Monedas grandes_: se encuentran repartidas por todos los escenarios sin necesidad de destruir bloques y valdrán 10 monedas de las normales.
 
@@ -92,11 +88,11 @@ Para que los enemigos no reboten contra el corazón cuando este está sobre el s
 
 * _Escaleras_: las escaleras se encuentrán en el fondo del juego dentro del tmx, sin embargo, para que Wario pueda interactuar con estas, se ha creado un objeto invisible que representan las escaleras y se superpone sobre los puntos donde estén estas en el fondo. De esta manera, Wario cambia su estado y pasa a poder subir y bajar siempre que detecte que está superpuesto sobre el objeto de las escaleras.
 
-Si antes de subir sobre las escaleras pegas un culetazo, se prioriza el ataque. De esta forma se puede da el caso de poder ocultar escaleras sobre bloques y acceder a escenarios ocultos. De todas formas en este juego no se ha dado el caso de crear escenarios ocultos, por facilitar al usuario que vaya a usarlo comprobar todas las mecánicas sin necesidad de mirar con lupa tantos detalles.
+  Si antes de subir sobre las escaleras pegas un culetazo, se prioriza el ataque. De esta forma se puede da el caso de poder      ocultar escaleras sobre bloques y acceder a escenarios ocultos. De todas formas en este juego no se ha dado el caso de crear escenarios ocultos, por facilitar al usuario que vaya a usarlo comprobar todas las mecánicas sin necesidad de mirar con lupa tantos detalles.
 
 * _Puertas_: de manera similar que las escaleras, las puertas se encuentran en el fondo del juego, creadas en el tmx, pero se ha creado un objeto invisible que se superpone sobre estas, para así poder interactuar con ellas. Las puertas permiten a Wario cambiar entre escenarios, superponiendose sobre estas y pulsando la tecla de saltar.
 
-Para que Wario pueda acceder a una puerta se ha considerado que debe estar quieto sobre ella sin ningún estado especial. De esta manera si Wario necesita placar y saltar o agacharse, y pasa sobre una puerta, se dará prioridad última a la acción de acceder a la puerta, para que no interrumpan dinámicas más importantes como es la de romper bloques, matar enemigos, o esquivar sus golpes y ataques.
+  Para que Wario pueda acceder a una puerta se ha considerado que debe estar quieto sobre ella sin ningún estado especial. De esta manera si Wario necesita placar y saltar o agacharse, y pasa sobre una puerta, se dará prioridad última a la acción de acceder a la puerta, para que no interrumpan dinámicas más importantes como es la de romper bloques, matar enemigos, o esquivar sus golpes y ataques.
 
 ~~~
 Los bloques y las monedas grandes mantienen su estado de destruidos en caso de que wario los haya roto, para que, al cambiar de escenarios, si wario vuelve a un escenario previo, estos no reaparezcan.
