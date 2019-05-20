@@ -10,7 +10,7 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 ## Enlace al juego en GitHub :bomb:
 
 ```
-link: https://fraponce.github.io/WarioLand2_dvi/
+link: [WARIO LAND 3](https://fraponce.github.io/WarioLand2_dvi)
 ```
 
 ## Mecanicas implementadas :pencil:
