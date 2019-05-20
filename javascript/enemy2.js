@@ -5,7 +5,7 @@ function add_enemy2(Q){
                 sprite: 'anim_enemy2',
                 sheet: 'enemy2',
                 vx: 0,
-                lado: 1,
+                lado: false,
                 tiempo: 0,
                 audioFire: false,
                 points: [[-6,-6],[6,-6],[6,6],[-6,6]],
@@ -55,25 +55,41 @@ function add_enemy2(Q){
 
             var distancia = dondeVoy;
 
-            if (distancia<0){ 
+            if (distancia>0){ 
                 distancia = -distancia;
-                lado = 0;
+                this.p.lado = false;
+            }else{
+                this.p.lado = true;
             }
 
             if(!this.p.vaAmorir){
 	            if(this.p.time < 1){
-	                this.play('chargeL'); //Izquierd
+                    if(!this.p.lado){
+                        this.play('chargeL');
+                    }else{
+                        this.play('chargeR');
+                    }
+	                //Izquierd
 	                this.p.time +=dt;
 	            }else if(this.p.time < 2){
-	            		this.play('shootL');
+                    if(!this.p.lado){
+                        this.play('shootL');
+                    }else{
+                        this.play('shootR');
+                    }
+	            		
 	            		this.p.time +=dt;
 	            }else{
 	            	this.p.time = 0;
                     if(distancia < 170 && distancia > -170){
                         Q.audio.play('WL3_Fire.mp3',{loop: false});
+                        if(!this.p.lado){
+                            this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y, iniX: this.p.x,}));
+                        }else{
+                            this.stage.insert(new Q.fireball({x: this.p.x - 7, y: this.p.y, iniX: this.p.x,}));
+                        }
                     }
-                    console.log("disparo");
-                    this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y, iniX: this.p.x}));
+                    
                 }
 	        }else{
                 this.play('die');           

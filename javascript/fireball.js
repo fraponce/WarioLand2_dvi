@@ -3,7 +3,7 @@ function add_fireball(Q){
 
 		init: function(p){
 
-			this._super(p, {
+			this._super(p,{
 				sensor: true,
 				sprite: 'anim_fireball',
 				sheet: 'fireball',
@@ -11,9 +11,10 @@ function add_fireball(Q){
 				points: [[-2,-1],[2,-1],[2,1],[-2,1]],
 				gravity:0,
 				time: 0,
+				posWario: Q.state.get("warioX"),
+				dondeVoy: 0,
 				explota: false,
-				vx: 60,
-				lado: 1
+				lado: 0
 			});
 
 			this.add('animation');
@@ -52,6 +53,20 @@ function add_fireball(Q){
 		},
 
 		step: function(dt){
+
+
+            this.p.dondeVoy = this.p.posWario-this.p.iniX;
+
+
+            var distancia = this.p.dondeVoy;
+
+            if (distancia>0){ 
+                distancia = -distancia;
+                this.p.lado = 1;
+            }else{
+                this.p.lado = 0;
+            }
+
 			this.p.sensor=true;
 			if(this.p.lado==1){
 				this.p.vx = 60;
@@ -86,6 +101,6 @@ function add_fireball(Q){
     	fireR:{frames:[0,1], rate: 1/2, flip: false, loop: true},
     	explosionR:{frames:[2,3,4], rate: 1/3, flip: false, loop: false, trigger: 'autodestruccion'},
     	fireL:{frames:[0,1], rate: 1/2, flip: "x", loop: true},
-    	explosionL:{frames:[2,3,4], rate: 1/8, flip: "x", loop: false, trigger: 'autodestruccion'}
+    	explosionL:{frames:[2,3,4], rate: 1/3, flip: "x", loop: false, trigger: 'autodestruccion'}
     });
 }
