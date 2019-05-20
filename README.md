@@ -150,6 +150,20 @@ Por otro lado, se ha añadido de fondo un background sobre el mundo de Warioland
 
 ---
 
+## Diseño de la implementación: Arquitectura y principales componentes :file_folder:
+
+Para poder satisfacer la división de tareas del juego, se ha creado un .js por lo general, que representa cada elemento interno del juego. Estos JS se incorporan en game.js, a través de una función add_NombreElemento(Q); que contiene el propio elemento y lo añade al motor de juego. En algunos casos, se han usado archivos .js para tener elementos similares, como es el caso de las monedas pequeñas, o de los huds. Esto quiere decir que dentro del mismo .js se encuentran los dos tipos de monedas, o los dos tipos de huds.
+
+Por otro lado se han separado también en archivos independientes cada escenario, por el mismo motivo de tener todo separado para poder trabajar mejor bajo github y poder dividir cómodamente el trabajo en paralelo por parte de los miembros del grupo.
+
+Para mejorar la organización, se ha separado el código ejecutable, con los recursos de imágenes y audio, así como los .json asociados a cada imagen, en diferentes directorios. De esta manera se tienen los siguientes directorios:
++ _audio_: contiene los archivos de audio.
++ _data_: contiene archivos json asociados a cada imagen. Cada sprite diferente tiene un ".json" diferente asociado.
++ _images_: contiene las imágenes asociados a cada sprite. Cada sprite diferente tiene una imagen diferente asociada.
++ _javascript_: contiene la lógica del juego. Tanto desde la clase game.js como los escenarios, menús y sprites.
++ _lib_: contiene las librerías del motor de juego Quintus.
+
+
 ## Autores y división de trabajo :sparkling_heart:
 
 :arrow_forward: Alfonso Soria Muñoz
