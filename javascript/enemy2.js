@@ -48,6 +48,18 @@ function add_enemy2(Q){
         },
         step: function(dt) 
         {	
+            var posWario = Q.state.get("warioX");
+
+            var dondeVoy = posWario-this.p.x;
+
+
+            var distancia = dondeVoy;
+
+            if (distancia<0){ 
+                distancia = -distancia;
+                lado = 0;
+            }
+
             if(!this.p.vaAmorir){
 	            if(this.p.time < 1){
 	                this.play('chargeL'); //Izquierd
@@ -55,13 +67,14 @@ function add_enemy2(Q){
 	            }else if(this.p.time < 2){
 	            		this.play('shootL');
 	            		this.p.time +=dt;
-	            	}else{
-	            		this.p.time = 0;
+	            }else{
+	            	this.p.time = 0;
+                    if(distancia < 170 && distancia > -170){
                         Q.audio.play('WL3_Fire.mp3',{loop: false});
-                        console.log("disparo");
-                        this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y}));
-
-	            	}
+                    }
+                    console.log("disparo");
+                    this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y}));
+                }
 	        }else{
                 this.play('die');           
             }

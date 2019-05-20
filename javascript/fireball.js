@@ -4,7 +4,7 @@ function add_fireball(Q){
 		init: function(p){
 
 			this._super(p, {
-				sensor: 'true',
+				sensor: true,
 				sprite: 'anim_fireball',
 				sheet: 'fireball',
 				disparado: false,

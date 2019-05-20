@@ -264,6 +264,10 @@ Q.Sprite.extend("Wario", {
                 
                 //  || (this.p.agachado==true && !colision || colision.normalY!=0)
                 if ((Q.inputs["down"] && !this.p.vy!=0) || (this.p.agachado && this.stage.collide(this).normalY==1) && !this.p.dolor){ //Está agachado
+                    Q.audio.stop('WL3_Dash_Normal.mp3');
+                    this.p.audioCharge = false;
+                    Q.audio.stop('WL3_Steps.mp3');
+                    this.p.audioWalk = false;
                     this.p.agachado = true;
                     if(this.p.vx !=0){
                         if(!this.p.audioCrouch){
@@ -302,7 +306,12 @@ Q.Sprite.extend("Wario", {
                     
                 //if(this.p.salto==false && this.p.agachado == false && !this.p.entrando){
                     if(Q.inputs["fire"]){
-                        if(!this.p.audioCharge){
+                        Q.audio.stop('WL3_Steps');
+                        if(this.p.vy != 0){
+                            Q.audio.stop('WL3_Dash_Normal.mp3');
+                            this.p.audioCharge = false;
+                        }
+                        if(!this.p.audioCharge && this.p.vy == 0){
                             Q.audio.play('WL3_Dash_Normal.mp3',{loop: true});
                             this.p.audioCharge = true;
                         }
@@ -316,10 +325,14 @@ Q.Sprite.extend("Wario", {
                         }
                     }else {
                         Q.audio.stop('WL3_Dash_Normal.mp3');
+                        if(this.p.vy != 0){
+                            Q.audio.stop('WL3_Steps.mp3');
+                            this.p.audioWalk = false;
+                        }
                         this.p.audioCharge = false;
-                        this.p.placando = false;                    
+                        this.p.placando = false;                  
                         if(this.p.vx > 0) {
-                            if(!this.p.audioWalk){
+                            if(!this.p.audioWalk && this.p.vy == 0){
                                 Q.audio.play('WL3_Steps.mp3',{loop: true});
                                 this.p.audioWalk = true;
                             }
@@ -333,7 +346,7 @@ Q.Sprite.extend("Wario", {
                             }
                         }else if(this.p.vx < 0) {
                             if(!this.p.entrando){
-                                if(!this.p.audioWalk){
+                                if(!this.p.audioWalk && this.p.vy == 0){
                                     Q.audio.play('WL3_Steps.mp3',{loop: true});
                                     this.p.audioWalk = true;
                                 }
