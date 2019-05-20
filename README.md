@@ -13,15 +13,6 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 link: https://fraponce.github.io/WarioLand2_dvi/
 ```
 
-## Authors :sparkling_heart:
-
-:arrow_forward: Alfonso Soria Muñoz
-
-:arrow_forward: Miguel Jiménez Rodríguez
-
-:arrow_forward: Francisco Ponce Belmonte
-
-
 ## Mecanicas implementadas :pencil:
 
 En esta sección explicaremos las mecánicas implementadas siguiendo un orden lógico desde que se ejecuta el juego.
@@ -50,10 +41,40 @@ Una escena donde se muestra de una forma clara todos los botones de acción que 
 Se empieza una partida nueva, reseteando todos los valores anteriores para el caso de que se volviera de una partida previa.
 
 # :five: Wario
+
+Wario es el personaje principal de esta aventura. Tiene muchas mecánicas implementadas, el objetivo principal de Wario es recoger todas las monedas posibles que encuentre por los distintos escenarios y sobrevivir a los enemigos con los que se enfrente, para que al final, tenga que superar un desafío contra el jefe del escenario.
+
+Las mecánicas que tiene Wario son las siguientes:
+
+* Movimiento derecha / izquierda.
+* Salto / Cabezazo para el caso de encontrarse con un bloque arriba, lo destruiría.
+* Agacharse para poder atravesar túneles de poca altura.
+* Culetazo, mientras se salta, si se pulsa hacia abajo, Wario hace un culetazo hacía abajo capaz de matar enemigos o destruir bloques.
+* Subir escaleras - capacidad de subir escaleras para alcanzar partes altas.
+* Atravesar puertas - capacidad de pasar por puertas para pasar a otro escenario.
+
 # :six: Escenarios
+
+El juego se divide en 4 escenarios distintos.
+
+* El primer escenario es un mapa largo donde hay dos puertas ( puerta A y B ), con zonas altas para que Wario las atraviese saltando y zonas bajas, todo mezclado con enemigos y bloques. La puerta A conecta con el escenario 2 y la puerta B conecta con el escenario 3.
+
+* El segundo escenario es una zona pequeña especialmente diseñada para que Wario recoja monedas, un guiño a los mapas y zonas ocultas del juego original donde se escondían gran cantidad de monedas.
+
+* El tercer escenario es otro mapa largo donde la única manera de llegar al otro lado es mediante saltos por plataformas, si el personaje llega al final podrá encontrar otra puerta que conecta al escenario cuarto, pero si se cae, tendrá que volver al principio y subir unas escaleras para volver a intentarlo.
+
+* El cuarto escenario pertenece al mapa del jefe, una vez dentro, el personaje no podrá regresar a los mapas anteriores y se tendrá que enfrentar al jefe final para obtener una victoria, en caso contrario obtendrá una derrota. La derrota podrá ser obtenida si Wario muere por los anteriores mapas a manos de los enemigos.
+
 # :seven: Objetos del escenario
 # :eight: HUD
 # :nine: Enemigos
 # :one: :zero: Jefe
 # :one: :one: Pantalla victoria & derrota
 
+## Autores :sparkling_heart:
+
+:arrow_forward: Alfonso Soria Muñoz
+
+:arrow_forward: Miguel Jiménez Rodríguez
+
+:arrow_forward: Francisco Ponce Belmonte
