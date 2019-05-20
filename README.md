@@ -111,8 +111,10 @@ Los bloques y las monedas grandes mantienen su estado de destruidos en caso de q
 
 ### :eight: HUD
 
-Hay dos HUDs diferentes en el juego, el primer hud general pertenece a Wario y en el se podrá ver la cantidad de vidas que tiene el protagonista y la cantidad de monedas que ha conseguido. El segundo es un hud que pertenece al jefe final para indicar el número de vidas restantes que le quedan.
-todo Alfonso +
+Hay dos HUDs diferentes en el juego.
+
+  * El primer hud general, pertenece a Wario y en el se podrá ver la cantidad de vidas que tiene el protagonista y la cantidad de monedas que ha conseguido.
+  * El segundo es un hud que pertenece al jefe final para indicar el número de vidas restantes que le quedan, este solo se mostrará en el último escenario, siempre que wario esté a una distancia mínima del boss necesaria.
 
 ### :nine: Enemigos
 
@@ -133,7 +135,7 @@ Al llegar al cuarto escenario, Wario se tendrá que enfrentar con el jefe final 
 
 ### :one: :two: Extras
 
-Para mejorar el entorno del juego, se ha estilizado la página web para simular que corre sobre una de las consolas sobre las que el juego original se usaba, la gameBoy. También se ha ajustado la imagen con JS, para que la gameBoy siempre esté lo más centrada posible al juego al redimensionar la página.
+Para mejorar el entorno del juego, se ha estilizado la página web para simular que corre sobre una de las consolas sobre las que el juego original usaba, la gameBoy. También se ha ajustado la imagen con JS, para que la gameBoy siempre esté lo más centrada posible al juego al redimensionar la página.
 
 Por otro lado, se ha añadido de fondo un background sobre el mundo de warioland 3, para mejorar la imagen general de la página a la hora de que los usuarios entren a jugar a ella.
 
