@@ -1,5 +1,7 @@
 # Wario Land 3 - Proyecto DVI
+```
 Proyecto final de la asignatura Desarrollo de videojuegos mediante tecnologías web.
+```
 
 ## Comenzando :running:
 
