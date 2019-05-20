@@ -133,7 +133,7 @@ Al llegar al cuarto escenario, Wario se tendrá que enfrentar con el jefe final 
 * Cuando Wario muera en alguno de los escenarios del juego, aparecerá el panel de la pantalla de derrota, donde se le mostrará al jugador la cantidad de puntos obtenidos hasta la muerte de Wario.
 * En el caso de que Wario llegue al escenario final y derrote al jefe, aparecerá el panel de la pantalla de victoria, donde se le mostrará al jugador la cantidad de puntos obtenidos hasta la muerte de Wario.
 
-:boom: En ambas opciones, si el jugador presiona intro, volverá al menú inicial y podrá decidir si quiere iniciar una nueva partida. (En el caso de empezar una nueva partida, los valores de la cantidad de las monedas y la puntuación total se reiniciarán).
+:boom: En ambas opciones, si el jugador presiona intro, volverá al menú inicial y podrá decidir si quiere iniciar una nueva partida. (En el caso de empezar una nueva partida, los valores de las vidas y la puntuación total se reiniciarán a sus estados originales, así como el estado de bloques y monedas que habían desaparecido de la partida por haberlos roto u obtenido).
 
 ### :one: :two: Extras
 
