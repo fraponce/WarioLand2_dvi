@@ -386,43 +386,45 @@ Q.Sprite.extend("Wario", {
         }, 
 
         die: function() {
-            //Si nos quedan vidas perdemos una, si no perdemos definitivamente.
-            var lifes = Q.state.get("lifes");
-            if(lifes == 1 && !this.p.muerto) {
-                this.p.muerto = true;
-                Q.state.set("lifes",lifes-1);
-                this.p.vx=0;
-                this.p.jumpSpeed=0;
-                this.p.vy=0;
-                if(this.p.muerto){
-                    Q.audio.play('WL3_IntoThePipe.mp3',{loop: false});
+            if(!this.p.entrando){
+                //Si nos quedan vidas perdemos una, si no perdemos definitivamente.
+                var lifes = Q.state.get("lifes");
+                if(lifes == 1 && !this.p.muerto) {
+                    this.p.muerto = true;
+                    Q.state.set("lifes",lifes-1);
+                    this.p.vx=0;
+                    this.p.jumpSpeed=0;
+                    this.p.vy=0;
+                    if(this.p.muerto){
+                        Q.audio.play('WL3_IntoThePipe.mp3',{loop: false});
 
-                } 
-                this.p.points= [[-7,-5],[7,-5],[7,5],[-7,5]];
-                this.p.y = this.p.y-30;
-                this.play("dieW");
+                    } 
+                    this.p.points= [[-7,-5],[7,-5],[7,5],[-7,5]];
+                    this.p.y = this.p.y-30;
+                    this.play("dieW");
 
-            }
-            else if(lifes>0){
-                Q.state.set("lifes",lifes-1);
-                this.p.dolor=true;
-                this.play("oneLifeLess");
-                if(!this.p.muerto) Q.audio.play('WL3_WarioHit.mp3',{loop: false});
-                //play.dolor
-            }
-                /*
-                if (Q.state.get("lifes") === 1) {
-                    Q.state.dec("lifes", 1);
-                    this.del("platformerControls");
-                    //Q.audio.stop();
-                    //Q.audio.play("music_die.mp3"); 
-                    Q.stageScene("endGame", 1, {label: "You Died!"});
-                    this.destroy();
                 }
-                else {
-                    Q.state.dec("lifes", 1);
-                    Q.stageScene("level1");
-                }*/
+                else if(lifes>0){
+                    Q.state.set("lifes",lifes-1);
+                    this.p.dolor=true;
+                    this.play("oneLifeLess");
+                    if(!this.p.muerto) Q.audio.play('WL3_WarioHit.mp3',{loop: false});
+                    //play.dolor
+                }
+                    /*
+                    if (Q.state.get("lifes") === 1) {
+                        Q.state.dec("lifes", 1);
+                        this.del("platformerControls");
+                        //Q.audio.stop();
+                        //Q.audio.play("music_die.mp3"); 
+                        Q.stageScene("endGame", 1, {label: "You Died!"});
+                        this.destroy();
+                    }
+                    else {
+                        Q.state.dec("lifes", 1);
+                        Q.stageScene("level1");
+                    }*/
+            }
             
         },
         atravesar: function()

@@ -61,6 +61,7 @@ window.addEventListener('load',function()
 		' miniSilverCoin.png, monedaSilver.json, miniGoldCoin.png,'+
 		' monedaGold.json, block.png, bloque.json,'+
 		' pantalla_inicial/titulowario.png,'+
+		' fireball.png, fireball.json,'+
 		' pantalla_inicial/fondopantallaprincipal.png,'+
 		' pantalla_inicial/pantallacontroles.png, '+
 		' pantalla_inicial/controls.png, '+

@@ -73,7 +73,7 @@ function add_enemy2(Q){
                         Q.audio.play('WL3_Fire.mp3',{loop: false});
                     }
                     console.log("disparo");
-                    this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y}));
+                    this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y, iniX: this.p.x}));
                 }
 	        }else{
                 this.play('die');           
