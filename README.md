@@ -174,7 +174,9 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + Game tester + bugs solver
   + Compresión de recursos (Para obtener un juego ligero)
   + Gestión de algún sonido del juego
-
+  + Incorporación de fuentes externas para el score del hud principal
+  + Diseño de la estética de la página
+  
 :arrow_forward: Miguel Jiménez Rodríguez
   + tema menu principal
   + pantallas de win y lose
@@ -183,6 +185,7 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + tema escenarios
   + tema animacion
   + tema organización del readme
+  + Favicon de la página
 
 :arrow_forward: Francisco Ponce Belmonte
   + tema sonido
