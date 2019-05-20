@@ -77,6 +77,7 @@ En el escenario podemos encontrar una multitud de objetos diferentes, entre ello
 * _Bloques_: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad. Esta probabilidad será de 25% para las de oro y 75% para las de plata. Los bloques pueden ser destruidos por wario mediante cabezazo si éste los golpea desde abajo. Placando, si los golpea lateralmente, y mediante culetazo si los golpea desde arriba. En otros casos wario podrá moverse sobre los bloques y colisionar contra ellos como un solido.
 
   Para hacer fluido romper varios bloques pegados sin que funcione el sólido de la colisión, una vez pasan a su animación de destrucción, estos modifican su atributo sensor a true para que wario pueda atravesarlos mientras tienen la animación de destrucción.
+  ![Elemento bloque](https://raw.githubusercontent.com/fraponce/WarioLand2_dvi/master/images/block.png)
 
 * _Corazones_: de color rojo, aparecerán con una probabilidad del 5% al destruir enemigos y cada corazón recuperará un punto de vida de Wario.
 
