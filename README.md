@@ -14,7 +14,7 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 
 ### Objetivo :checkered_flag:
 
-El objetivo final del juego es intentar ganar la partida, llegando hasta el boss y derrotandolo, de manera que durante el camino tendrá que sortear diferentes enemigos y escenarios, a la vez que intentará hacerse con el máximo de monedas posibles.
+El objetivo final del juego es intentar ganar la partida, llegando hasta el boss y derrotándolo, de manera que durante el camino tendrá que sortear diferentes enemigos y escenarios, a la vez que intentará hacerse con el máximo de monedas posibles.
 
 ## Enlace al juego en GitHub :bomb:
 
