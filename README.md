@@ -74,6 +74,8 @@ El juego se divide en 4 escenarios distintos.
 
 En el escenario podemos encontrar una multitud de objetos diferentes, entre ellos están:
 
+* _Cámara del juego_: la cámara del juego dispone de una configuración personalizada a la hora de seguir al personaje principal. De esta manera, la cámara deja libertad de movimiento en el eje ''y'' para los saltos de Wario, pero recupera su posición cuando este toca el suelo. Además, si la cámara detecta que en una de sus caidas Wario se va a salir del límite de lo que esta muestra de la escena, automáticamente Wario pierde la libertad en el eje ''y'' y esta le centra en pantalla.
+
 * _Bloques_: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad. Esta probabilidad será de 25% para las de oro y 75% para las de plata. Los bloques pueden ser destruidos por wario mediante cabezazo si éste los golpea desde abajo. Placando, si los golpea lateralmente, y mediante culetazo si los golpea desde arriba. En otros casos wario podrá moverse sobre los bloques y colisionar contra ellos como un solido.
 
   Para hacer fluido romper varios bloques pegados sin que funcione el sólido de la colisión, una vez pasan a su animación de destrucción, estos modifican su atributo sensor a true para que wario pueda atravesarlos mientras tienen la animación de destrucción.
