@@ -74,13 +74,24 @@ El juego se divide en 4 escenarios distintos.
 
 En el escenario podemos encontrar una multitud de objetos diferentes, entre ellos están:
 
-* Bloques: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad.
+* _Bloques_: de color rosa, Wario podrá destruirlos y al destruirse podrán soltar monedas de oro y/o plata con una determinada probabilidad. Esta probabilidad será de 25% para las de oro y 75% para las de plata. Los bloques pueden ser destruidos por wario mediante cabezazo si éste los golpea desde abajo. Placando, si los golpea lateralmente, y mediante culetazo si los golpea desde arriba. En otros casos wario podrá moverse sobre los bloques y colisionar contra ellos como un solido.
 
-* Corazones: de color rojo, aparecerán con una probabilidad al destruir enemigos y cada corazón recuperará otro corazón de vida de Wario.
+Para hacer fluido romper varios bloques pegados sin que funcione el sólido de la colisión, una vez pasan a su animación de destrucción, estos modifican su atributo sensor a true para que wario pueda atravesarlos mientras tienen la animación de destrucción.
 
-* Monedas grandes: se encuentran repartida por todos los escenarios sin necesidad de destruir bloques y valdrán 10 monedas de las normales.
+* _Corazones_: de color rojo, aparecerán con una probabilidad del 5% al destruir enemigos y cada corazón recuperará un punto de vida de Wario.
 
-* Monedas pequeñas: se dividen en monedas doradas y monedas plateadas. Son más pequeñas que las monedas grandes y aparecen bajo una probabilidad al destruir bloques.
+Para que los enemigos no reboten contra el corazón cuando este está sobre el suelo, se ha hecho que cuando un enemigo suelte un corazón, este pase a dejar de ser sólido en cuanto detecta colisión contra el suelo, y se le asigna una gravedad y y velocidad de 0, para así fijarlo en el punto donde se ha quedado.
+
+* _Monedas grandes_: se encuentran repartidas por todos los escenarios sin necesidad de destruir bloques y valdrán 10 monedas de las normales.
+
+* _Monedas pequeñas_: se dividen en monedas doradas y monedas plateadas. Son más pequeñas que las monedas grandes y aparecen bajo una probabilidad al destruir bloques. Las monedas plateadas valen 1 punto, y las doradas valen 2 puntos.
+
+* _Escaleras_: TODO
+
+* _Puertas_: TODO
+~~~
+Los bloques y las monedas grandes mantienen su estado de destruidos en caso de que wario los haya roto, para que, al cambiar de escenarios, si wario vuelve a un escenario previo, estos no reaparezcan.
+~~~
 
 ### :eight: HUD
 
@@ -89,6 +100,8 @@ Hay dos HUDs diferentes en el juego, el primer hud general pertenece a Wario y e
 ### :nine: Enemigos
 
 Hay dos tipos de enemigos presentes en los mapas, el primero es un enemigo que porta una lanza y Wario tendrá que atacarlo por arriba o por la espalda para poder destruirlo y el segundo enemigo lanzará bolas de fuego en la dirección que se encuentre Wario.
+
+Para los enemigos se ha implementado un objeto invisible y no sólido que se coloca en ciertas esquinas, para que estos puedan rebotar contra esos objetos y que no se caigan cuando se encuentran en plataformas con caída en sus bordes.
 
 ### :one: :zero: Jefe
 
@@ -100,6 +113,8 @@ Al llegar al cuarto escenario, Wario se tendrá que enfrentar con el jefe final 
 * En el caso de que Wario llegue al escenario final y derrote al jefe, aparecerá el panel de la pantalla de victoria, donde se le mostrará al jugador la cantidad de puntos obtenidos hasta la muerte de Wario.
 
 :boom: En ambas opciones, si el jugador presiona intro, volverá al menú inicial y podrá decidir si quiere iniciar una nueva partida. (En el caso de empezar una nueva partida, los valores de la cantidad de las monedas y la puntuación total se reiniciarán).
+
+---
 
 ## Autores :sparkling_heart:
 
