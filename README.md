@@ -83,10 +83,19 @@ En el escenario podemos encontrar una multitud de objetos diferentes, entre ello
 * _Corazones_: de color rojo, aparecerán con una probabilidad del 5% al destruir enemigos y cada corazón recuperará un punto de vida de Wario.
 
   Para que los enemigos no reboten contra el corazón cuando este está sobre el suelo, se ha hecho que cuando un enemigo suelte un corazón, este pase a dejar de ser sólido en cuanto detecta colisión contra el suelo, y se le asigna una gravedad y y velocidad de 0, para así fijarlo en el punto donde se ha quedado.
+  
+  ![Elemento vida](https://raw.githubusercontent.com/fraponce/WarioLand2_dvi/master/images/obj_life.png)
+  
 
 * _Monedas grandes_: se encuentran repartidas por todos los escenarios sin necesidad de destruir bloques y valdrán 10 monedas de las normales.
 
+  ![Moneda grande](https://raw.githubusercontent.com/fraponce/WarioLand2_dvi/master/images/bigcoin.png)
+
 * _Monedas pequeñas_: se dividen en monedas doradas y monedas plateadas. Son más pequeñas que las monedas grandes y aparecen bajo una probabilidad al destruir bloques. Las monedas plateadas valen 1 punto, y las doradas valen 2 puntos.
+  
+  ![Moneda dorada](https://raw.githubusercontent.com/fraponce/WarioLand2_dvi/master/images/miniGoldCoin.png)
+
+  ![Moneda plateada](https://raw.githubusercontent.com/fraponce/WarioLand2_dvi/master/images/miniSilverCoin.png)
 
 * _Escaleras_: las escaleras se encuentrán en el fondo del juego dentro del tmx, sin embargo, para que Wario pueda interactuar con estas, se ha creado un objeto invisible que representan las escaleras y se superpone sobre los puntos donde estén estas en el fondo. De esta manera, Wario cambia su estado y pasa a poder subir y bajar siempre que detecte que está superpuesto sobre el objeto de las escaleras.
 
