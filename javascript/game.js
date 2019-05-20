@@ -20,7 +20,7 @@ window.addEventListener('load',function()
 		"WL3_Climb.mp3","WL3_Fire.mp3","WL3_WarioHit.mp3","WL3_Collect.mp3","WL3_Break.mp3",
 		"WL3_EnemyDestroyed.mp3","51 Title.mp3","39 Boss Fight.mp3","48 Game Over.mp3",
 		"54 Perfect!.mp3","WL3_EnemyHit.mp3","WL3_Jump.mp3", "WL3_PauseSound2.mp3", "WL3_PauseSound.mp3", "WL3_IntoThePipe.mp3",
-		"WL3_CrouchWalk.mp3","WL3_Dash_Normal.mp3","WL3_Stomp.mp3"], function(){});
+		"WL3_CrouchWalk.mp3","WL3_Dash_Normal.mp3","WL3_Stomp.mp3","WL3_Throw.mp3"], function(){});
 	add_Level1(Q);
 	add_Level2(Q);
 	add_Level3(Q);
