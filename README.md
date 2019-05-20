@@ -12,6 +12,10 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 
 :heavy_exclamation_mark: Nosotros hemos creado una versión del juego Wario Land 3 lanzado para la game boy color en el año 2000. Aunque hemos querido mantener algunas cosas fieles al juego original, el menú y el mapa inicial no corresponden a los originales.
 
+### Objetivo :checkered_flag:
+
+El objetivo final del juego es intentar ganar la partida, llegando hasta el boss y derrotandolo, de manera que durante el camino tendrá que sortear diferentes enemigos y escenarios, a la vez que intentará hacerse con el máximo de monedas posibles.
+
 ## Enlace al juego en GitHub :bomb:
 
 link: <https://fraponce.github.io/WarioLand2_dvi>
@@ -146,10 +150,28 @@ Por otro lado, se ha añadido de fondo un background sobre el mundo de Warioland
 
 ---
 
-## Autores :sparkling_heart:
+## Autores y división de trabajo :sparkling_heart:
 
 :arrow_forward: Alfonso Soria Muñoz
+  + Creación de Wario y dinámicas asociadas
+  + Gestión de la mayoría de png's (Excluyendo escenarios y menús)
+  + Objetos del juego (Escaleras,monedas,vidas,bloques...)
+  + Huds del juego (Wario + Boss)
+  + Game tester + bugs solver
+  + Compresión de recursos (Para obtener un juego ligero)
+  + Gestión de algún sonido del juego
 
 :arrow_forward: Miguel Jiménez Rodríguez
+  + tema menu principal
+  + pantallas de win y lose
+  + gestión del estado de bloques y bigcoins
+  + tema algun objeto del juego (coin grande + puerta)
+  + tema escenarios
+  + tema animacion
+  + tema organización del readme
 
 :arrow_forward: Francisco Ponce Belmonte
+  + tema sonido
+  + tema sensor invisible de enemigos
+  + tema boss
+  + tema enemigo 1 y 2
