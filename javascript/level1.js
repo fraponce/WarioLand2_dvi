@@ -45,9 +45,11 @@ function add_Level1(Q){
 		//======================
 
 		//Enemigos
-		var enemy001 = stage.insert(new Q.enemy2({x: 650,y: 576, lado:0}));
+		var enemy001 = stage.insert(new Q.enemy2({x: 650,y: 576}));
 		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:512}));
 		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:604}));
+		var enemy004 = stage.insert(new Q.enemy2({x: 830,y: 368}));
+		var enemy005 = stage.insert(new Q.enemy2({x: 1212,y: 368}));
 
 
 		//Sensor de enemigos

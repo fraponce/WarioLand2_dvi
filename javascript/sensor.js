@@ -22,7 +22,7 @@ function add_sensor(Q) {
 
 			this.vx = col.separate[0]=0;
 			this.vy = col.separate[1]=0;
-			if(col.obj.isA("enemy1")){
+			if(col.obj.isA("enemy1") && !col.obj.p.vaAmorir){
 				col.obj.p.vx = -col.obj.p.vx;
 				col.obj.trigger("step",col);
 			}else{

@@ -39,7 +39,28 @@ function add_Level2(Q){
 		  var bloquei = stage.insert(new Q.Bloque({x: 250+i*32, y: 500, id: 'bloquelvl2b' + i}));
 		};
 
-		var enemy001 =  stage.insert(new Q.enemy2({x: 1310,y: 316}));
+		//Enemigos
+		var enemy001 =  stage.insert(new Q.enemy2({x: 400,y: 332}));
+		var enemy002 =  stage.insert(new Q.enemy2({x: 470,y: 284}));
+		var enemy003 =  stage.insert(new Q.enemy2({x: 945,y: 268}));
+		var enemy004 =  stage.insert(new Q.enemy2({x: 1075,y: 220}));
+		var enemy005 =  stage.insert(new Q.enemy2({x: 1200,y: 252}));
+		var enemy006 =  stage.insert(new Q.enemy2({x: 320,y: 316}));
+		var enemy007 =  stage.insert(new Q.enemy1({x: 444,y: 576}));
+		var enemy008 =  stage.insert(new Q.enemy1({x: 568,y: 576}));
+		var enemy009 =  stage.insert(new Q.enemy1({x: 692,y: 576}));
+		var enemy010 =  stage.insert(new Q.enemy1({x: 816,y: 576}));
+		var enemy011 =  stage.insert(new Q.enemy1({x: 939,y: 576}));
+		var enemy012 =  stage.insert(new Q.enemy1({x: 1064,y: 576}));
+
+		//sensores.
+		var sensorenemy007 = stage.insert(new Q.Sensor({x:305, y: 576}));
+		var sensorenemy008 = stage.insert(new Q.Sensor({x:429, y: 576}));
+		var sensorenemy009 = stage.insert(new Q.Sensor({x:553, y: 576}));		
+		var sensorenemy010 = stage.insert(new Q.Sensor({x:677, y: 576}));
+		var sensorenemy011 = stage.insert(new Q.Sensor({x:801, y: 576}));
+		var sensorenemy012 = stage.insert(new Q.Sensor({x:925, y: 576}));
+		var sensorenemy012 = stage.insert(new Q.Sensor({x:1049, y: 576}));
 
 		//Puertas
 		//Puerta verde

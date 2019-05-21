@@ -84,9 +84,9 @@ function add_enemy2(Q){
                     if(distancia < 170 && distancia > -170){
                         Q.audio.play('WL3_Fire.mp3',{loop: false});
                         if(!this.p.lado){
-                            this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y, iniX: this.p.x,}));
+                            this.stage.insert(new Q.fireball({x: this.p.x + 7, y: this.p.y, iniX: this.p.x,},1));
                         }else{
-                            this.stage.insert(new Q.fireball({x: this.p.x - 7, y: this.p.y, iniX: this.p.x,}));
+                            this.stage.insert(new Q.fireball({x: this.p.x - 7, y: this.p.y, iniX: this.p.x,},0));
                         }
                     }
                     

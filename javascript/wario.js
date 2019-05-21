@@ -358,6 +358,7 @@ Q.Sprite.extend("Wario", {
                                 Q.audio.stop('WL3_Steps.mp3');
                                 this.p.audioWalk = false;
                                 this.p.vx=0;
+
                             }
                         } else {
                             if(!this.p.entrando && this.p.salto==false && !this.p.dolor){

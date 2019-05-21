@@ -1,9 +1,9 @@
 function add_fireball(Q){
 	Q.Sprite.extend('fireball',{
 
-		init: function(p){
+		init: function(p,l){
 
-			this._super(p,{
+			this._super(p, {
 				sensor: true,
 				sprite: 'anim_fireball',
 				sheet: 'fireball',
@@ -11,10 +11,8 @@ function add_fireball(Q){
 				points: [[-2,-1],[2,-1],[2,1],[-2,1]],
 				gravity:0,
 				time: 0,
-				posWario: Q.state.get("warioX"),
-				dondeVoy: 0,
 				explota: false,
-				lado: 0
+				lado: l
 			});
 
 			this.add('animation');
@@ -24,21 +22,9 @@ function add_fireball(Q){
 		    	if(!this.p.explota){
 		    		if(collision.obj.isA("Wario")){
 		    			if(!this.p.explota){
-		    				collision.obj.die();					
-		    			}
-		    			if(this.p.lado == 1){ //Derecha
+		    				collision.obj.die();
 		    				this.p.explota = true;
-		    				this.play("explosionR");
-		    			}else {
-		    				this.p.explota = true;
-		    				this.play("exposionL"); //Izquierda
-		    			}
-
-		    		} else {
-		    			if(this.p.lado==1){
-		    				//this.play("explosionL");
-		    			} else {
-		    				//this.play("explosionR");
+		    				this.play("explosion");					
 		    			}
 		    		}
 		    	}
@@ -49,24 +35,11 @@ function add_fireball(Q){
 		},
 
 		explota: function(){
+			this.p.explota = false;
 			this.destroy();
 		},
 
 		step: function(dt){
-
-
-            this.p.dondeVoy = this.p.posWario-this.p.iniX;
-
-
-            var distancia = this.p.dondeVoy;
-
-            if (distancia>0){ 
-                distancia = -distancia;
-                this.p.lado = 1;
-            }else{
-                this.p.lado = 0;
-            }
-
 			this.p.sensor=true;
 			if(this.p.lado==1){
 				this.p.vx = 60;
@@ -90,7 +63,7 @@ function add_fireball(Q){
 			if(distancia > 200 && !this.p.explota) {
 				this.p.vx = 0;
 				this.p.explota =true;
-				this.play("explosionL");
+				this.play("explosion");
 			}
 
 		}
@@ -99,8 +72,7 @@ function add_fireball(Q){
 
 	Q.animations('anim_fireball',{
     	fireR:{frames:[0,1], rate: 1/2, flip: false, loop: true},
-    	explosionR:{frames:[2,3,4], rate: 1/3, flip: false, loop: false, trigger: 'autodestruccion'},
+    	explosion:{frames:[2,3,4], rate: 1/3, flip: false, loop: false, trigger: 'autodestruccion'},
     	fireL:{frames:[0,1], rate: 1/2, flip: "x", loop: true},
-    	explosionL:{frames:[2,3,4], rate: 1/3, flip: "x", loop: false, trigger: 'autodestruccion'}
     });
 }

@@ -20,7 +20,15 @@ function add_Level4(Q){
 		var bigcoin009c = stage.insert(new Q.bigcoin({x: 570,y: 545, id:'9c'}));
 		var bigcoin010c = stage.insert(new Q.bigcoin({x: 618,y: 565, id:'10c'}));
 
-		var puerta001c = stage.insert(new Q.Puerta({x: 392, y: 624, escenario: 'level1'}));	
+		var puerta001c = stage.insert(new Q.Puerta({x: 392, y: 624, escenario: 'level1'}));
+
+		//Enemigos
+		var enemy001 = stage.insert(new Q.enemy1({x:244 , y:624}));
+		var enemy002 = stage.insert(new Q.enemy1({x:562 , y:624}));
+
+		//Sensor
+		var sensorenemy001 = stage.insert(new Q.Sensor({x:333, y: 624}));
+		var sensorenemy002 = stage.insert(new Q.Sensor({x:449, y: 624}));	
 
 		stage.add('viewport')
 			.follow(player, 
