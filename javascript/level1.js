@@ -44,14 +44,6 @@ function add_Level1(Q){
 		var escalera3e = stage.insert(new Q.Escalera({x: 1338, y: 416}));
 		//======================
 
-		//Enemigos
-		var enemy001 = stage.insert(new Q.enemy2({x: 650,y: 576}));
-		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:512}));
-		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:604}));
-		var enemy004 = stage.insert(new Q.enemy2({x: 830,y: 368}));
-		var enemy005 = stage.insert(new Q.enemy2({x: 1212,y: 368}));
-
-
 		//Sensor de enemigos
 		var sensorenemy002 = stage.insert(new Q.Sensor({x:462, y: 520}));
 
@@ -62,6 +54,14 @@ function add_Level1(Q){
 		var bigcoin004a = stage.insert(new Q.bigcoin({x: 672,y: 332, id:'4a'}));
 		var bigcoin005a = stage.insert(new Q.bigcoin({x: 830,y: 364, id:'5a'}));
 		var bigcoin006a = stage.insert(new Q.bigcoin({x: 1135,y: 396, id:'6a'}));
+
+		//Enemigos
+		var enemy001 = stage.insert(new Q.enemy2({x: 650,y: 576}));
+		var enemy002 = stage.insert(new Q.enemy1({x:400 , y:512}));
+		var enemy003 = stage.insert(new Q.enemy1({x:1110 , y:604}));
+		var enemy004 = stage.insert(new Q.enemy2({x: 830,y: 368}));
+		var enemy005 = stage.insert(new Q.enemy2({x: 1212,y: 368}));
+
 
 		//Puertas
 		//Puerta verde
