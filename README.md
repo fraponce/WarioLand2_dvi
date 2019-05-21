@@ -18,8 +18,8 @@ El objetivo final del juego es intentar ganar la partida, llegando hasta el boss
 
 ## Enlace al juego y al vídeo :bomb:
 
-link para jugar: <https://fraponce.github.io/WarioLand2_dvi>
-link al vídeo: <https://youtu.be/7DgB3CoOZsg>
+- link para jugar: <https://fraponce.github.io/WarioLand2_dvi>
+- link al vídeo: <https://youtu.be/7DgB3CoOZsg>
 
 ## Mecanicas implementadas :pencil:
 
