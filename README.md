@@ -16,9 +16,10 @@ Wario es un personaje ficticio del universo de Nintendo. Desde su aparición por
 
 El objetivo final del juego es intentar ganar la partida, llegando hasta el boss y derrotándolo, de manera que durante el camino tendrá que sortear diferentes enemigos y escenarios, a la vez que intentará hacerse con el máximo de monedas posibles.
 
-## Enlace al juego en GitHub :bomb:
+## Enlace al juego y al vídeo :bomb:
 
-link: <https://fraponce.github.io/WarioLand2_dvi>
+- link para jugar: <https://fraponce.github.io/WarioLand2_dvi>
+- link al vídeo: <https://youtu.be/7DgB3CoOZsg>
 
 ## Mecanicas implementadas :pencil:
 
@@ -170,6 +171,7 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + Creación de Wario y dinámicas asociadas
   + Gestión de la mayoría de png's (Excluyendo escenarios y menús)
   + Objetos del juego (Escaleras,monedas,vidas,bloques...)
+  + Fireball enemy2
   + Huds del juego (Wario + Boss)
   + Game tester + bugs solver
   + Compresión de recursos (Para obtener un juego ligero)
@@ -185,12 +187,13 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + Gestión del estado de bloques y bigcoins
   + Tema algun objeto del juego (coin grande + puerta)
   + Creación y actualización de los escenarios del juego y sus .js asociados
-  + Tema animación
+  + Animación de la introducción
   + Favicon de la página
   + Organización y desarrollo del readme
 
 :arrow_forward: Francisco Ponce Belmonte
-  + Tema sonido
-  + Tema sensor invisible de enemigos
-  + Tema boss
-  + Tema enemigo 1 y 2
+  + Incorporación del sonido del juego
+  + Sensor invisible para rebote de enemy1
+  + Boss del juego
+  + Enemigos del juego
+  + Colocación de mayor parte de elementos en escena
