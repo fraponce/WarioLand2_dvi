@@ -195,4 +195,5 @@ Para mejorar la organización, se ha separado el código ejecutable, con los rec
   + Incorporación del sonido del juego
   + Sensor invisible para rebote de enemy1
   + Boss del juego
-  + Enemigos del juego.
+  + Enemigos del juego
+  + Colocación de mayor parte de elementos en escena
